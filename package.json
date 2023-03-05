@@ -18,10 +18,13 @@
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
     "react-native": "0.70.5",
+    "styled-components": "^5.3.8",
     "typescript": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@types/styled-components": "^5.1.26",
+    "@types/styled-components-react-native": "^5.2.1",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
     "eslint": "^8.0.1",
