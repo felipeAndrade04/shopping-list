@@ -1,9 +1,12 @@
 import React from 'react';
 import { useFonts } from 'expo-font';
 import { ThemeProvider } from 'styled-components/native';
-import { Home } from './screens/Home';
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import * as theme from './theme';
+import { TabNavigator } from './navigation/tabNavigation';
+import { StatusBar } from 'react-native';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -17,8 +20,13 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <Home />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <ThemeProvider theme={theme}>
+          <StatusBar barStyle={'light-content'} />
+          <TabNavigator />
+        </ThemeProvider>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
