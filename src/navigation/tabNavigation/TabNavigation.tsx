@@ -4,9 +4,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 
-import { Home, Menu } from '../../screens';
-import { colors, fonts } from '../../theme';
-import { Fab } from '../../components';
+import { Home, Menu } from '@app/screens';
+import { colors, fonts } from '@app/theme';
+import { Fab } from '@app/components';
 
 export function TabNavigator() {
   const insets = useSafeAreaInsets();

@@ -4,8 +4,8 @@ import { ThemeProvider } from 'styled-components/native';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import * as theme from './theme';
-import { TabNavigator } from './navigation/tabNavigation';
+import * as theme from '@app/theme';
+import { TabNavigator } from '@app/navigation';
 import { StatusBar } from 'react-native';
 
 export default function App() {

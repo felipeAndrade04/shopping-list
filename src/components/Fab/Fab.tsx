@@ -2,7 +2,7 @@ import React from 'react';
 import { Feather } from '@expo/vector-icons';
 
 import * as S from './Fab.styles';
-import { colors } from '../../theme';
+import { colors } from '@app/theme';
 
 export function Fab() {
   return (
