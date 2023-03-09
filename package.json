@@ -11,6 +11,7 @@
     "format": "prettier --check ./src"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "~1.17.3",
     "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/native": "^6.1.6",
     "@types/react": "~18.0.24",
@@ -44,7 +45,8 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-native": "^4.0.0",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.4",
+    "reactotron-react-native": "^5.0.3"
   },
   "private": true
 }

@@ -1,12 +1,13 @@
 import React from 'react';
 import { useFonts } from 'expo-font';
+import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components/native';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import * as theme from '@app/theme';
+import '@app/config/ReactotronConfig';
 import { TabNavigator } from '@app/navigation';
-import { StatusBar } from 'react-native';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
