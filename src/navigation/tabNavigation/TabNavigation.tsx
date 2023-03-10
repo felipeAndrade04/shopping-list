@@ -45,6 +45,7 @@ export function TabNavigator() {
         component={Home}
         options={{
           tabBarLabel: 'Home',
+          headerTitle: 'Listas de Compras',
           tabBarIcon: ({ color, size }) => <Feather name="home" color={color} size={size} />,
         }}
       />

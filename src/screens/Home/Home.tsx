@@ -1,13 +1,14 @@
+import { Empty } from '@app/components';
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
 import * as S from './Home.styles';
 
 export function Home() {
   return (
     <S.Container>
-      <TouchableOpacity onPress={() => console.tron.log('teste')}>
-        <S.Text>Home</S.Text>
-      </TouchableOpacity>
+      <Empty
+        title="Olá Felipe,"
+        description="Vimos que no momento não possui nenhuma lista criada. Clique no botão abaixo para criar uma nova lista e organizar suas compras."
+      />
     </S.Container>
   );
 }
