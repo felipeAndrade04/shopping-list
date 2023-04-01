@@ -1,2 +1,2 @@
 export * from './Fab';
-export * from './Empty';
+export * from './Message';

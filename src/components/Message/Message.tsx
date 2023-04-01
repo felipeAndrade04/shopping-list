@@ -1,9 +1,9 @@
 import React from 'react';
-import * as S from './Empty.styles';
+import * as S from './Message.styles';
 import emptyAsset from '../../assets/images/empty.png';
-import { EmptyProps } from './';
+import { MessageProps } from '.';
 
-export function Empty({ description, title }: EmptyProps) {
+export function Message({ description, title }: MessageProps) {
   return (
     <S.Container>
       <S.Image source={emptyAsset} />

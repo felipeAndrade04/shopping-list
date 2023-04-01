@@ -1,4 +1,4 @@
-export interface EmptyProps {
+export interface MessageProps {
   title: string;
   description: string;
 }

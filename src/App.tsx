@@ -7,7 +7,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import * as theme from '@app/theme';
 import '@app/config/ReactotronConfig';
-import { TabNavigator } from '@app/navigation';
+import { MainStackNavigator } from '@app/navigation';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -25,7 +25,7 @@ export default function App() {
       <NavigationContainer>
         <ThemeProvider theme={theme}>
           <StatusBar barStyle={'light-content'} />
-          <TabNavigator />
+          <MainStackNavigator />
         </ThemeProvider>
       </NavigationContainer>
     </SafeAreaProvider>
