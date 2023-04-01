@@ -7,12 +7,13 @@ export const Container = styled(RectButton)<ButtonProps>`
   background-color: ${(props) => (props.variant === 'outline' ? colors.white : props.color)};
   border: ${(props) => (props.variant === 'outline' ? `2px solid ${props.color}` : 'none')};
   width: 100%;
-  height: 50px;
+  height: 56px;
   padding: 8px 12px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 6px;
+  margin: ${(props) => props.margin || 0};
 `;
 
 export const Text = styled.Text<Pick<ButtonProps, 'color' | 'variant'>>`

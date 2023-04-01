@@ -5,4 +5,5 @@ export interface ButtonProps extends RectButtonProperties {
   children: ReactNode | string;
   variant?: 'solid' | 'outline';
   color?: string;
+  margin?: string;
 }

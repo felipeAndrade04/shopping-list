@@ -3,9 +3,15 @@ import React from 'react';
 import * as S from './Button.styles';
 import { ButtonProps } from './Button.types';
 
-export function Button({ children, variant = 'solid', color = colors.main, onPress }: ButtonProps) {
+export function Button({
+  children,
+  variant = 'solid',
+  color = colors.main,
+  onPress,
+  ...rest
+}: ButtonProps) {
   return (
-    <S.Container color={color} variant={variant} onPress={onPress}>
+    <S.Container color={color} variant={variant} onPress={onPress} {...rest}>
       <S.Text color={color} variant={variant}>
         {children}
       </S.Text>
