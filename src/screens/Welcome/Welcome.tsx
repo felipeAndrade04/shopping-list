@@ -1,9 +1,16 @@
-import { Button, Message } from '@app/components';
+import { Button, Message, Spacer } from '@app/components';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import * as S from './Welcome.styles';
 
 export function Welcome() {
+  const navigation = useNavigation();
+
+  function onNavigation(name: string) {
+    navigation.navigate(name, {});
+  }
+
   return (
     <S.Container>
       <StatusBar barStyle={'dark-content'} />
@@ -12,10 +19,9 @@ export function Welcome() {
         description="Comece agora a organizar suas idas ao mercado com lista de compras personalizadas e compartilháveis!"
       />
       <S.Buttons>
-        <Button>Entrar</Button>
-        <Button variant="outline" margin="24px 0 0 0">
-          Criar uma conta
-        </Button>
+        <Button onPress={() => onNavigation('Login')}>Entrar</Button>
+        <Spacer dimesion={16} />
+        <Button variant="outline">Criar uma conta</Button>
       </S.Buttons>
     </S.Container>
   );
