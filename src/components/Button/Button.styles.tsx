@@ -13,7 +13,10 @@ export const Container = styled(RectButton)<ButtonProps>`
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  margin: ${(props) => props.margin || 0};
+  margin-top: ${(props) => props.marginTop || 0}px;
+  margin-right: ${(props) => props.marginRight || 0}px;
+  margin-bottom: ${(props) => props.marginBottom || 0}px;
+  margin-left: ${(props) => props.marginLeft || 0}px;
 `;
 
 export const Text = styled.Text<Pick<ButtonProps, 'color' | 'variant'>>`
