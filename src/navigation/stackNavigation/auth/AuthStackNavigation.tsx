@@ -1,9 +1,9 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Welcome } from '@app/screens/Welcome';
-import { Login } from '@app/screens/Login';
+import { AuthStackParamList } from './AuthStackNavigation.types';
+import { Register, Welcome, Login } from '@app/screens';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<AuthStackParamList>();
 
 export function AuthStackNavigator() {
   return (
@@ -14,6 +14,7 @@ export function AuthStackNavigator() {
     >
       <Stack.Screen name="Welcome" component={Welcome} />
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Register" component={Register} />
     </Stack.Navigator>
   );
 }

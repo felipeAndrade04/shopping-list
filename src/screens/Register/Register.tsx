@@ -1,47 +1,44 @@
 import { Button, Input, Message, Spacer } from '@app/components';
-import { AuthStackNavigationProps, AuthStackParamList } from '@app/navigation/stackNavigation/auth';
 import React, { useState } from 'react';
 import { StatusBar } from 'react-native';
-import * as S from './Login.styles';
+import * as S from './Register.styles';
 
-interface Props {
-  navigation: AuthStackNavigationProps;
-}
-
-export function Login({ navigation }: Props) {
+export function Register() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
   function onSubmit() {
-    console.log(email, password);
-  }
-
-  function onNavigation(name: keyof AuthStackParamList) {
-    navigation.navigate(name);
+    console.log(name, email, password, passwordConfirmation);
   }
 
   return (
     <S.Container>
       <StatusBar barStyle={'dark-content'} />
-      <Message title="Olá," description="faça login para começar." />
+      <Message title="Olá," description="crie sua conta agora." />
 
       <S.InputsContainer>
+        <Input value={name} onChangeText={setName} placeholder="Nome" />
+        <Spacer dimesion={12} />
         <Input value={email} onChangeText={setEmail} placeholder="E-mail" />
         <Spacer dimesion={12} />
         <Input value={password} onChangeText={setPassword} placeholder="Senha" />
+        <Spacer dimesion={12} />
+        <Input
+          value={passwordConfirmation}
+          onChangeText={setPasswordConfirmation}
+          placeholder="Confirmação de Senha"
+        />
       </S.InputsContainer>
 
       <Button onPress={onSubmit} marginTop={24} marginBottom={24}>
-        Entrar
+        Criar conta
       </Button>
 
       <S.SimpleButton>
-        <S.SimpleButtonBoldText>Recuperar senha</S.SimpleButtonBoldText>
-      </S.SimpleButton>
-
-      <S.SimpleButton onPress={() => onNavigation('Register')}>
         <S.SimpleButtonText>
-          Ainda não possui um cadastro?<S.SimpleButtonBoldText> Criar conta</S.SimpleButtonBoldText>
+          Já possui um cadastro?<S.SimpleButtonBoldText> Entrar</S.SimpleButtonBoldText>
         </S.SimpleButtonText>
       </S.SimpleButton>
     </S.Container>

@@ -1,14 +1,16 @@
-import { Button, Message, Spacer } from '@app/components';
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import * as S from './Welcome.styles';
+import { Button, Message, Spacer } from '@app/components';
+import { AuthStackNavigationProps, AuthStackParamList } from '@app/navigation/stackNavigation/auth';
 
-export function Welcome() {
-  const navigation = useNavigation();
+interface Props {
+  navigation: AuthStackNavigationProps;
+}
 
-  function onNavigation(name: string) {
-    navigation.navigate(name, {});
+export function Welcome({ navigation }: Props) {
+  function onNavigation(name: keyof AuthStackParamList) {
+    navigation.navigate(name);
   }
 
   return (
@@ -21,7 +23,9 @@ export function Welcome() {
       <S.Buttons>
         <Button onPress={() => onNavigation('Login')}>Entrar</Button>
         <Spacer dimesion={16} />
-        <Button variant="outline">Criar uma conta</Button>
+        <Button variant="outline" onPress={() => onNavigation('Register')}>
+          Criar uma conta
+        </Button>
       </S.Buttons>
     </S.Container>
   );
