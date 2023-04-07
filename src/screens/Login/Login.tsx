@@ -29,15 +29,14 @@ export function Login({ navigation }: Props) {
         <Input value={email} onChangeText={setEmail} placeholder="E-mail" />
         <Spacer dimesion={12} />
         <Input value={password} onChangeText={setPassword} placeholder="Senha" />
+        <S.SimpleButton>
+          <S.SimpleButtonBoldText>Recuperar senha</S.SimpleButtonBoldText>
+        </S.SimpleButton>
       </S.InputsContainer>
 
       <Button onPress={onSubmit} marginTop={24} marginBottom={24}>
         Entrar
       </Button>
-
-      <S.SimpleButton>
-        <S.SimpleButtonBoldText>Recuperar senha</S.SimpleButtonBoldText>
-      </S.SimpleButton>
 
       <S.SimpleButton onPress={() => onNavigation('Register')}>
         <S.SimpleButtonText>

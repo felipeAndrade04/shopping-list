@@ -12,6 +12,7 @@ export const Container = styled.View`
 export const InputsContainer = styled.View`
   width: 100%;
   flex-direction: column;
+  align-items: flex-end;
   margin-top: 48px;
 `;
 
