@@ -2,6 +2,7 @@ import {
   Auth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
   updateProfile,
   UserCredential,
 } from 'firebase/auth';
@@ -20,7 +21,7 @@ export class FirebaseAuthentication implements Authentication {
 
       return response;
     } catch (error) {
-      console.log(error);
+      console.tron.log(error);
     }
   }
 
@@ -34,12 +35,16 @@ export class FirebaseAuthentication implements Authentication {
 
       return response;
     } catch (error) {
-      console.log(error);
+      console.tron.log(error);
     }
   }
 
   async logout() {
-    console.log('logout');
+    try {
+      await signOut(this.auth);
+    } catch (error) {
+      console.tron.log(error);
+    }
   }
 
   async forgotPassword() {

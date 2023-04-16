@@ -9,9 +9,13 @@ export function useAuth() {
   const [user, setUser] = useState<UserCredential | User | null>(null);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
     });
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   async function register(data: RegisterParams) {
@@ -21,7 +25,7 @@ export function useAuth() {
       await services.auth.register(data);
     } catch (error) {
       const { message } = error as TypeError;
-      console.log(message);
+      console.tron.log(message);
     } finally {
       setIsLoading(false);
     }
@@ -36,7 +40,22 @@ export function useAuth() {
       setUser(response);
     } catch (error) {
       const { message } = error as TypeError;
-      console.log(message);
+      console.tron.log(message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function logout() {
+    try {
+      setIsLoading(true);
+
+      await services.auth.logout();
+
+      setUser(null);
+    } catch (error) {
+      const { message } = error as TypeError;
+      console.tron.log(message);
     } finally {
       setIsLoading(false);
     }
@@ -45,6 +64,7 @@ export function useAuth() {
   return {
     register,
     login,
+    logout,
     isLoading,
     user,
   };
