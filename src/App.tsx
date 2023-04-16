@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import * as theme from '@app/theme';
-import '@app/config/ReactotronConfig';
+import '@app/config/reactotron-config';
 import { MainStackNavigator } from '@app/navigation';
 
 export default function App() {

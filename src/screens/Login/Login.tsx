@@ -3,6 +3,7 @@ import { AuthStackNavigationProps, AuthStackParamList } from '@app/navigation/st
 import React, { useState } from 'react';
 import { StatusBar } from 'react-native';
 import * as S from './Login.styles';
+import { useAuth } from '@app/hooks';
 
 interface Props {
   navigation: AuthStackNavigationProps;
@@ -11,9 +12,10 @@ interface Props {
 export function Login({ navigation }: Props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { login, isLoading } = useAuth();
 
   function onSubmit() {
-    console.log(email, password);
+    login({ email, password });
   }
 
   function onNavigation(name: keyof AuthStackParamList) {
@@ -35,7 +37,7 @@ export function Login({ navigation }: Props) {
       </S.InputsContainer>
 
       <Button onPress={onSubmit} marginTop={24} marginBottom={24}>
-        Entrar
+        {isLoading ? 'Carregando' : 'Entrar'}
       </Button>
 
       <S.SimpleButton onPress={() => onNavigation('Register')}>

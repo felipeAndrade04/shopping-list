@@ -2,15 +2,17 @@ import { Button, Input, Message, Spacer } from '@app/components';
 import React, { useState } from 'react';
 import { StatusBar } from 'react-native';
 import * as S from './Register.styles';
+import { useAuth } from '@app/hooks';
 
 export function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const { register, isLoading } = useAuth();
 
-  function onSubmit() {
-    console.log(name, email, password, passwordConfirmation);
+  async function onSubmit() {
+    await register({ name, email, password });
   }
 
   return (
@@ -33,7 +35,7 @@ export function Register() {
       </S.InputsContainer>
 
       <Button onPress={onSubmit} marginTop={24} marginBottom={24}>
-        Criar conta
+        {isLoading ? 'Carregando...' : 'Criar conta'}
       </Button>
 
       <S.SimpleButton>
