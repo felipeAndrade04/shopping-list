@@ -3,8 +3,13 @@ import React, { useState } from 'react';
 import { StatusBar } from 'react-native';
 import * as S from './Register.styles';
 import { useAuth } from '@app/hooks';
+import { AuthStackNavigationProps, AuthStackParamList } from '@app/navigation/stackNavigation/auth';
 
-export function Register() {
+interface Props {
+  navigation: AuthStackNavigationProps;
+}
+
+export function Register({ navigation }: Props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,6 +18,10 @@ export function Register() {
 
   async function onSubmit() {
     await register({ name, email, password });
+  }
+
+  function onNavigation(name: keyof AuthStackParamList) {
+    navigation.navigate(name);
   }
 
   return (
@@ -38,7 +47,7 @@ export function Register() {
         {isLoading ? 'Carregando...' : 'Criar conta'}
       </Button>
 
-      <S.SimpleButton>
+      <S.SimpleButton onPress={() => onNavigation('Login')}>
         <S.SimpleButtonText>
           Já possui um cadastro?<S.SimpleButtonBoldText> Entrar</S.SimpleButtonBoldText>
         </S.SimpleButtonText>
