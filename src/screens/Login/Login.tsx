@@ -31,7 +31,7 @@ export function Login({ navigation }: Props) {
         <Input value={email} onChangeText={setEmail} placeholder="E-mail" />
         <Spacer dimesion={12} />
         <Input value={password} onChangeText={setPassword} placeholder="Senha" />
-        <S.SimpleButton>
+        <S.SimpleButton onPress={() => onNavigation('ForgotPassword')}>
           <S.SimpleButtonBoldText>Recuperar senha</S.SimpleButtonBoldText>
         </S.SimpleButton>
       </S.InputsContainer>

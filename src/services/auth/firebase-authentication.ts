@@ -5,6 +5,7 @@ import {
   signOut,
   updateProfile,
   UserCredential,
+  sendPasswordResetEmail,
 } from 'firebase/auth';
 import { Authentication, LoginParams, RegisterParams } from './auth.types';
 
@@ -47,7 +48,11 @@ export class FirebaseAuthentication implements Authentication {
     }
   }
 
-  async forgotPassword() {
-    console.log('forgotPassword');
+  async forgotPassword(email: string) {
+    try {
+      await sendPasswordResetEmail(this.auth, email);
+    } catch (error) {
+      console.tron.log(error);
+    }
   }
 }

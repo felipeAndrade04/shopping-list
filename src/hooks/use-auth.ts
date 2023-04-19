@@ -61,10 +61,24 @@ export function useAuth() {
     }
   }
 
+  async function forgotPassword(email: string) {
+    try {
+      setIsLoading(true);
+
+      await services.auth.forgotPassword(email);
+    } catch (error) {
+      const { message } = error as TypeError;
+      console.tron.log(message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return {
     register,
     login,
     logout,
+    forgotPassword,
     isLoading,
     user,
   };

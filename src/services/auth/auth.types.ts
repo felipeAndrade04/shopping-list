@@ -17,5 +17,5 @@ export interface Authentication {
   register: (params: RegisterParams) => Promise<UserCredential>;
   login: (params: LoginParams) => Promise<UserCredential>;
   logout: () => void;
-  forgotPassword: () => void;
+  forgotPassword: (email: string) => void;
 }
