@@ -4,7 +4,6 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   flex: 1;
   align-items: center;
-  justify-content: flex-end;
   background-color: ${({ theme }) => theme.colors.background};
   padding: 24px;
 `;
@@ -12,6 +11,7 @@ export const Container = styled.View`
 export const InputsContainer = styled.View`
   width: 100%;
   flex-direction: column;
+  align-items: flex-end;
   margin-top: 48px;
 `;
 

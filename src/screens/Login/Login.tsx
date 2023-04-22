@@ -3,6 +3,7 @@ import { AuthStackNavigationProps, AuthStackParamList } from '@app/navigation/st
 import React, { useState } from 'react';
 import { StatusBar } from 'react-native';
 import * as S from './Login.styles';
+import { useAuth } from '@app/hooks';
 
 interface Props {
   navigation: AuthStackNavigationProps;
@@ -11,9 +12,10 @@ interface Props {
 export function Login({ navigation }: Props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { login, isLoading } = useAuth();
 
   function onSubmit() {
-    console.log(email, password);
+    login({ email, password });
   }
 
   function onNavigation(name: keyof AuthStackParamList) {
@@ -29,15 +31,14 @@ export function Login({ navigation }: Props) {
         <Input value={email} onChangeText={setEmail} placeholder="E-mail" />
         <Spacer dimesion={12} />
         <Input value={password} onChangeText={setPassword} placeholder="Senha" />
+        <S.SimpleButton onPress={() => onNavigation('ForgotPassword')}>
+          <S.SimpleButtonBoldText>Recuperar senha</S.SimpleButtonBoldText>
+        </S.SimpleButton>
       </S.InputsContainer>
 
       <Button onPress={onSubmit} marginTop={24} marginBottom={24}>
-        Entrar
+        {isLoading ? 'Carregando' : 'Entrar'}
       </Button>
-
-      <S.SimpleButton>
-        <S.SimpleButtonBoldText>Recuperar senha</S.SimpleButtonBoldText>
-      </S.SimpleButton>
 
       <S.SimpleButton onPress={() => onNavigation('Register')}>
         <S.SimpleButtonText>

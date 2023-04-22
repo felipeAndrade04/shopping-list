@@ -2,15 +2,26 @@ import { Button, Input, Message, Spacer } from '@app/components';
 import React, { useState } from 'react';
 import { StatusBar } from 'react-native';
 import * as S from './Register.styles';
+import { useAuth } from '@app/hooks';
+import { AuthStackNavigationProps, AuthStackParamList } from '@app/navigation/stackNavigation/auth';
 
-export function Register() {
+interface Props {
+  navigation: AuthStackNavigationProps;
+}
+
+export function Register({ navigation }: Props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const { register, isLoading } = useAuth();
 
-  function onSubmit() {
-    console.log(name, email, password, passwordConfirmation);
+  async function onSubmit() {
+    await register({ name, email, password });
+  }
+
+  function onNavigation(name: keyof AuthStackParamList) {
+    navigation.navigate(name);
   }
 
   return (
@@ -33,10 +44,10 @@ export function Register() {
       </S.InputsContainer>
 
       <Button onPress={onSubmit} marginTop={24} marginBottom={24}>
-        Criar conta
+        {isLoading ? 'Carregando...' : 'Criar conta'}
       </Button>
 
-      <S.SimpleButton>
+      <S.SimpleButton onPress={() => onNavigation('Login')}>
         <S.SimpleButtonText>
           Já possui um cadastro?<S.SimpleButtonBoldText> Entrar</S.SimpleButtonBoldText>
         </S.SimpleButtonText>

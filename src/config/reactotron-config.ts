@@ -8,9 +8,9 @@ declare global {
 }
 
 if (__DEV__) {
-  const tron = Reactotron.configure()
+  const tron = Reactotron.setAsyncStorageHandler(AsyncStorage)
+    .configure()
     .useReactNative()
-    .setAsyncStorageHandler(AsyncStorage)
     .connect();
 
   console.tron = tron;
