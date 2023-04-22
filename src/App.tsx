@@ -8,6 +8,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import * as theme from '@app/theme';
 import '@app/config/reactotron-config';
 import { MainStackNavigator } from '@app/navigation';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -21,13 +23,15 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <ThemeProvider theme={theme}>
-          <StatusBar barStyle={'light-content'} />
-          <MainStackNavigator />
-        </ThemeProvider>
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <ThemeProvider theme={theme}>
+            <StatusBar barStyle={'light-content'} />
+            <MainStackNavigator />
+          </ThemeProvider>
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </Provider>
   );
 }

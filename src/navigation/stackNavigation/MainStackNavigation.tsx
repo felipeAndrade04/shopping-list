@@ -7,7 +7,7 @@ import { useAuth } from '@app/hooks';
 const Stack = createNativeStackNavigator();
 
 export function MainStackNavigator() {
-  const { user } = useAuth();
+  const { isAuthenticated } = useAuth();
 
   return (
     <Stack.Navigator
@@ -16,8 +16,8 @@ export function MainStackNavigator() {
       })}
       initialRouteName={'Auth'}
     >
-      {user ? (
-        <Stack.Screen name="Home" component={TabNavigator} />
+      {isAuthenticated ? (
+        <Stack.Screen name="Private" component={TabNavigator} />
       ) : (
         <Stack.Screen name="Auth" component={AuthStackNavigator} />
       )}
