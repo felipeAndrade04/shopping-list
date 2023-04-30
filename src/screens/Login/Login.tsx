@@ -35,8 +35,8 @@ export function Login({ navigation }: LoginProps) {
         <Controller
           control={control}
           name="email"
-          render={({ field: { onChange, value } }) => (
-            <Input value={value} onChangeText={onChange} placeholder="E-mail" />
+          render={({ field: { value, onChange, onBlur } }) => (
+            <Input value={value} onChangeText={onChange} onBlur={onBlur} placeholder="E-mail" />
           )}
         />
 
@@ -44,8 +44,8 @@ export function Login({ navigation }: LoginProps) {
         <Controller
           control={control}
           name="password"
-          render={({ field: { onChange, value } }) => (
-            <Input value={value} onChangeText={onChange} placeholder="Senha" />
+          render={({ field: { value, onChange, onBlur } }) => (
+            <Input value={value} onChangeText={onChange} onBlur={onBlur} placeholder="Senha" />
           )}
         />
         <S.SimpleButton onPress={() => onNavigation('ForgotPassword')}>

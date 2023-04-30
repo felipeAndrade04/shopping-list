@@ -9,6 +9,7 @@ export const Input = styled.TextInput<InputProps>`
   font-size: 16px;
   padding: 8px 16px;
   border-radius: 6px;
-  border: 1px solid ${({ theme }) => theme.colors.dark};
+  border: ${({ theme, isFocused }) =>
+    isFocused ? `2px solid ${theme.colors.main}` : `1px solid ${theme.colors.dark}`};
   opacity: ${(props) => (props.disabled ? 0.3 : 1)};
 `;

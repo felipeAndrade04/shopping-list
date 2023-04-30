@@ -37,32 +37,37 @@ export function Register({ navigation }: RegisterProps) {
         <Controller
           control={control}
           name="name"
-          render={({ field: { onChange, value } }) => (
-            <Input value={value} onChangeText={onChange} placeholder="Nome" />
+          render={({ field: { value, onChange, onBlur } }) => (
+            <Input value={value} onChangeText={onChange} onBlur={onBlur} placeholder="Nome" />
           )}
         />
         <Spacer dimesion={12} />
         <Controller
           control={control}
           name="email"
-          render={({ field: { onChange, value } }) => (
-            <Input value={value} onChangeText={onChange} placeholder="E-mail" />
+          render={({ field: { value, onChange, onBlur } }) => (
+            <Input value={value} onChangeText={onChange} onBlur={onBlur} placeholder="E-mail" />
           )}
         />
         <Spacer dimesion={12} />
         <Controller
           control={control}
           name="password"
-          render={({ field: { onChange, value } }) => (
-            <Input value={value} onChangeText={onChange} placeholder="Senha" />
+          render={({ field: { value, onChange, onBlur } }) => (
+            <Input value={value} onChangeText={onChange} onBlur={onBlur} placeholder="Senha" />
           )}
         />
         <Spacer dimesion={12} />
         <Controller
           control={control}
           name="confirmPassword"
-          render={({ field: { onChange, value } }) => (
-            <Input value={value} onChangeText={onChange} placeholder="Confirmação de Senha" />
+          render={({ field: { value, onChange, onBlur } }) => (
+            <Input
+              value={value}
+              onChangeText={onChange}
+              onBlur={onBlur}
+              placeholder="Confirmação de Senha"
+            />
           )}
         />
       </S.InputsContainer>

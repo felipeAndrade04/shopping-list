@@ -40,8 +40,13 @@ export function ForgotPassword({ navigation }: ForgotPasswordProps) {
       <Controller
         control={control}
         name="email"
-        render={({ field: { onChange, value } }) => (
-          <Input value={value} onChangeText={onChange} placeholder="Informe o email registrado" />
+        render={({ field: { value, onChange, onBlur } }) => (
+          <Input
+            value={value}
+            onChangeText={onChange}
+            onBlur={onBlur}
+            placeholder="Informe o email registrado"
+          />
         )}
       />
       <Spacer dimesion={12} />
