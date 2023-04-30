@@ -1,23 +1,27 @@
 import { Button, Input, Message, Spacer } from '@app/components';
-import React, { useState } from 'react';
+import React from 'react';
 import { StatusBar } from 'react-native';
 import * as S from './Register.styles';
 import { useAuth } from '@app/hooks';
-import { AuthStackNavigationProps, AuthStackParamList } from '@app/navigation/stackNavigation/auth';
+import { AuthStackParamList } from '@app/navigation/stackNavigation/auth';
+import { RegisterFormData, RegisterProps } from './Register.types';
+import { Controller, useForm } from 'react-hook-form';
 
-interface Props {
-  navigation: AuthStackNavigationProps;
-}
-
-export function Register({ navigation }: Props) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = useState('');
+export function Register({ navigation }: RegisterProps) {
+  const { control, handleSubmit } = useForm<RegisterFormData>({
+    defaultValues: {
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    },
+  });
   const { register, isLoading } = useAuth();
 
-  async function onSubmit() {
-    await register({ name, email, password });
+  function onSubmit() {
+    handleSubmit(async ({ name, email, password }) => {
+      await register({ name, email, password });
+    })();
   }
 
   function onNavigation(name: keyof AuthStackParamList) {
@@ -30,16 +34,36 @@ export function Register({ navigation }: Props) {
       <Message title="Olá," description="crie sua conta agora." />
 
       <S.InputsContainer>
-        <Input value={name} onChangeText={setName} placeholder="Nome" />
+        <Controller
+          control={control}
+          name="name"
+          render={({ field: { onChange, value } }) => (
+            <Input value={value} onChangeText={onChange} placeholder="Nome" />
+          )}
+        />
         <Spacer dimesion={12} />
-        <Input value={email} onChangeText={setEmail} placeholder="E-mail" />
+        <Controller
+          control={control}
+          name="email"
+          render={({ field: { onChange, value } }) => (
+            <Input value={value} onChangeText={onChange} placeholder="E-mail" />
+          )}
+        />
         <Spacer dimesion={12} />
-        <Input value={password} onChangeText={setPassword} placeholder="Senha" />
+        <Controller
+          control={control}
+          name="password"
+          render={({ field: { onChange, value } }) => (
+            <Input value={value} onChangeText={onChange} placeholder="Senha" />
+          )}
+        />
         <Spacer dimesion={12} />
-        <Input
-          value={passwordConfirmation}
-          onChangeText={setPasswordConfirmation}
-          placeholder="Confirmação de Senha"
+        <Controller
+          control={control}
+          name="confirmPassword"
+          render={({ field: { onChange, value } }) => (
+            <Input value={value} onChangeText={onChange} placeholder="Confirmação de Senha" />
+          )}
         />
       </S.InputsContainer>
 

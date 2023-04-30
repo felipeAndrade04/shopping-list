@@ -37,6 +37,8 @@ export function useAuth() {
       dispatch(updateLoading(true));
 
       await services.auth.register(data);
+
+      await login({ email: data.email, password: data.password });
     } catch (error) {
       const { message } = error as TypeError;
       console.tron.log(message);

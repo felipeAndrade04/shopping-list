@@ -1,21 +1,25 @@
 import { Button, Input, Message, Spacer } from '@app/components';
-import { AuthStackNavigationProps, AuthStackParamList } from '@app/navigation/stackNavigation/auth';
-import React, { useState } from 'react';
+import { AuthStackParamList } from '@app/navigation/stackNavigation/auth';
+import React from 'react';
 import { StatusBar } from 'react-native';
 import * as S from './Login.styles';
 import { useAuth } from '@app/hooks';
+import { LoginFormData, LoginProps } from './Login.types';
+import { Controller, useForm } from 'react-hook-form';
 
-interface Props {
-  navigation: AuthStackNavigationProps;
-}
-
-export function Login({ navigation }: Props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export function Login({ navigation }: LoginProps) {
+  const { control, handleSubmit } = useForm<LoginFormData>({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
   const { login, isLoading } = useAuth();
 
   function onSubmit() {
-    login({ email, password });
+    handleSubmit(async ({ email, password }) => {
+      await login({ email, password });
+    })();
   }
 
   function onNavigation(name: keyof AuthStackParamList) {
@@ -28,9 +32,22 @@ export function Login({ navigation }: Props) {
       <Message title="Olá," description="faça login para começar." />
 
       <S.InputsContainer>
-        <Input value={email} onChangeText={setEmail} placeholder="E-mail" />
+        <Controller
+          control={control}
+          name="email"
+          render={({ field: { onChange, value } }) => (
+            <Input value={value} onChangeText={onChange} placeholder="E-mail" />
+          )}
+        />
+
         <Spacer dimesion={12} />
-        <Input value={password} onChangeText={setPassword} placeholder="Senha" />
+        <Controller
+          control={control}
+          name="password"
+          render={({ field: { onChange, value } }) => (
+            <Input value={value} onChangeText={onChange} placeholder="Senha" />
+          )}
+        />
         <S.SimpleButton onPress={() => onNavigation('ForgotPassword')}>
           <S.SimpleButtonBoldText>Recuperar senha</S.SimpleButtonBoldText>
         </S.SimpleButton>
