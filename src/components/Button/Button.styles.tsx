@@ -13,6 +13,7 @@ export const Container = styled(RectButton)<ButtonProps>`
   justify-content: center;
   align-items: center;
   border-radius: 6px;
+  opacity: ${(props) => (props.isLoading ? 0.6 : 1)};
   margin-top: ${(props) => props.marginTop || 0}px;
   margin-right: ${(props) => props.marginRight || 0}px;
   margin-bottom: ${(props) => props.marginBottom || 0}px;

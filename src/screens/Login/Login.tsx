@@ -53,8 +53,8 @@ export function Login({ navigation }: LoginProps) {
         </S.SimpleButton>
       </S.InputsContainer>
 
-      <Button onPress={onSubmit} marginTop={24} marginBottom={24}>
-        {isLoading ? 'Carregando' : 'Entrar'}
+      <Button onPress={onSubmit} marginTop={24} marginBottom={24} isLoading={isLoading}>
+        Entrar
       </Button>
 
       <S.SimpleButton onPress={() => onNavigation('Register')}>

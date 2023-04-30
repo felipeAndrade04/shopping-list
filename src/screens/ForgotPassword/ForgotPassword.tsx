@@ -51,8 +51,8 @@ export function ForgotPassword({ navigation }: ForgotPasswordProps) {
       />
       <Spacer dimesion={12} />
 
-      <Button onPress={onSubmit} marginTop={24} marginBottom={24}>
-        {isLoading ? 'Carregando' : 'Enviar'}
+      <Button onPress={onSubmit} marginTop={24} marginBottom={24} isLoading={isLoading}>
+        Enviar
       </Button>
     </S.Container>
   );

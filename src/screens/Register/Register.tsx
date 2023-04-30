@@ -72,8 +72,8 @@ export function Register({ navigation }: RegisterProps) {
         />
       </S.InputsContainer>
 
-      <Button onPress={onSubmit} marginTop={24} marginBottom={24}>
-        {isLoading ? 'Carregando...' : 'Criar conta'}
+      <Button onPress={onSubmit} marginTop={24} marginBottom={24} isLoading={isLoading}>
+        Criar conta
       </Button>
 
       <S.SimpleButton onPress={() => onNavigation('Login')}>
