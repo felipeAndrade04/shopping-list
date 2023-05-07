@@ -1,21 +1,38 @@
 import { Button, Input, Message, Spacer } from '@app/components';
-import { AuthStackNavigationProps, AuthStackParamList } from '@app/navigation/stackNavigation/auth';
-import React, { useState } from 'react';
+import { AuthStackParamList } from '@app/navigation/stackNavigation/auth';
+import React from 'react';
 import { StatusBar } from 'react-native';
 import * as S from './ForgotPassword.styles';
 import { useAuth } from '@app/hooks';
+import { ForgotPasswordProps } from './ForgotPassword.types';
+import { Controller, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
 
-interface Props {
-  navigation: AuthStackNavigationProps;
-}
+const schema = z.object({
+  email: z.string().nonempty('Campo obrigatório').email('Informe um email válido').toLowerCase(),
+});
 
-export function ForgotPassword({ navigation }: Props) {
-  const [email, setEmail] = useState('');
+type ForgotPasswordFormData = z.infer<typeof schema>;
+
+export function ForgotPassword({ navigation }: ForgotPasswordProps) {
+  const {
+    control,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<ForgotPasswordFormData>({
+    defaultValues: {
+      email: '',
+    },
+    resolver: zodResolver(schema),
+  });
   const { forgotPassword, isLoading } = useAuth();
 
   function onSubmit() {
-    forgotPassword(email);
-    onNavigation('Login');
+    handleSubmit(async ({ email }) => {
+      await forgotPassword(email);
+      onNavigation('Login');
+    })();
   }
 
   function onNavigation(name: keyof AuthStackParamList) {
@@ -33,11 +50,23 @@ export function ForgotPassword({ navigation }: Props) {
 
       <Spacer dimesion={60} />
 
-      <Input value={email} onChangeText={setEmail} placeholder="Informe o email registrado" />
+      <Controller
+        control={control}
+        name="email"
+        render={({ field: { value, onChange, onBlur } }) => (
+          <Input
+            value={value}
+            error={errors.email?.message}
+            onChangeText={onChange}
+            onBlur={onBlur}
+            placeholder="Informe o email registrado"
+          />
+        )}
+      />
       <Spacer dimesion={12} />
 
-      <Button onPress={onSubmit} marginTop={24} marginBottom={24}>
-        {isLoading ? 'Carregando' : 'Enviar'}
+      <Button onPress={onSubmit} marginTop={24} marginBottom={24} isLoading={isLoading}>
+        Enviar
       </Button>
     </S.Container>
   );

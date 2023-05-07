@@ -9,4 +9,5 @@ export interface ButtonProps extends RectButtonProperties {
   marginRight?: number;
   marginBottom?: number;
   marginLeft?: number;
+  isLoading?: boolean;
 }
