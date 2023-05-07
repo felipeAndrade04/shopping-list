@@ -31,7 +31,8 @@
     "react-native-screens": "~3.18.0",
     "react-redux": "^8.0.5",
     "styled-components": "^5.3.8",
-    "typescript": "*"
+    "typescript": "*",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
