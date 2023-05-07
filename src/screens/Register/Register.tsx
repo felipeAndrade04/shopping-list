@@ -4,17 +4,38 @@ import { StatusBar } from 'react-native';
 import * as S from './Register.styles';
 import { useAuth } from '@app/hooks';
 import { AuthStackParamList } from '@app/navigation/stackNavigation/auth';
-import { RegisterFormData, RegisterProps } from './Register.types';
+import { RegisterProps } from './Register.types';
 import { Controller, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+
+const schema = z
+  .object({
+    name: z.string().nonempty('Campo obrigatório'),
+    email: z.string().nonempty('Campo obrigatório').email('Informe um email válido').toLowerCase(),
+    password: z.string().nonempty('Campo obrigatório').min(8, 'A senha precisa de 8 carateres'),
+    confirmPassword: z.string().nonempty('Campo obrigatório'),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: 'As senhas não correspondem',
+    path: ['confirmPassword'],
+  });
+
+type RegisterFormData = z.infer<typeof schema>;
 
 export function Register({ navigation }: RegisterProps) {
-  const { control, handleSubmit } = useForm<RegisterFormData>({
+  const {
+    control,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<RegisterFormData>({
     defaultValues: {
       name: '',
       email: '',
       password: '',
       confirmPassword: '',
     },
+    resolver: zodResolver(schema),
   });
   const { register, isLoading } = useAuth();
 
@@ -38,7 +59,13 @@ export function Register({ navigation }: RegisterProps) {
           control={control}
           name="name"
           render={({ field: { value, onChange, onBlur } }) => (
-            <Input value={value} onChangeText={onChange} onBlur={onBlur} placeholder="Nome" />
+            <Input
+              value={value}
+              error={errors.name?.message}
+              onChangeText={onChange}
+              onBlur={onBlur}
+              placeholder="Nome"
+            />
           )}
         />
         <Spacer dimesion={12} />
@@ -46,7 +73,13 @@ export function Register({ navigation }: RegisterProps) {
           control={control}
           name="email"
           render={({ field: { value, onChange, onBlur } }) => (
-            <Input value={value} onChangeText={onChange} onBlur={onBlur} placeholder="E-mail" />
+            <Input
+              value={value}
+              error={errors.email?.message}
+              onChangeText={onChange}
+              onBlur={onBlur}
+              placeholder="E-mail"
+            />
           )}
         />
         <Spacer dimesion={12} />
@@ -54,7 +87,13 @@ export function Register({ navigation }: RegisterProps) {
           control={control}
           name="password"
           render={({ field: { value, onChange, onBlur } }) => (
-            <Input value={value} onChangeText={onChange} onBlur={onBlur} placeholder="Senha" />
+            <Input
+              value={value}
+              error={errors.password?.message}
+              onChangeText={onChange}
+              onBlur={onBlur}
+              placeholder="Senha"
+            />
           )}
         />
         <Spacer dimesion={12} />
@@ -64,6 +103,7 @@ export function Register({ navigation }: RegisterProps) {
           render={({ field: { value, onChange, onBlur } }) => (
             <Input
               value={value}
+              error={errors.confirmPassword?.message}
               onChangeText={onChange}
               onBlur={onBlur}
               placeholder="Confirmação de Senha"

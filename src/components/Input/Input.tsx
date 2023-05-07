@@ -3,7 +3,7 @@ import * as S from './Input.styles';
 import { InputProps } from './Input.types';
 import { NativeSyntheticEvent, TextInputFocusEventData } from 'react-native';
 
-export function Input({ disabled, ...props }: InputProps) {
+export function Input({ disabled, error, ...props }: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
 
   function onFocus() {
@@ -18,13 +18,18 @@ export function Input({ disabled, ...props }: InputProps) {
   }
 
   return (
-    <S.Input
-      {...props}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      isFocused={isFocused}
-      editable={!disabled}
-      disabled={disabled}
-    />
+    <S.InputContainer>
+      <S.Input
+        {...props}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        isFocused={isFocused}
+        editable={!disabled}
+        disabled={disabled}
+        error={error}
+      />
+
+      {error && <S.InputTextError>{error}</S.InputTextError>}
+    </S.InputContainer>
   );
 }

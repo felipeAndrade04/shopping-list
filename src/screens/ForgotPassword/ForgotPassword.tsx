@@ -4,14 +4,27 @@ import React from 'react';
 import { StatusBar } from 'react-native';
 import * as S from './ForgotPassword.styles';
 import { useAuth } from '@app/hooks';
-import { ForgotPasswordFormData, ForgotPasswordProps } from './ForgotPassword.types';
+import { ForgotPasswordProps } from './ForgotPassword.types';
 import { Controller, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+
+const schema = z.object({
+  email: z.string().nonempty('Campo obrigatório').email('Informe um email válido').toLowerCase(),
+});
+
+type ForgotPasswordFormData = z.infer<typeof schema>;
 
 export function ForgotPassword({ navigation }: ForgotPasswordProps) {
-  const { control, handleSubmit } = useForm<ForgotPasswordFormData>({
+  const {
+    control,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<ForgotPasswordFormData>({
     defaultValues: {
       email: '',
     },
+    resolver: zodResolver(schema),
   });
   const { forgotPassword, isLoading } = useAuth();
 
@@ -43,6 +56,7 @@ export function ForgotPassword({ navigation }: ForgotPasswordProps) {
         render={({ field: { value, onChange, onBlur } }) => (
           <Input
             value={value}
+            error={errors.email?.message}
             onChangeText={onChange}
             onBlur={onBlur}
             placeholder="Informe o email registrado"

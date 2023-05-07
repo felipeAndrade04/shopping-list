@@ -4,15 +4,29 @@ import React from 'react';
 import { StatusBar } from 'react-native';
 import * as S from './Login.styles';
 import { useAuth } from '@app/hooks';
-import { LoginFormData, LoginProps } from './Login.types';
+import { LoginProps } from './Login.types';
 import { Controller, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+
+const schema = z.object({
+  email: z.string().nonempty('Campo obrigatório').email('Informe um email válido').toLowerCase(),
+  password: z.string().nonempty('Campo obrigatório').min(8, 'A senha precisa de 8 carateres'),
+});
+
+type LoginFormData = z.infer<typeof schema>;
 
 export function Login({ navigation }: LoginProps) {
-  const { control, handleSubmit } = useForm<LoginFormData>({
+  const {
+    control,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<LoginFormData>({
     defaultValues: {
       email: '',
       password: '',
     },
+    resolver: zodResolver(schema),
   });
   const { login, isLoading } = useAuth();
 
@@ -36,7 +50,13 @@ export function Login({ navigation }: LoginProps) {
           control={control}
           name="email"
           render={({ field: { value, onChange, onBlur } }) => (
-            <Input value={value} onChangeText={onChange} onBlur={onBlur} placeholder="E-mail" />
+            <Input
+              value={value}
+              error={errors.email?.message}
+              onChangeText={onChange}
+              onBlur={onBlur}
+              placeholder="E-mail"
+            />
           )}
         />
 
@@ -45,7 +65,13 @@ export function Login({ navigation }: LoginProps) {
           control={control}
           name="password"
           render={({ field: { value, onChange, onBlur } }) => (
-            <Input value={value} onChangeText={onChange} onBlur={onBlur} placeholder="Senha" />
+            <Input
+              value={value}
+              error={errors.password?.message}
+              onChangeText={onChange}
+              onBlur={onBlur}
+              placeholder="Senha"
+            />
           )}
         />
         <S.SimpleButton onPress={() => onNavigation('ForgotPassword')}>
