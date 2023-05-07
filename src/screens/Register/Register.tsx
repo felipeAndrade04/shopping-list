@@ -90,6 +90,7 @@ export function Register({ navigation }: RegisterProps) {
             <Input
               value={value}
               error={errors.password?.message}
+              inputPassword={true}
               onChangeText={onChange}
               onBlur={onBlur}
               placeholder="Senha"
@@ -104,6 +105,7 @@ export function Register({ navigation }: RegisterProps) {
             <Input
               value={value}
               error={errors.confirmPassword?.message}
+              inputPassword={true}
               onChangeText={onChange}
               onBlur={onBlur}
               placeholder="Confirmação de Senha"

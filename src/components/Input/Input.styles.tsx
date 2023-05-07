@@ -5,13 +5,11 @@ export const InputContainer = styled.View`
   width: 100%;
 `;
 
-export const Input = styled.TextInput<InputProps>`
+export const InputContent = styled.View<InputProps>`
   width: 100%;
-  height: 50px;
+  flex-direction: row;
+  align-items: center;
   background-color: ${({ theme }) => theme.colors.white};
-  color: ${({ theme }) => theme.colors.dark};
-  font-size: 16px;
-  padding: 8px 16px;
   border-radius: 6px;
   border: ${({ theme, isFocused, error }) => {
     if (error) return `2px solid ${theme.colors.red}`;
@@ -19,6 +17,14 @@ export const Input = styled.TextInput<InputProps>`
     return isFocused ? `2px solid ${theme.colors.main}` : `1px solid ${theme.colors.dark}`;
   }};
   opacity: ${(props) => (props.disabled ? 0.3 : 1)};
+`;
+
+export const Input = styled.TextInput`
+  height: 50px;
+  flex: 1;
+  color: ${({ theme }) => theme.colors.dark};
+  font-size: 16px;
+  padding: 8px 16px;
 `;
 
 export const InputTextError = styled.Text`

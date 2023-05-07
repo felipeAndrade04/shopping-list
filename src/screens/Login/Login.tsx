@@ -68,6 +68,7 @@ export function Login({ navigation }: LoginProps) {
             <Input
               value={value}
               error={errors.password?.message}
+              inputPassword={true}
               onChangeText={onChange}
               onBlur={onBlur}
               placeholder="Senha"
