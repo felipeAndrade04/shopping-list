@@ -31,7 +31,7 @@ export function Input({ disabled, error, inputPassword, ...props }: InputProps) 
       <S.InputContent error={error} isFocused={isFocused} disabled={disabled}>
         <S.Input
           {...props}
-          secureTextEntry={!showPassword}
+          secureTextEntry={inputPassword && !showPassword}
           onFocus={onFocus}
           onBlur={onBlur}
           editable={!disabled}
