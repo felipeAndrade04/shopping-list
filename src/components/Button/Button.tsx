@@ -16,7 +16,10 @@ export function Button({
     <S.Container color={color} variant={variant} isLoading={isLoading} onPress={onPress} {...rest}>
       <S.Text color={color} variant={variant}>
         {isLoading ? (
-          <ActivityIndicator color={variant === 'outline' ? color : colors.white} />
+          <ActivityIndicator
+            color={variant === 'outline' ? color : colors.white}
+            testID="button-loading"
+          />
         ) : (
           children
         )}
