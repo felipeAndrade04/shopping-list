@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> Should be render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "width": "100%",
+      },
+    ]
+  }
+>
+  <View
+    isFocused={false}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#0D0A0B",
+          "borderRadius": 6,
+          "borderStyle": "solid",
+          "borderWidth": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <TextInput
+      editable={true}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      style={
+        Array [
+          Object {
+            "color": "#0D0A0B",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "fontSize": 16,
+            "height": 50,
+            "paddingBottom": 8,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 8,
+          },
+        ]
+      }
+      testID="input"
+    />
+  </View>
+</View>
+`;

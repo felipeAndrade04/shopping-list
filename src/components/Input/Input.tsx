@@ -35,6 +35,7 @@ export function Input({ disabled, error, inputPassword, ...props }: InputProps) 
           onFocus={onFocus}
           onBlur={onBlur}
           editable={!disabled}
+          testID="input"
         />
 
         {inputPassword && (
