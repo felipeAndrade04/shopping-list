@@ -3,9 +3,9 @@ import services from '@app/services';
 import { LoginParams, RegisterParams } from '@app/services/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect } from 'react';
-import { useAppSelector } from './use-app-selector';
+import { useAppSelector } from '../use-app-selector';
 import { selectAuth, updateLoading, login as loginStore, logout as logoutStore } from '@app/store';
-import { useAppDispatch } from './use-app-dispatch';
+import { useAppDispatch } from '../use-app-dispatch';
 import { User } from '@app/models';
 
 export function useAuth() {
@@ -95,8 +95,8 @@ export function useAuth() {
     login,
     logout,
     forgotPassword,
-    isLoading: authState.isLoading,
-    user: authState.user,
-    isAuthenticated: authState.isAuthenticated,
+    isLoading: authState?.isLoading,
+    user: authState?.user,
+    isAuthenticated: authState?.isAuthenticated,
   };
 }
