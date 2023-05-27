@@ -70,7 +70,7 @@ export function useAuth() {
       dispatch(logoutStore());
     } catch (error) {
       const { message } = error as TypeError;
-      console.tron.log(message);
+      console.log(message);
     } finally {
       dispatch(updateLoading(false));
     }
@@ -83,7 +83,7 @@ export function useAuth() {
       await services.auth.forgotPassword(email);
     } catch (error) {
       const { message } = error as TypeError;
-      console.tron.log(message);
+      console.log(message);
     } finally {
       dispatch(updateLoading(false));
     }

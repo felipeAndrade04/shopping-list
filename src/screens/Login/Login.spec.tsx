@@ -10,7 +10,6 @@ import services from '@app/services';
 import { LoginParams } from '@app/services/auth';
 import { useAuth } from '@app/hooks';
 
-jest.requireActual;
 describe('Login page', () => {
   const navigation = {
     ...jest.requireMock('@app/navigation/stackNavigation/auth'),

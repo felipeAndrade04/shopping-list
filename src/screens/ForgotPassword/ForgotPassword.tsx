@@ -60,6 +60,7 @@ export function ForgotPassword({ navigation }: ForgotPasswordProps) {
             onChangeText={onChange}
             onBlur={onBlur}
             placeholder="Informe o email registrado"
+            testID="input-email"
           />
         )}
       />
