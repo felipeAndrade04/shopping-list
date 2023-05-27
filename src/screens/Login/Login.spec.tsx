@@ -1,14 +1,11 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { fireEvent, render, renderHook, waitFor } from '@testing-library/react-native';
 import { Login } from './Login';
 import { AuthStackNavigationProps } from '@app/navigation/stackNavigation/auth';
-import { Provider } from 'react-redux';
-import { store } from '@app/store';
-import { ThemeProvider } from 'styled-components/native';
-import * as theme from '@app/theme';
 import services from '@app/services';
 import { LoginParams } from '@app/services/auth';
 import { useAuth } from '@app/hooks';
+import { resetStore, wrapper } from '@app/utils';
 
 describe('Login page', () => {
   const navigation = {
@@ -16,14 +13,9 @@ describe('Login page', () => {
     navigate: jest.fn(),
   } as AuthStackNavigationProps;
 
-  const wrapper = ({ children }: { children: ReactNode }) => (
-    <ThemeProvider theme={theme}>
-      <Provider store={store}>{children}</Provider>
-    </ThemeProvider>
-  );
-
   afterEach(() => {
     jest.resetAllMocks();
+    resetStore();
   });
 
   it('Should render correctly', () => {
@@ -133,37 +125,6 @@ describe('Login page', () => {
     expect(queryByText(/a senha precisa de 8 caracteres/i)).toBeTruthy();
   });
 
-  it('Should failed login', async () => {
-    const user = {
-      email: 'teste@email.com',
-      password: '12345678',
-    };
-    jest.spyOn(services.auth, 'login').mockImplementation(() => {
-      return new Promise((_resolve, reject) => {
-        return reject(new Error('Login failed'));
-      });
-    });
-    const { queryByText, queryByTestId } = render(<Login navigation={navigation}></Login>, {
-      wrapper,
-    });
-    const { result } = renderHook(() => useAuth(), { wrapper });
-
-    const button = queryByText(/entrar/i);
-    const inputEmail = queryByTestId(/input-email/i);
-    const inputPassword = queryByTestId(/input-password/i);
-
-    await waitFor(() => {
-      fireEvent.changeText(inputEmail, user.email);
-      fireEvent.changeText(inputPassword, user.password);
-      fireEvent.press(button);
-    });
-
-    expect(services.auth.login).toBeCalled();
-    expect(services.auth.login).rejects.toThrow();
-    expect(result.current.isAuthenticated).toBeFalsy();
-    expect(result.current.user).toBeNull();
-  });
-
   it('Should be do login correctly', async () => {
     const user = {
       email: 'teste@email.com',
@@ -200,6 +161,37 @@ describe('Login page', () => {
     expect(result.current.user.name).toBe(userName);
     expect(result.current.user.id).toBe(userId);
     expect(result.current.isAuthenticated).toBeTruthy();
+  });
+
+  it('Should failed login', async () => {
+    const user = {
+      email: 'teste@email.com',
+      password: '12345678',
+    };
+    jest.spyOn(services.auth, 'login').mockImplementation(() => {
+      return new Promise((_resolve, reject) => {
+        return reject(new Error('Login failed'));
+      });
+    });
+    const { queryByText, queryByTestId } = render(<Login navigation={navigation}></Login>, {
+      wrapper,
+    });
+    const { result } = renderHook(() => useAuth(), { wrapper });
+
+    const button = queryByText(/entrar/i);
+    const inputEmail = queryByTestId(/input-email/i);
+    const inputPassword = queryByTestId(/input-password/i);
+
+    await waitFor(() => {
+      fireEvent.changeText(inputEmail, user.email);
+      fireEvent.changeText(inputPassword, user.password);
+      fireEvent.press(button);
+    });
+
+    expect(services.auth.login).toBeCalled();
+    expect(services.auth.login).rejects.toThrow();
+    expect(result.current.isAuthenticated).toBeFalsy();
+    expect(result.current.user).toBeNull();
   });
 
   it('Should navigate to forgot password page', () => {

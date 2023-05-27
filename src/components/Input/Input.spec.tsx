@@ -1,14 +1,9 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 import { Input } from './Input';
-import { ThemeProvider } from 'styled-components/native';
-import * as theme from '@app/theme';
+import { wrapper } from '@app/utils';
 
 describe('<Input />', () => {
-  const wrapper = ({ children }: { children: ReactNode }) => (
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
-  );
-
   it('Should be render correctly', () => {
     const tree = render(<Input />, { wrapper }).toJSON();
     expect(tree).toMatchSnapshot();

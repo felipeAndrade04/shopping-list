@@ -1,14 +1,11 @@
 import { AuthStackNavigationProps } from '@app/navigation/stackNavigation/auth';
-import { store } from '@app/store';
 import { fireEvent, render, renderHook, waitFor } from '@testing-library/react-native';
-import React, { ReactNode } from 'react';
-import { Provider } from 'react-redux';
-import { ThemeProvider } from 'styled-components/native';
+import React from 'react';
 import { Register } from './Register';
-import * as theme from '@app/theme';
 import { LoginParams, RegisterParams } from '@app/services/auth';
 import services from '@app/services';
 import { useAuth } from '@app/hooks';
+import { resetStore, wrapper } from '@app/utils';
 
 describe('Register page', () => {
   const navigation = {
@@ -16,14 +13,9 @@ describe('Register page', () => {
     navigate: jest.fn(),
   } as AuthStackNavigationProps;
 
-  const wrapper = ({ children }: { children: ReactNode }) => (
-    <ThemeProvider theme={theme}>
-      <Provider store={store}>{children}</Provider>
-    </ThemeProvider>
-  );
-
   afterEach(() => {
     jest.resetAllMocks();
+    resetStore();
   });
 
   it('Should render correctly', () => {
@@ -96,42 +88,6 @@ describe('Register page', () => {
     expect(queryByText(/as senhas não correspondem/i)).toBeTruthy();
   });
 
-  it('Should failed register', async () => {
-    const user = {
-      name: 'Teste',
-      email: 'teste@email.com',
-      password: '12345678',
-    };
-    jest.spyOn(services.auth, 'register').mockImplementation(() => {
-      return new Promise((_resolve, reject) => {
-        return reject(new Error('Register failed'));
-      });
-    });
-    const { queryByText, queryByTestId } = render(<Register navigation={navigation}></Register>, {
-      wrapper,
-    });
-    const { result } = renderHook(() => useAuth(), { wrapper });
-
-    const button = queryByText(/criar conta/i);
-    const inputName = queryByTestId(/input-name/i);
-    const inputEmail = queryByTestId(/input-email/i);
-    const inputPassword = queryByTestId(/input-password/i);
-    const inputConfirmPassword = queryByTestId(/input-confirm-password/i);
-
-    await waitFor(() => {
-      fireEvent.changeText(inputName, user.name);
-      fireEvent.changeText(inputEmail, user.email);
-      fireEvent.changeText(inputPassword, user.password);
-      fireEvent.changeText(inputConfirmPassword, user.password);
-      fireEvent.press(button);
-    });
-
-    expect(services.auth.register).toBeCalled();
-    expect(services.auth.register).rejects.toThrow();
-    expect(result.current.isAuthenticated).toBeFalsy();
-    expect(result.current.user).toBeNull();
-  });
-
   it('Should be do register correctly', async () => {
     const user = {
       name: 'Teste',
@@ -182,6 +138,42 @@ describe('Register page', () => {
     expect(result.current.user.name).toBe(user.name);
     expect(result.current.user.id).toBe(userId);
     expect(result.current.isAuthenticated).toBeTruthy();
+  });
+
+  it('Should failed register', async () => {
+    const user = {
+      name: 'Teste',
+      email: 'teste@email.com',
+      password: '12345678',
+    };
+    jest.spyOn(services.auth, 'register').mockImplementation(() => {
+      return new Promise((_resolve, reject) => {
+        return reject(new Error('Register failed'));
+      });
+    });
+    const { queryByText, queryByTestId } = render(<Register navigation={navigation}></Register>, {
+      wrapper,
+    });
+    const { result } = renderHook(() => useAuth(), { wrapper });
+
+    const button = queryByText(/criar conta/i);
+    const inputName = queryByTestId(/input-name/i);
+    const inputEmail = queryByTestId(/input-email/i);
+    const inputPassword = queryByTestId(/input-password/i);
+    const inputConfirmPassword = queryByTestId(/input-confirm-password/i);
+
+    await waitFor(() => {
+      fireEvent.changeText(inputName, user.name);
+      fireEvent.changeText(inputEmail, user.email);
+      fireEvent.changeText(inputPassword, user.password);
+      fireEvent.changeText(inputConfirmPassword, user.password);
+      fireEvent.press(button);
+    });
+
+    expect(services.auth.register).toBeCalled();
+    expect(services.auth.register).rejects.toThrow();
+    expect(result.current.isAuthenticated).toBeFalsy();
+    expect(result.current.user).toBeNull();
   });
 
   it('Should navigate to login', () => {

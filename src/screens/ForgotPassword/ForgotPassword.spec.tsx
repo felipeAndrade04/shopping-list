@@ -1,24 +1,15 @@
 import { fireEvent, render, waitFor } from '@testing-library/react-native';
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { ForgotPassword } from './ForgotPassword';
 import { AuthStackNavigationProps } from '@app/navigation/stackNavigation/auth';
-import * as theme from '@app/theme';
-import { store } from '@app/store';
-import { Provider } from 'react-redux';
-import { ThemeProvider } from 'styled-components/native';
 import services from '@app/services';
+import { wrapper } from '@app/utils';
 
 describe('Forgot password page', () => {
   const navigation = {
     ...jest.requireMock('@app/navigation/stackNavigation/auth'),
     navigate: jest.fn(),
   } as AuthStackNavigationProps;
-
-  const wrapper = ({ children }: { children: ReactNode }) => (
-    <ThemeProvider theme={theme}>
-      <Provider store={store}>{children}</Provider>
-    </ThemeProvider>
-  );
 
   it('Should render correctly', () => {
     const tree = render(<ForgotPassword navigation={navigation}></ForgotPassword>, {

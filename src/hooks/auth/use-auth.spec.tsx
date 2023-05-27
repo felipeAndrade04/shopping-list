@@ -1,10 +1,8 @@
-import React, { ReactNode } from 'react';
 import { renderHook, waitFor } from '@testing-library/react-native';
 import { useAuth } from './use-auth';
 import services from '@app/services';
 import { Authentication, LoginParams, RegisterParams } from '@app/services/auth';
-import { store } from '@app/store';
-import { Provider } from 'react-redux';
+import { wrapper, resetStore } from '@app/utils';
 
 jest.mock('@app/services', () => ({
   auth: {
@@ -29,10 +27,8 @@ describe('useAuth', () => {
   });
   afterEach(() => {
     jest.restoreAllMocks();
+    resetStore();
   });
-  const wrapper = ({ children }: { children: ReactNode }) => (
-    <Provider store={store}>{children}</Provider>
-  );
 
   it('Should be login correctly', async () => {
     const user: LoginParams = {
