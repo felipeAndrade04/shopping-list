@@ -15,6 +15,7 @@ export function Header({ onPress }: Props) {
   return (
     <S.Container height={height}>
       <Feather
+        testID="go-back"
         style={{ marginTop: 16 }}
         onPress={onPress}
         name="arrow-left"

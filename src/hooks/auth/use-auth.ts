@@ -55,8 +55,7 @@ export function useAuth() {
 
       dispatch(loginStore(response));
     } catch (error) {
-      const { message } = error as TypeError;
-      console.tron.log(message);
+      dispatch(logoutStore());
     } finally {
       dispatch(updateLoading(false));
     }

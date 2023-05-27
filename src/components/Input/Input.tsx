@@ -5,7 +5,7 @@ import { InputProps } from './Input.types';
 import { NativeSyntheticEvent, TextInputFocusEventData } from 'react-native';
 import { colors } from '@app/theme';
 
-export function Input({ disabled, error, inputPassword, ...props }: InputProps) {
+export function Input({ disabled, error, inputPassword, testID, ...props }: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -35,7 +35,7 @@ export function Input({ disabled, error, inputPassword, ...props }: InputProps) 
           onFocus={onFocus}
           onBlur={onBlur}
           editable={!disabled}
-          testID="input"
+          testID={testID ?? 'input'}
         />
 
         {inputPassword && (
