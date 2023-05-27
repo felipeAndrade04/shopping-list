@@ -13,7 +13,7 @@ const schema = z
   .object({
     name: z.string().nonempty('Campo obrigatório'),
     email: z.string().nonempty('Campo obrigatório').email('Informe um email válido').toLowerCase(),
-    password: z.string().nonempty('Campo obrigatório').min(8, 'A senha precisa de 8 carateres'),
+    password: z.string().nonempty('Campo obrigatório').min(8, 'A senha precisa de 8 caracteres'),
     confirmPassword: z.string().nonempty('Campo obrigatório'),
   })
   .refine((data) => data.password === data.confirmPassword, {
@@ -65,6 +65,7 @@ export function Register({ navigation }: RegisterProps) {
               onChangeText={onChange}
               onBlur={onBlur}
               placeholder="Nome"
+              testID="input-name"
             />
           )}
         />
@@ -79,6 +80,7 @@ export function Register({ navigation }: RegisterProps) {
               onChangeText={onChange}
               onBlur={onBlur}
               placeholder="E-mail"
+              testID="input-email"
             />
           )}
         />
@@ -94,6 +96,7 @@ export function Register({ navigation }: RegisterProps) {
               onChangeText={onChange}
               onBlur={onBlur}
               placeholder="Senha"
+              testID="input-password"
             />
           )}
         />
@@ -109,6 +112,7 @@ export function Register({ navigation }: RegisterProps) {
               onChangeText={onChange}
               onBlur={onBlur}
               placeholder="Confirmação de Senha"
+              testID="input-confirm-password"
             />
           )}
         />
@@ -118,7 +122,7 @@ export function Register({ navigation }: RegisterProps) {
         Criar conta
       </Button>
 
-      <S.SimpleButton onPress={() => onNavigation('Login')}>
+      <S.SimpleButton onPress={() => onNavigation('Login')} testID="login">
         <S.SimpleButtonText>
           Já possui um cadastro?<S.SimpleButtonBoldText> Entrar</S.SimpleButtonBoldText>
         </S.SimpleButtonText>

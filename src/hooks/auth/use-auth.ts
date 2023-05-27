@@ -40,8 +40,7 @@ export function useAuth() {
 
       await login({ email: data.email, password: data.password });
     } catch (error) {
-      const { message } = error as TypeError;
-      console.tron.log(message);
+      // const { _message } = error as TypeError;
     } finally {
       dispatch(updateLoading(false));
     }
@@ -55,7 +54,7 @@ export function useAuth() {
 
       dispatch(loginStore(response));
     } catch (error) {
-      dispatch(logoutStore());
+      // const { _message } = error as TypeError;
     } finally {
       dispatch(updateLoading(false));
     }
@@ -69,8 +68,7 @@ export function useAuth() {
 
       dispatch(logoutStore());
     } catch (error) {
-      const { message } = error as TypeError;
-      console.log(message);
+      // const { message } = error as TypeError;
     } finally {
       dispatch(updateLoading(false));
     }
@@ -82,8 +80,7 @@ export function useAuth() {
 
       await services.auth.forgotPassword(email);
     } catch (error) {
-      const { message } = error as TypeError;
-      console.log(message);
+      // const { message } = error as TypeError;
     } finally {
       dispatch(updateLoading(false));
     }
