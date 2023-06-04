@@ -19,7 +19,6 @@ export class FirebaseAuthentication implements Authentication {
       const { email, password } = params;
 
       const response = await signInWithEmailAndPassword(this.auth, email, password);
-      console.log;
 
       const user: User = {
         email: response.user.email,
@@ -29,7 +28,6 @@ export class FirebaseAuthentication implements Authentication {
 
       return user;
     } catch (error) {
-      console.tron.log(error);
       throw new Error('Login failed');
     }
   }
@@ -50,7 +48,6 @@ export class FirebaseAuthentication implements Authentication {
 
       return user;
     } catch (error) {
-      console.tron.log(error);
       throw new Error('Register failed');
     }
   }
@@ -59,7 +56,6 @@ export class FirebaseAuthentication implements Authentication {
     try {
       await signOut(this.auth);
     } catch (error) {
-      console.tron.log(error);
       throw new Error('Logout failed');
     }
   }
@@ -68,7 +64,6 @@ export class FirebaseAuthentication implements Authentication {
     try {
       await sendPasswordResetEmail(this.auth, email);
     } catch (error) {
-      console.tron.log(error);
       throw new Error('Forgot password failed');
     }
   }

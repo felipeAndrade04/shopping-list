@@ -11,7 +11,7 @@ import * as z from 'zod';
 
 const schema = z.object({
   email: z.string().nonempty('Campo obrigatório').email('Informe um email válido').toLowerCase(),
-  password: z.string().nonempty('Campo obrigatório').min(8, 'A senha precisa de 8 carateres'),
+  password: z.string().nonempty('Campo obrigatório').min(8, 'A senha precisa de 8 caracteres'),
 });
 
 type LoginFormData = z.infer<typeof schema>;
@@ -56,6 +56,7 @@ export function Login({ navigation }: LoginProps) {
               onChangeText={onChange}
               onBlur={onBlur}
               placeholder="E-mail"
+              testID="input-email"
             />
           )}
         />
@@ -72,6 +73,7 @@ export function Login({ navigation }: LoginProps) {
               onChangeText={onChange}
               onBlur={onBlur}
               placeholder="Senha"
+              testID="input-password"
             />
           )}
         />
@@ -84,7 +86,7 @@ export function Login({ navigation }: LoginProps) {
         Entrar
       </Button>
 
-      <S.SimpleButton onPress={() => onNavigation('Register')}>
+      <S.SimpleButton testID="register" onPress={() => onNavigation('Register')}>
         <S.SimpleButtonText>
           Ainda não possui um cadastro?<S.SimpleButtonBoldText> Criar conta</S.SimpleButtonBoldText>
         </S.SimpleButtonText>
