@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components/native';
 import * as theme from '@app/theme';
 import { configureStore } from '@reduxjs/toolkit';
+import { MockSafeAreaContext } from './MockSafeAreaContext';
 
 let store = configureStore({
   reducer: {
@@ -14,7 +15,9 @@ let store = configureStore({
 
 export const wrapper = ({ children }: { children: ReactNode }) => (
   <ThemeProvider theme={theme}>
-    <Provider store={store}>{children}</Provider>
+    <Provider store={store}>
+      <MockSafeAreaContext.SafeAreaProvider>{children}</MockSafeAreaContext.SafeAreaProvider>
+    </Provider>
   </ThemeProvider>
 );
 
