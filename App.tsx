@@ -9,13 +9,13 @@ import * as theme from '@app/theme';
 import '@app/config/reactotron-config';
 import { MainStackNavigator } from '@app/navigation';
 import { Provider } from 'react-redux';
-import { store } from './store';
+import { store } from './src/store';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    'Poppins-Bold': require('./assets/fonts/Poppins-Bold.ttf'),
-    'Poppins-Medium': require('./assets/fonts/Poppins-Medium.ttf'),
-    'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
+    'Poppins-Bold': require('./src/assets/fonts/Poppins-Bold.ttf'),
+    'Poppins-Medium': require('./src/assets/fonts/Poppins-Medium.ttf'),
+    'Poppins-Regular': require('./src/assets/fonts/Poppins-Regular.ttf'),
   });
 
   if (!fontsLoaded) {
