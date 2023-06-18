@@ -21,6 +21,7 @@ export function ForgotPassword({ navigation }: ForgotPasswordProps) {
     formState: { errors },
     handleSubmit,
   } = useForm<ForgotPasswordFormData>({
+    mode: 'onBlur',
     defaultValues: {
       email: '',
     },
@@ -29,7 +30,7 @@ export function ForgotPassword({ navigation }: ForgotPasswordProps) {
   const { forgotPassword, isLoading } = useAuth();
 
   function onSubmit() {
-    handleSubmit(async ({ email }) => {
+    handleSubmit(async ({ email }: ForgotPasswordFormData) => {
       await forgotPassword(email);
       onNavigation('Login');
     })();

@@ -22,6 +22,7 @@ export function Login({ navigation }: LoginProps) {
     formState: { errors },
     handleSubmit,
   } = useForm<LoginFormData>({
+    mode: 'onBlur',
     defaultValues: {
       email: '',
       password: '',
@@ -31,7 +32,7 @@ export function Login({ navigation }: LoginProps) {
   const { login, isLoading } = useAuth();
 
   function onSubmit() {
-    handleSubmit(async ({ email, password }) => {
+    handleSubmit(async ({ email, password }: LoginFormData) => {
       await login({ email, password });
     })();
   }

@@ -29,6 +29,7 @@ export function Register({ navigation }: RegisterProps) {
     formState: { errors },
     handleSubmit,
   } = useForm<RegisterFormData>({
+    mode: 'onBlur',
     defaultValues: {
       name: '',
       email: '',
@@ -40,7 +41,7 @@ export function Register({ navigation }: RegisterProps) {
   const { register, isLoading } = useAuth();
 
   function onSubmit() {
-    handleSubmit(async ({ name, email, password }) => {
+    handleSubmit(async ({ name, email, password }: RegisterFormData) => {
       await register({ name, email, password });
     })();
   }
