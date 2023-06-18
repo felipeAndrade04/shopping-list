@@ -19,14 +19,12 @@ export const InputContent = styled.View<InputProps>`
   ${({ theme, isFocused }) =>
     isFocused &&
     css`
-      color: ${theme.colors.dark};
       border-color: ${theme.colors.main};
     `}
 
   ${({ theme, error }) =>
     error &&
     css`
-      color: ${theme.colors.red};
       border-color: ${theme.colors.red};
     `}
 `;

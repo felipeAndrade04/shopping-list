@@ -4,9 +4,12 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   flex: 1;
   align-items: center;
-  justify-content: flex-end;
   background-color: ${({ theme }) => theme.colors.background};
-  padding: 24px;
+  padding: 0 24px;
+`;
+
+export const Logo = styled.Image`
+  margin-bottom: 24px;
 `;
 
 export const InputsContainer = styled.View`
