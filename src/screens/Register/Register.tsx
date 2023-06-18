@@ -8,7 +8,7 @@ import { RegisterProps } from './Register.types';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import logo from '@app/assets/images/logo.png';
+import Logo from '@app/assets/images/logo.svg';
 
 const schema = z
   .object({
@@ -55,7 +55,11 @@ export function Register({ navigation }: RegisterProps) {
     <FormWrapper>
       <S.Container>
         <StatusBar barStyle={'dark-content'} />
-        <S.Logo source={logo} />
+
+        <S.LogoContainer>
+          <Logo />
+        </S.LogoContainer>
+
         <Message showImage={false} title="Olá," description="crie sua conta agora." />
 
         <S.InputsContainer>

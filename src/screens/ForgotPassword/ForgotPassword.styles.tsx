@@ -5,5 +5,8 @@ export const Container = styled.View`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.background};
   padding: 0 24px;
-  padding-top: 32px;
+`;
+
+export const LogoContainer = styled.View`
+  margin-bottom: 24px;
 `;

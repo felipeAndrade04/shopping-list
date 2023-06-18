@@ -8,6 +8,7 @@ import { ForgotPasswordProps } from './ForgotPassword.types';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import Logo from '@app/assets/images/logo.svg';
 
 const schema = z.object({
   email: z.string().nonempty('Campo obrigatório').email('Informe um email válido').toLowerCase(),
@@ -43,6 +44,11 @@ export function ForgotPassword({ navigation }: ForgotPasswordProps) {
   return (
     <S.Container>
       <StatusBar barStyle={'dark-content'} />
+
+      <S.LogoContainer>
+        <Logo />
+      </S.LogoContainer>
+
       <Message
         title="Recuperação de senha"
         description="Não se preocupe! Acontece. Insira o endereço associado à sua conta"

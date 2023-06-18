@@ -8,7 +8,7 @@ import { LoginProps } from './Login.types';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import logo from '@app/assets/images/logo.png';
+import Logo from '@app/assets/images/logo.svg';
 
 const schema = z.object({
   email: z.string().nonempty('Campo obrigatório').email('Informe um email válido').toLowerCase(),
@@ -46,7 +46,11 @@ export function Login({ navigation }: LoginProps) {
     <FormWrapper>
       <S.Container>
         <StatusBar barStyle={'dark-content'} />
-        <S.Logo source={logo} />
+
+        <S.LogoContainer>
+          <Logo />
+        </S.LogoContainer>
+
         <Message showImage={false} title="Olá," description="faça login para começar." />
 
         <S.InputsContainer>

@@ -8,7 +8,7 @@ export const Container = styled.View`
   padding: 0 24px;
 `;
 
-export const Logo = styled.Image`
+export const LogoContainer = styled.View`
   margin-bottom: 24px;
 `;
 
