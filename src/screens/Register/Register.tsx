@@ -1,4 +1,4 @@
-import { Button, Input, Message, Spacer } from '@app/components';
+import { Button, FormWrapper, Input, Message, Spacer } from '@app/components';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import * as S from './Register.styles';
@@ -8,6 +8,7 @@ import { RegisterProps } from './Register.types';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import Logo from '@app/assets/images/logo.svg';
 
 const schema = z
   .object({
@@ -26,9 +27,10 @@ type RegisterFormData = z.infer<typeof schema>;
 export function Register({ navigation }: RegisterProps) {
   const {
     control,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
   } = useForm<RegisterFormData>({
+    mode: 'all',
     defaultValues: {
       name: '',
       email: '',
@@ -40,7 +42,7 @@ export function Register({ navigation }: RegisterProps) {
   const { register, isLoading } = useAuth();
 
   function onSubmit() {
-    handleSubmit(async ({ name, email, password }) => {
+    handleSubmit(async ({ name, email, password }: RegisterFormData) => {
       await register({ name, email, password });
     })();
   }
@@ -50,83 +52,96 @@ export function Register({ navigation }: RegisterProps) {
   }
 
   return (
-    <S.Container>
-      <StatusBar barStyle={'dark-content'} />
-      <Message title="Olá," description="crie sua conta agora." />
+    <FormWrapper>
+      <S.Container>
+        <StatusBar barStyle={'dark-content'} />
 
-      <S.InputsContainer>
-        <Controller
-          control={control}
-          name="name"
-          render={({ field: { value, onChange, onBlur } }) => (
-            <Input
-              value={value}
-              error={errors.name?.message}
-              onChangeText={onChange}
-              onBlur={onBlur}
-              placeholder="Nome"
-              testID="input-name"
-            />
-          )}
-        />
-        <Spacer dimesion={12} />
-        <Controller
-          control={control}
-          name="email"
-          render={({ field: { value, onChange, onBlur } }) => (
-            <Input
-              value={value}
-              error={errors.email?.message}
-              onChangeText={onChange}
-              onBlur={onBlur}
-              placeholder="E-mail"
-              testID="input-email"
-            />
-          )}
-        />
-        <Spacer dimesion={12} />
-        <Controller
-          control={control}
-          name="password"
-          render={({ field: { value, onChange, onBlur } }) => (
-            <Input
-              value={value}
-              error={errors.password?.message}
-              inputPassword={true}
-              onChangeText={onChange}
-              onBlur={onBlur}
-              placeholder="Senha"
-              testID="input-password"
-            />
-          )}
-        />
-        <Spacer dimesion={12} />
-        <Controller
-          control={control}
-          name="confirmPassword"
-          render={({ field: { value, onChange, onBlur } }) => (
-            <Input
-              value={value}
-              error={errors.confirmPassword?.message}
-              inputPassword={true}
-              onChangeText={onChange}
-              onBlur={onBlur}
-              placeholder="Confirmação de Senha"
-              testID="input-confirm-password"
-            />
-          )}
-        />
-      </S.InputsContainer>
+        <S.LogoContainer>
+          <Logo />
+        </S.LogoContainer>
 
-      <Button onPress={onSubmit} marginTop={24} marginBottom={24} isLoading={isLoading}>
-        Criar conta
-      </Button>
+        <Message showImage={false} title="Olá," description="crie sua conta agora." />
 
-      <S.SimpleButton onPress={() => onNavigation('Login')} testID="login">
-        <S.SimpleButtonText>
-          Já possui um cadastro?<S.SimpleButtonBoldText> Entrar</S.SimpleButtonBoldText>
-        </S.SimpleButtonText>
-      </S.SimpleButton>
-    </S.Container>
+        <S.InputsContainer>
+          <Controller
+            control={control}
+            name="name"
+            render={({ field: { value, onChange, onBlur } }) => (
+              <Input
+                value={value}
+                error={errors.name?.message}
+                onChangeText={onChange}
+                onBlur={onBlur}
+                placeholder="Nome"
+                testID="input-name"
+              />
+            )}
+          />
+          <Spacer dimesion={12} />
+          <Controller
+            control={control}
+            name="email"
+            render={({ field: { value, onChange, onBlur } }) => (
+              <Input
+                value={value}
+                error={errors.email?.message}
+                onChangeText={onChange}
+                onBlur={onBlur}
+                placeholder="E-mail"
+                testID="input-email"
+              />
+            )}
+          />
+          <Spacer dimesion={12} />
+          <Controller
+            control={control}
+            name="password"
+            render={({ field: { value, onChange, onBlur } }) => (
+              <Input
+                value={value}
+                error={errors.password?.message}
+                inputPassword={true}
+                onChangeText={onChange}
+                onBlur={onBlur}
+                placeholder="Senha"
+                testID="input-password"
+              />
+            )}
+          />
+          <Spacer dimesion={12} />
+          <Controller
+            control={control}
+            name="confirmPassword"
+            render={({ field: { value, onChange, onBlur } }) => (
+              <Input
+                value={value}
+                error={errors.confirmPassword?.message}
+                inputPassword={true}
+                onChangeText={onChange}
+                onBlur={onBlur}
+                placeholder="Confirmação de Senha"
+                testID="input-confirm-password"
+              />
+            )}
+          />
+        </S.InputsContainer>
+
+        <Button
+          enabled={isValid}
+          onPress={onSubmit}
+          marginTop={24}
+          marginBottom={24}
+          isLoading={isLoading}
+        >
+          Criar conta
+        </Button>
+
+        <S.SimpleButton onPress={() => onNavigation('Login')} testID="login">
+          <S.SimpleButtonText>
+            Já possui um cadastro?<S.SimpleButtonBoldText> Entrar</S.SimpleButtonBoldText>
+          </S.SimpleButtonText>
+        </S.SimpleButton>
+      </S.Container>
+    </FormWrapper>
   );
 }

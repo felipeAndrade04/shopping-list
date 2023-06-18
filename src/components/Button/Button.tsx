@@ -9,11 +9,19 @@ export function Button({
   variant = 'solid',
   color = colors.main,
   isLoading,
+  enabled = true,
   onPress,
   ...rest
 }: ButtonProps) {
   return (
-    <S.Container color={color} variant={variant} isLoading={isLoading} onPress={onPress} {...rest}>
+    <S.Container
+      color={color}
+      variant={variant}
+      isLoading={isLoading}
+      enabled={enabled}
+      onPress={onPress}
+      {...rest}
+    >
       <S.Text color={color} variant={variant}>
         {isLoading ? (
           <ActivityIndicator

@@ -8,6 +8,10 @@ export const Container = styled.View`
   padding: 24px;
 `;
 
+export const LogoContainer = styled.View`
+  margin-bottom: 48px;
+`;
+
 export const Buttons = styled.View`
   width: 100%;
   margin-top: 48px;

@@ -8,6 +8,7 @@ import { ForgotPasswordProps } from './ForgotPassword.types';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import Logo from '@app/assets/images/logo.svg';
 
 const schema = z.object({
   email: z.string().nonempty('Campo obrigatório').email('Informe um email válido').toLowerCase(),
@@ -18,9 +19,10 @@ type ForgotPasswordFormData = z.infer<typeof schema>;
 export function ForgotPassword({ navigation }: ForgotPasswordProps) {
   const {
     control,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
   } = useForm<ForgotPasswordFormData>({
+    mode: 'all',
     defaultValues: {
       email: '',
     },
@@ -29,7 +31,7 @@ export function ForgotPassword({ navigation }: ForgotPasswordProps) {
   const { forgotPassword, isLoading } = useAuth();
 
   function onSubmit() {
-    handleSubmit(async ({ email }) => {
+    handleSubmit(async ({ email }: ForgotPasswordFormData) => {
       await forgotPassword(email);
       onNavigation('Login');
     })();
@@ -42,6 +44,11 @@ export function ForgotPassword({ navigation }: ForgotPasswordProps) {
   return (
     <S.Container>
       <StatusBar barStyle={'dark-content'} />
+
+      <S.LogoContainer>
+        <Logo />
+      </S.LogoContainer>
+
       <Message
         title="Recuperação de senha"
         description="Não se preocupe! Acontece. Insira o endereço associado à sua conta"
@@ -66,7 +73,13 @@ export function ForgotPassword({ navigation }: ForgotPasswordProps) {
       />
       <Spacer dimesion={12} />
 
-      <Button onPress={onSubmit} marginTop={24} marginBottom={24} isLoading={isLoading}>
+      <Button
+        enabled={isValid}
+        onPress={onSubmit}
+        marginTop={24}
+        marginBottom={24}
+        isLoading={isLoading}
+      >
         Enviar
       </Button>
     </S.Container>
