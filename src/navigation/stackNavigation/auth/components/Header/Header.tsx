@@ -15,7 +15,7 @@ export function Header({ onPress }: Props) {
   const height = 90 + insets.bottom;
   return (
     <S.Container height={height}>
-      <RectButton testID="go-back" style={{ marginTop: 16 }} onPress={onPress}>
+      <RectButton testID="go-back" style={{ marginTop: 16, width: 32 }} onPress={onPress}>
         <Feather name="arrow-left" color={colors.dark} size={32} />
       </RectButton>
     </S.Container>
