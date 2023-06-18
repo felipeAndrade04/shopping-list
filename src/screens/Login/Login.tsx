@@ -19,7 +19,7 @@ type LoginFormData = z.infer<typeof schema>;
 export function Login({ navigation }: LoginProps) {
   const {
     control,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
   } = useForm<LoginFormData>({
     mode: 'onBlur',
@@ -83,7 +83,13 @@ export function Login({ navigation }: LoginProps) {
         </S.SimpleButton>
       </S.InputsContainer>
 
-      <Button onPress={onSubmit} marginTop={24} marginBottom={24} isLoading={isLoading}>
+      <Button
+        enabled={isValid}
+        onPress={onSubmit}
+        marginTop={24}
+        marginBottom={24}
+        isLoading={isLoading}
+      >
         Entrar
       </Button>
 

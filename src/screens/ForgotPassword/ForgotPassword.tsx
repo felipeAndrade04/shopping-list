@@ -18,7 +18,7 @@ type ForgotPasswordFormData = z.infer<typeof schema>;
 export function ForgotPassword({ navigation }: ForgotPasswordProps) {
   const {
     control,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
   } = useForm<ForgotPasswordFormData>({
     mode: 'onBlur',
@@ -67,7 +67,13 @@ export function ForgotPassword({ navigation }: ForgotPasswordProps) {
       />
       <Spacer dimesion={12} />
 
-      <Button onPress={onSubmit} marginTop={24} marginBottom={24} isLoading={isLoading}>
+      <Button
+        enabled={isValid}
+        onPress={onSubmit}
+        marginTop={24}
+        marginBottom={24}
+        isLoading={isLoading}
+      >
         Enviar
       </Button>
     </S.Container>

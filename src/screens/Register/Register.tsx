@@ -26,7 +26,7 @@ type RegisterFormData = z.infer<typeof schema>;
 export function Register({ navigation }: RegisterProps) {
   const {
     control,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
   } = useForm<RegisterFormData>({
     mode: 'onBlur',
@@ -119,7 +119,13 @@ export function Register({ navigation }: RegisterProps) {
         />
       </S.InputsContainer>
 
-      <Button onPress={onSubmit} marginTop={24} marginBottom={24} isLoading={isLoading}>
+      <Button
+        enabled={isValid}
+        onPress={onSubmit}
+        marginTop={24}
+        marginBottom={24}
+        isLoading={isLoading}
+      >
         Criar conta
       </Button>
 
