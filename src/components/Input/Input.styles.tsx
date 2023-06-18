@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { InputProps } from './Input.types';
+import { css } from 'styled-components';
 
 export const InputContainer = styled.View`
   width: 100%;
@@ -11,12 +12,23 @@ export const InputContent = styled.View<InputProps>`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 6px;
-  border: ${({ theme, isFocused, error }) => {
-    if (error) return `2px solid ${theme.colors.red}`;
-
-    return isFocused ? `2px solid ${theme.colors.main}` : `1px solid ${theme.colors.dark}`;
-  }};
+  border: ${({ theme }) => `1px solid ${theme.colors.dark}`};
   opacity: ${(props) => (props.disabled ? 0.3 : 1)};
+  transition: border-color 0.3s ease-in;
+
+  ${({ theme, isFocused }) =>
+    isFocused &&
+    css`
+      color: ${theme.colors.dark};
+      border-color: ${theme.colors.main};
+    `}
+
+  ${({ theme, error }) =>
+    error &&
+    css`
+      color: ${theme.colors.red};
+      border-color: ${theme.colors.red};
+    `}
 `;
 
 export const Input = styled.TextInput`
