@@ -22,7 +22,7 @@ export function ForgotPassword({ navigation }: ForgotPasswordProps) {
     formState: { errors, isValid },
     handleSubmit,
   } = useForm<ForgotPasswordFormData>({
-    mode: 'onBlur',
+    mode: 'all',
     defaultValues: {
       email: '',
     },

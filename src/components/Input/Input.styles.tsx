@@ -12,7 +12,7 @@ export const InputContent = styled.View<InputProps>`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 6px;
-  border: ${({ theme }) => `1px solid ${theme.colors.dark}`};
+  border: ${({ theme }) => `2px solid ${theme.colors.white}`};
   opacity: ${(props) => (props.disabled ? 0.3 : 1)};
   transition: border-color 0.3s ease-in;
 

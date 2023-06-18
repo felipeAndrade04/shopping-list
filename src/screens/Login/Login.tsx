@@ -23,7 +23,7 @@ export function Login({ navigation }: LoginProps) {
     formState: { errors, isValid },
     handleSubmit,
   } = useForm<LoginFormData>({
-    mode: 'onBlur',
+    mode: 'all',
     defaultValues: {
       email: '',
       password: '',

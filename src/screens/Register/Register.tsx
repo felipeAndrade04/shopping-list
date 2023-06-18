@@ -30,7 +30,7 @@ export function Register({ navigation }: RegisterProps) {
     formState: { errors, isValid },
     handleSubmit,
   } = useForm<RegisterFormData>({
-    mode: 'onBlur',
+    mode: 'all',
     defaultValues: {
       name: '',
       email: '',
