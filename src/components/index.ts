@@ -4,3 +4,4 @@ export * from './Button';
 export * from './Input';
 export * from './Spacer';
 export * from './FormWrapper';
+export * from './Modal';

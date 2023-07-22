@@ -4,5 +4,9 @@ export const colors = {
   dark: '#0D0A0B',
   white: '#FFFFFF',
   red: '#FE5F55',
-  gray: '#ACACAC',
+  gray: {
+    100: '#F4F4F4',
+    300: '#ACACAC',
+  },
+  overlay: '#363F5F',
 };

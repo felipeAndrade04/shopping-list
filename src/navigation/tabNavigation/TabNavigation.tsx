@@ -17,7 +17,7 @@ export function TabNavigator() {
       screenOptions={() => {
         return {
           tabBarActiveTintColor: colors.main,
-          tabBarInactiveTintColor: colors.gray,
+          tabBarInactiveTintColor: colors.gray[300],
           tabBarLabelStyle: {
             fontFamily: fonts.medium,
             fontSize: 16,
