@@ -19,7 +19,6 @@ export const Content = styled.TouchableOpacity.attrs(() => ({
   activeOpacity: 1,
 }))`
   width: 100%;
-  padding: 12px;
   background: ${({ theme }) => theme.colors.gray[100]};
   border-radius: 16px;
 `;

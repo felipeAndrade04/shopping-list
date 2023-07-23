@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Feather } from '@expo/vector-icons';
-
 import * as S from './Fab.styles';
 import { colors } from '@app/theme';
-import { Modal } from '../Modal';
-import { Text } from 'react-native';
+import { ActionModal } from '../ActionModal';
 
 export function Fab() {
   const [show, setShow] = useState(false);
@@ -14,9 +12,13 @@ export function Fab() {
       <S.Container onPress={() => setShow(true)} activeOpacity={0.7}>
         <Feather name="plus" color={colors.white} size={32} />
       </S.Container>
-      <Modal show={show} close={() => setShow(false)}>
-        <Text>teste</Text>
-      </Modal>
+      <ActionModal
+        title="Criar Lista"
+        successActionText="Criar"
+        show={show}
+        close={() => setShow(false)}
+        successAction={() => console.tron.log('Success')}
+      />
     </>
   );
 }
