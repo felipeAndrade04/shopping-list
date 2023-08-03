@@ -1,7 +1,8 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
-import { wrapper, MockSafeAreaContext } from '@app/utils';
+import { wrapper } from '@app/utils';
 import { Header } from './Header';
+import { MockSafeAreaContext } from '@app/mocks';
 
 describe('<Header />', () => {
   jest.mock('react-native-safe-area-context', () => MockSafeAreaContext);

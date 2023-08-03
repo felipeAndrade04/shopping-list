@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components/native';
 import * as theme from '@app/theme';
 import { configureStore } from '@reduxjs/toolkit';
-import { MockSafeAreaContext } from './MockSafeAreaContext';
+import { MockSafeAreaContext } from '../mocks';
 
 let store = configureStore({
   reducer: {

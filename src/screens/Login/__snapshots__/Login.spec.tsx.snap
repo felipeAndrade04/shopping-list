@@ -10,14 +10,25 @@ exports[`Login page Should render correctly 1`] = `
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
-        "paddingBottom": 24,
+        "paddingBottom": 0,
         "paddingLeft": 24,
         "paddingRight": 24,
-        "paddingTop": 24,
+        "paddingTop": 0,
       },
     ]
   }
 >
+  <View
+    style={
+      Array [
+        Object {
+          "marginBottom": 24,
+        },
+      ]
+    }
+  >
+    <logo.svg />
+  </View>
   <View
     style={
       Array [
@@ -28,21 +39,6 @@ exports[`Login page Should render correctly 1`] = `
       ]
     }
   >
-    <Image
-      source={1}
-      style={
-        Array [
-          Object {
-            "height": 200,
-            "marginBottom": 50,
-            "marginLeft": "auto",
-            "marginRight": "auto",
-            "marginTop": 0,
-            "width": 240,
-          },
-        ]
-      }
-    />
     <Text
       style={
         Array [
@@ -99,12 +95,13 @@ exports[`Login page Should render correctly 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
-              "borderColor": "#0D0A0B",
+              "borderColor": "#FFFFFF",
               "borderRadius": 6,
               "borderStyle": "solid",
-              "borderWidth": 1,
+              "borderWidth": 2,
               "flexDirection": "row",
               "opacity": 1,
+              "transition": "border-color 0.3s ease-in",
               "width": "100%",
             },
           ]
@@ -164,12 +161,13 @@ exports[`Login page Should render correctly 1`] = `
             Object {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
-              "borderColor": "#0D0A0B",
+              "borderColor": "#FFFFFF",
               "borderRadius": 6,
               "borderStyle": "solid",
-              "borderWidth": 1,
+              "borderWidth": 2,
               "flexDirection": "row",
               "opacity": 1,
+              "transition": "border-color 0.3s ease-in",
               "width": "100%",
             },
           ]
@@ -266,6 +264,7 @@ exports[`Login page Should render correctly 1`] = `
     collapsable={false}
     color="#009Cf7"
     delayLongPress={600}
+    enabled={false}
     handlerTag={2}
     handlerType="NativeViewGestureHandler"
     isLoading={false}
@@ -292,7 +291,7 @@ exports[`Login page Should render correctly 1`] = `
         "marginLeft": 0,
         "marginRight": 0,
         "marginTop": 24,
-        "opacity": 1,
+        "opacity": 0.6,
         "paddingBottom": 8,
         "paddingLeft": 12,
         "paddingRight": 12,
@@ -328,8 +327,8 @@ exports[`Login page Should render correctly 1`] = `
         Array [
           Object {
             "color": "#FFFFFF",
+            "fontFamily": "Poppins-Bold",
             "fontSize": 18,
-            "fontWeight": "700",
           },
         ]
       }

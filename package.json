@@ -69,7 +69,11 @@
     "preset": "jest-expo",
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
-    ]
+    ],
+    "transform": {
+      "^.+\\.tsx$": "babel-jest",
+      "\\.svg$": "<rootDir>/fileTransformer.js"
+    }
   },
   "private": true
 }
