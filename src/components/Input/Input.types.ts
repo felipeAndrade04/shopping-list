@@ -5,4 +5,6 @@ export interface InputProps extends TextInputProps {
   isFocused?: boolean;
   inputPassword?: boolean;
   error?: string;
+  borderColor?: string;
+  borderWidth?: number;
 }

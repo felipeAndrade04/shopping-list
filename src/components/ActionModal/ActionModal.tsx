@@ -25,7 +25,13 @@ export function ActionModal({
       <S.Container>
         <S.Title>{title}</S.Title>
         <Spacer dimesion={24} />
-        <Input value={name} onChangeText={(event) => setName(event)} placeholder="Informe o nome" />
+        <Input
+          value={name}
+          onChangeText={(event) => setName(event)}
+          placeholder="Informe o nome"
+          borderColor={colors.dark}
+          borderWidth={1}
+        />
         <Spacer dimesion={48} />
         <S.Actions>
           <S.Action>

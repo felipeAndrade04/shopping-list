@@ -108,16 +108,18 @@ exports[`<ActionModal /> Should render correctly 1`] = `
           }
         >
           <View
+            borderColor="#0D0A0B"
+            borderWidth={1}
             isFocused={false}
             style={
               Array [
                 Object {
                   "alignItems": "center",
                   "backgroundColor": "#FFFFFF",
-                  "borderColor": "#FFFFFF",
+                  "borderColor": "#0D0A0B",
                   "borderRadius": 6,
                   "borderStyle": "solid",
-                  "borderWidth": 2,
+                  "borderWidth": 1,
                   "flexDirection": "row",
                   "opacity": 1,
                   "transition": "border-color 0.3s ease-in",
