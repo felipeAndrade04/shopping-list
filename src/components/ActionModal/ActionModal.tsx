@@ -29,13 +29,15 @@ export function ActionModal({
         <Spacer dimesion={48} />
         <S.Actions>
           <S.Action>
-            <Button onPress={close} variant="outline" color={colors.red}>
+            <Button onPress={close} variant="outline" color={colors.red} testID="cancelButton">
               Cancelar
             </Button>
           </S.Action>
           <Spacer dimesion={16} />
           <S.Action>
-            <Button onPress={handleSuccess}>{successActionText}</Button>
+            <Button onPress={handleSuccess} testID="successButton">
+              {successActionText}
+            </Button>
           </S.Action>
         </S.Actions>
       </S.Container>
