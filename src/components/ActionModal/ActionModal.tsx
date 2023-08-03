@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal } from '../Modal';
 import { ActionModalProps } from './ActionModal.types';
 import * as S from './ActionModal.styles';
@@ -14,12 +14,18 @@ export function ActionModal({
   close,
   successAction,
 }: ActionModalProps) {
+  const [name, setName] = useState('');
+
+  async function handleSuccess() {
+    await successAction(name);
+  }
+
   return (
     <Modal show={show} close={close}>
       <S.Container>
         <S.Title>{title}</S.Title>
         <Spacer dimesion={24} />
-        <Input placeholder="Informe o nome" />
+        <Input value={name} onChangeText={(event) => setName(event)} placeholder="Informe o nome" />
         <Spacer dimesion={48} />
         <S.Actions>
           <S.Action>
@@ -29,7 +35,7 @@ export function ActionModal({
           </S.Action>
           <Spacer dimesion={16} />
           <S.Action>
-            <Button onPress={successAction}>{successActionText}</Button>
+            <Button onPress={handleSuccess}>{successActionText}</Button>
           </S.Action>
         </S.Actions>
       </S.Container>

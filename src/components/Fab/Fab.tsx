@@ -3,9 +3,15 @@ import { Feather } from '@expo/vector-icons';
 import * as S from './Fab.styles';
 import { colors } from '@app/theme';
 import { ActionModal } from '../ActionModal';
+import { awaitDelay } from '@app/utils/delay';
 
 export function Fab() {
   const [show, setShow] = useState(false);
+
+  async function handleSuccessAction(name: string) {
+    await awaitDelay();
+    console.log(name);
+  }
 
   return (
     <>
@@ -17,7 +23,7 @@ export function Fab() {
         successActionText="Criar"
         show={show}
         close={() => setShow(false)}
-        successAction={() => console.tron.log('Success')}
+        successAction={handleSuccessAction}
       />
     </>
   );
