@@ -57,10 +57,6 @@ exports[`<Modal /> Should render correctly 1`] = `
           "backgroundColor": "#F4F4F4",
           "borderRadius": 16,
           "opacity": 1,
-          "paddingBottom": 12,
-          "paddingLeft": 12,
-          "paddingRight": 12,
-          "paddingTop": 12,
           "width": "100%",
         }
       }

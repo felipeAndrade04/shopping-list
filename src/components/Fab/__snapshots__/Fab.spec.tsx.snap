@@ -1,29 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Fab /> Should render correctly 1`] = `
-<View
-  accessible={true}
-  collapsable={false}
-  focusable={false}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#009Cf7",
-      "borderRadius": 999,
-      "height": 60,
-      "justifyContent": "center",
-      "opacity": 1,
-      "width": 60,
+Array [
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#009Cf7",
+        "borderRadius": 999,
+        "height": 60,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": 60,
+      }
     }
-  }
->
-  <Text />
-</View>
+  >
+    <Text />
+  </View>,
+  <Modal
+    animationType="fade"
+    hardwareAccelerated={false}
+    onRequestClose={[Function]}
+    style={
+      Array [
+        Object {},
+      ]
+    }
+    transparent={true}
+    visible={false}
+  />,
+]
 `;
