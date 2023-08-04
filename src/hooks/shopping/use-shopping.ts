@@ -4,6 +4,16 @@ import { useEffect, useState } from 'react';
 
 export function useShopping() {
   const [isLoading, setIsLoading] = useState(false);
+  const [shopping, setShopping] = useState<Shopping[]>([]);
+
+  useEffect(() => {
+    const unSubscribe = services.shopping.list(setShopping);
+
+    return () => {
+      unSubscribe();
+    };
+  }, []);
+
   async function create(name: string) {
     try {
       setIsLoading(true);
@@ -18,6 +28,7 @@ export function useShopping() {
 
   return {
     isLoading,
+    shopping,
     create,
   };
 }
