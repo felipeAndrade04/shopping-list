@@ -3,14 +3,14 @@ import { Feather } from '@expo/vector-icons';
 import * as S from './Fab.styles';
 import { colors } from '@app/theme';
 import { ActionModal } from '../ActionModal';
-import { awaitDelay } from '@app/utils/delay';
+import { useShopping } from '@app/hooks/shopping';
 
 export function Fab() {
   const [show, setShow] = useState(false);
+  const { create, isLoading } = useShopping();
 
   async function handleSuccessAction(name: string) {
-    await awaitDelay();
-    console.log(name);
+    await create(name);
   }
 
   return (
@@ -22,6 +22,7 @@ export function Fab() {
         title="Criar Lista"
         successActionText="Criar"
         show={show}
+        isLoading={isLoading}
         close={() => setShow(false)}
         successAction={handleSuccessAction}
       />

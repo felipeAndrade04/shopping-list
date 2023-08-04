@@ -11,6 +11,7 @@ export function ActionModal({
   show,
   title,
   successActionText,
+  isLoading,
   close,
   successAction,
 }: ActionModalProps) {
@@ -18,6 +19,7 @@ export function ActionModal({
 
   async function handleSuccess() {
     await successAction(name);
+    setName('');
   }
 
   return (
@@ -41,7 +43,7 @@ export function ActionModal({
           </S.Action>
           <Spacer dimesion={16} />
           <S.Action>
-            <Button onPress={handleSuccess} testID="successButton">
+            <Button onPress={handleSuccess} isLoading={isLoading} testID="successButton">
               {successActionText}
             </Button>
           </S.Action>
