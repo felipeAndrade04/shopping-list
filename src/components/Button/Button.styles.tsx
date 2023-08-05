@@ -22,6 +22,6 @@ export const Container = styled(RectButton)<ButtonProps>`
 
 export const Text = styled.Text<Pick<ButtonProps, 'color' | 'variant'>>`
   font-size: 18px;
-  font-weight: 700;
+  font-family: ${({ theme }) => theme.fonts.bold};
   color: ${(props) => (props.variant === 'outline' ? props.color : colors.white)};
 `;

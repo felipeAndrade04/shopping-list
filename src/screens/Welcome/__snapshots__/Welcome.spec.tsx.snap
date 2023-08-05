@@ -23,27 +23,23 @@ exports[`Welcome page Should render correctly 1`] = `
     style={
       Array [
         Object {
+          "marginBottom": 48,
+        },
+      ]
+    }
+  >
+    <largeLogo.svg />
+  </View>
+  <View
+    style={
+      Array [
+        Object {
           "justifyContent": "center",
           "width": "100%",
         },
       ]
     }
   >
-    <Image
-      source={1}
-      style={
-        Array [
-          Object {
-            "height": 200,
-            "marginBottom": 50,
-            "marginLeft": "auto",
-            "marginRight": "auto",
-            "marginTop": 0,
-            "width": 240,
-          },
-        ]
-      }
-    />
     <Text
       style={
         Array [
@@ -87,6 +83,7 @@ exports[`Welcome page Should render correctly 1`] = `
       collapsable={false}
       color="#009Cf7"
       delayLongPress={600}
+      enabled={true}
       handlerTag={1}
       handlerType="NativeViewGestureHandler"
       onActiveStateChange={[Function]}
@@ -146,8 +143,8 @@ exports[`Welcome page Should render correctly 1`] = `
           Array [
             Object {
               "color": "#FFFFFF",
+              "fontFamily": "Poppins-Bold",
               "fontSize": 18,
-              "fontWeight": "700",
             },
           ]
         }
@@ -172,6 +169,7 @@ exports[`Welcome page Should render correctly 1`] = `
       collapsable={false}
       color="#009Cf7"
       delayLongPress={600}
+      enabled={true}
       handlerTag={2}
       handlerType="NativeViewGestureHandler"
       onActiveStateChange={[Function]}
@@ -231,8 +229,8 @@ exports[`Welcome page Should render correctly 1`] = `
           Array [
             Object {
               "color": "#009Cf7",
+              "fontFamily": "Poppins-Bold",
               "fontSize": 18,
-              "fontWeight": "700",
             },
           ]
         }

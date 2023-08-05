@@ -5,7 +5,15 @@ import { InputProps } from './Input.types';
 import { NativeSyntheticEvent, TextInputFocusEventData } from 'react-native';
 import { colors } from '@app/theme';
 
-export function Input({ disabled, error, inputPassword, testID, ...props }: InputProps) {
+export function Input({
+  disabled,
+  error,
+  inputPassword,
+  testID,
+  borderColor,
+  borderWidth,
+  ...props
+}: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -28,7 +36,13 @@ export function Input({ disabled, error, inputPassword, testID, ...props }: Inpu
 
   return (
     <S.InputContainer>
-      <S.InputContent error={error} isFocused={isFocused} disabled={disabled}>
+      <S.InputContent
+        error={error}
+        isFocused={isFocused}
+        disabled={disabled}
+        borderColor={borderColor}
+        borderWidth={borderWidth}
+      >
         <S.Input
           {...props}
           secureTextEntry={inputPassword && !showPassword}

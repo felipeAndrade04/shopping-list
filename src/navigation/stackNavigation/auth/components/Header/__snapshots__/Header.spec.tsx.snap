@@ -30,6 +30,7 @@ exports[`<Header /> Should render correctly 1`] = `
     style={
       Object {
         "marginTop": 16,
+        "width": 32,
       }
     }
     testID="go-back"
