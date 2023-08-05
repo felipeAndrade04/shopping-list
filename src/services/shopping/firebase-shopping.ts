@@ -14,6 +14,7 @@ export class FirebaseShopping implements ShoppingService {
       const newShopping: Omit<Shopping, 'id'> = {
         name,
         created_at: new Date(),
+        products: [],
       };
 
       const docRef = await addDoc(collection(this.db, this.key), newShopping);
