@@ -3,7 +3,7 @@ import React from 'react';
 import { ForgotPassword } from './ForgotPassword';
 import { AuthStackNavigationProps } from '@app/navigation/stackNavigation/auth';
 import services from '@app/services';
-import { wrapper } from '@app/utils';
+import { wrapper } from '@app/utils/testUtils';
 
 describe('Forgot password page', () => {
   const navigation = {

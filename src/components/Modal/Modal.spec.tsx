@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { fireEvent, render } from '@testing-library/react-native';
-import { wrapper } from '@app/utils';
+import { wrapper } from '@app/utils/testUtils';
 import { Modal } from './Modal';
 
 describe('<Modal />', () => {

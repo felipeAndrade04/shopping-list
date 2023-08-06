@@ -73,7 +73,10 @@
     "transform": {
       "^.+\\.tsx$": "babel-jest",
       "\\.svg$": "<rootDir>/fileTransformer.js"
-    }
+    },
+    "setupFiles": [
+      "<rootDir>/src/config/jest-setup.ts"
+    ]
   },
   "private": true
 }

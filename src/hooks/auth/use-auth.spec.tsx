@@ -2,7 +2,7 @@ import { renderHook, waitFor } from '@testing-library/react-native';
 import { useAuth } from './use-auth';
 import services from '@app/services';
 import { Authentication, LoginParams, RegisterParams } from '@app/services/auth';
-import { wrapper, resetStore } from '@app/utils';
+import { wrapper, resetStore } from '@app/utils/testUtils';
 
 jest.mock('@app/services', () => ({
   auth: {

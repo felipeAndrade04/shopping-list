@@ -6,3 +6,6 @@ export * from './Spacer';
 export * from './FormWrapper';
 export * from './Modal';
 export * from './ActionModal';
+export * from './ShoppingList';
+export * from './ShoppingCard';
+export * from './ProgressCircle';

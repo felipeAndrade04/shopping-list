@@ -5,7 +5,7 @@ import { Register } from './Register';
 import { LoginParams, RegisterParams } from '@app/services/auth';
 import services from '@app/services';
 import { useAuth } from '@app/hooks';
-import { resetStore, wrapper } from '@app/utils';
+import { resetStore, wrapper } from '@app/utils/testUtils';
 import '@app/mocks/MockReactNativePlatform';
 
 describe('Register page', () => {

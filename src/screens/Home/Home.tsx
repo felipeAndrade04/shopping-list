@@ -1,9 +1,8 @@
-import { Message } from '@app/components';
+import { Message, ShoppingList } from '@app/components';
 import React from 'react';
 import * as S from './Home.styles';
 import { useAuth } from '@app/hooks';
 import { useShopping } from '@app/hooks/shopping';
-import { Text } from 'react-native';
 
 export function Home() {
   const { user } = useAuth();
@@ -12,7 +11,7 @@ export function Home() {
   return (
     <S.Container>
       {shopping.length ? (
-        shopping.map((item) => <Text key={item.id}>{item.name}</Text>)
+        <ShoppingList data={shopping} />
       ) : (
         <Message
           title={`Olá ${user.name},`}

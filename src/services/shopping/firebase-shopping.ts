@@ -36,8 +36,9 @@ export class FirebaseShopping implements ShoppingService {
       const shoppingList: Shopping[] = [];
       querySnapshot.forEach((doc) => {
         shoppingList.push({
-          id: doc.id,
           ...doc.data(),
+          id: doc.id,
+          created_at: doc.data().created_at.toDate(),
         } as Shopping);
       });
       setState(shoppingList);

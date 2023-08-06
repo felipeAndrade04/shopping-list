@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
-import { wrapper } from '@app/utils';
+import { wrapper } from '@app/utils/testUtils';
 import { ActionModal } from './ActionModal';
 
 describe('<ActionModal />', () => {
