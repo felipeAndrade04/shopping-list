@@ -11,7 +11,7 @@ export const Container = styled.TouchableOpacity.attrs(() => ({
 
 export const Title = styled.Text`
   font-size: 16px;
-  font-family: ${({ theme }) => theme.fonts.medium};
+  font-family: ${({ theme }) => theme.fonts.bold};
   color: ${({ theme }) => theme.colors.dark};
 `;
 
@@ -21,8 +21,20 @@ export const Footer = styled.View`
   justify-content: space-between;
 `;
 
+export const FooterLeft = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
 export const Counter = styled.Text`
   font-size: 16px;
+  color: ${({ theme }) => theme.colors.gray[300]};
+  font-family: ${({ theme }) => theme.fonts.medium};
+`;
+
+export const CounterTotal = styled.Text`
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.dark};
   font-family: ${({ theme }) => theme.fonts.bold};
 `;
 

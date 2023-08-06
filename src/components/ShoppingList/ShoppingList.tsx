@@ -16,7 +16,7 @@ export function ShoppingList({ data }: ShoppingListProps) {
       <FlatList
         data={data}
         renderItem={renderItem}
-        keyExtractor={(item: any) => item.id}
+        keyExtractor={(item: Shopping) => item.id}
         ItemSeparatorComponent={() => <Spacer dimesion={16} />}
         showsVerticalScrollIndicator={false}
       />
