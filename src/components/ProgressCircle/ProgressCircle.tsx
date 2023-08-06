@@ -9,7 +9,7 @@ export function ProgressCircle({ progress = 0, size = 50 }: ProgressCircleProps)
   const animateProgress = useRef((toValue: number) => {
     Animated.spring(animatedProgress, {
       toValue,
-      useNativeDriver: true,
+      useNativeDriver: false,
     }).start();
   }).current;
 

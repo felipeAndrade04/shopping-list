@@ -5,7 +5,7 @@ import { AuthStackNavigationProps } from '@app/navigation/stackNavigation/auth';
 import services from '@app/services';
 import { LoginParams } from '@app/services/auth';
 import { useAuth } from '@app/hooks';
-import { resetStore, wrapper } from '@app/utils';
+import { resetStore, wrapper } from '@app/utils/testUtils';
 import '@app/mocks/MockReactNativePlatform';
 
 describe('Login page', () => {
