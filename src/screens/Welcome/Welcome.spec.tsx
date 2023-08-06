@@ -1,7 +1,7 @@
 import React, { fireEvent, render } from '@testing-library/react-native';
 import { Welcome } from '../Welcome';
 import { AuthStackNavigationProps } from '@app/navigation/stackNavigation/auth';
-import { wrapper } from '@app/utils';
+import { wrapper } from '@app/utils/testUtils';
 
 describe('Welcome page', () => {
   const navigation = {

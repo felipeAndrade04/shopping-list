@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react-native';
 import { Fab } from './Fab';
-import { wrapper } from '@app/utils';
+import { wrapper } from '@app/utils/testUtils';
 
 describe('<Fab />', () => {
   it('Should render correctly', () => {

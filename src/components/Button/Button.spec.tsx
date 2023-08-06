@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react-native';
 import { Button } from './Button';
-import { wrapper } from '@app/utils';
+import { wrapper } from '@app/utils/testUtils';
 
 describe('<Button />', () => {
   it('Should be render correctly', () => {

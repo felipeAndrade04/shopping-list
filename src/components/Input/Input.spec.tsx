@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 import { Input } from './Input';
-import { wrapper } from '@app/utils';
+import { wrapper } from '@app/utils/testUtils';
 
 describe('<Input />', () => {
   it('Should be render correctly', () => {
