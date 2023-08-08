@@ -9,7 +9,8 @@
     "web": "expo start --web",
     "lint": "eslint --ext .tsx --ext .ts src/",
     "format": "prettier --check ./src",
-    "test": "jest"
+    "test": "jest",
+    "check-type": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.0",
