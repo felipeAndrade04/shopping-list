@@ -3,7 +3,7 @@ import { RectButton } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import { ButtonProps } from './Button.types';
 
-export const Container = styled(RectButton)<ButtonProps>`
+export const Container = styled(RectButton as any)<ButtonProps>`
   background-color: ${(props) => (props.variant === 'outline' ? colors.white : props.color)};
   border: ${(props) => (props.variant === 'outline' ? `2px solid ${props.color}` : 'none')};
   width: 100%;

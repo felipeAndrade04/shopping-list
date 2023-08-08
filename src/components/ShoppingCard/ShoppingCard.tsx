@@ -6,7 +6,7 @@ import { formatDate } from '@app/utils';
 import { ProgressCircle } from '../ProgressCircle';
 
 export function ShoppingCard({ shopping }: ShoppingCardProps) {
-  function calcProgress(products: any[]) {
+  function calcProgress(products: []) {
     if (products.length === 0) {
       return 0;
     }
