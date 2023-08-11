@@ -1,7 +1,15 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-import { firebaseConfig } from './env';
+import {
+  API_KEY,
+  APP_ID,
+  AUTH_DOMAIN,
+  MEASUREMENT_ID,
+  MESSAGING_SENDER_ID,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+} from '@env';
 
 export interface FirebaseConfig {
   apiKey: string;
@@ -13,7 +21,15 @@ export interface FirebaseConfig {
   measurementId: string;
 }
 
-const app = initializeApp(firebaseConfig);
+const app = initializeApp({
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGING_SENDER_ID,
+  appId: APP_ID,
+  measurementId: MEASUREMENT_ID,
+});
 
 export const auth = getAuth(app);
 export const db = getFirestore(app);
