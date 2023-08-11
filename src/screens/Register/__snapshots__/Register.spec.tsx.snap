@@ -449,22 +449,22 @@ exports[`Register page Should render correctly 1`] = `
           Criar conta
         </Text>
       </RNGestureHandlerButton>
-      <View
-        accessible={true}
+      <RNGestureHandlerButton
+        activeOpacity={0.105}
         collapsable={false}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+        delayLongPress={600}
+        handlerTag={2}
+        handlerType="NativeViewGestureHandler"
+        onActiveStateChange={[Function]}
+        onGestureEvent={[Function]}
+        onGestureHandlerEvent={[Function]}
+        onGestureHandlerStateChange={[Function]}
+        onHandlerStateChange={[Function]}
+        onPress={[Function]}
         style={
           Object {
             "borderRadius": 6,
             "marginBottom": 24,
-            "opacity": 1,
             "paddingBottom": 8,
             "paddingLeft": 12,
             "paddingRight": 12,
@@ -472,7 +472,27 @@ exports[`Register page Should render correctly 1`] = `
           }
         }
         testID="login"
+        underlayColor="black"
       >
+        <View
+          collapsable={false}
+          style={
+            Object {
+              "backgroundColor": "black",
+              "borderBottomLeftRadius": undefined,
+              "borderBottomRightRadius": undefined,
+              "borderRadius": 6,
+              "borderTopLeftRadius": undefined,
+              "borderTopRightRadius": undefined,
+              "bottom": 0,
+              "left": 0,
+              "opacity": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
+          }
+        />
         <Text
           style={
             Array [
@@ -496,7 +516,7 @@ exports[`Register page Should render correctly 1`] = `
              Entrar
           </Text>
         </Text>
-      </View>
+      </RNGestureHandlerButton>
     </View>
   </View>
 </RCTScrollView>
