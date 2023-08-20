@@ -19,7 +19,7 @@ export const InputsContainer = styled.View`
   margin-top: 48px;
 `;
 
-export const SimpleButton = styled(RectButton)`
+export const SimpleButton = styled(RectButton as any)`
   padding: 8px 12px;
   border-radius: 6px;
   margin-bottom: 24px;

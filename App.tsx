@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'react-native';
@@ -10,6 +11,7 @@ import '@app/config/reactotron-config';
 import { MainStackNavigator } from '@app/navigation';
 import { Provider } from 'react-redux';
 import { store } from './src/store';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -23,15 +25,17 @@ export default function App() {
   }
 
   return (
-    <Provider store={store}>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <ThemeProvider theme={theme}>
-            <StatusBar barStyle={'light-content'} />
-            <MainStackNavigator />
-          </ThemeProvider>
-        </NavigationContainer>
-      </SafeAreaProvider>
-    </Provider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Provider store={store}>
+        <SafeAreaProvider>
+          <NavigationContainer>
+            <ThemeProvider theme={theme}>
+              <StatusBar barStyle={'light-content'} />
+              <MainStackNavigator />
+            </ThemeProvider>
+          </NavigationContainer>
+        </SafeAreaProvider>
+      </Provider>
+    </GestureHandlerRootView>
   );
 }
