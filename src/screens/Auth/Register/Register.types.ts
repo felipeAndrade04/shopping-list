@@ -1,5 +1,4 @@
-import { AuthStackNavigationProps } from '@app/navigation/stackNavigation/auth';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { AuthStackParamList } from '@app/navigation/stackNavigation/auth';
 
-export interface RegisterProps {
-  navigation: AuthStackNavigationProps;
-}
+export type RegisterProps = NativeStackScreenProps<AuthStackParamList, 'Register'>;

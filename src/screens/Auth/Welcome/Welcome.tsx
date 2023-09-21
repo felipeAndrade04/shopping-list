@@ -2,14 +2,11 @@ import React from 'react';
 import { StatusBar } from 'react-native';
 import * as S from './Welcome.styles';
 import { Button, Message, Spacer } from '@app/components';
-import { AuthStackNavigationProps, AuthStackParamList } from '@app/navigation/stackNavigation/auth';
+import { AuthStackParamList } from '@app/navigation/stackNavigation/auth';
 import Logo from '@app/assets/images/largeLogo.svg';
+import { WelcomeProps } from './Welcome.types';
 
-interface Props {
-  navigation: AuthStackNavigationProps;
-}
-
-export function Welcome({ navigation }: Props) {
+export function Welcome({ navigation }: WelcomeProps) {
   function onNavigation(name: keyof AuthStackParamList) {
     navigation.navigate(name);
   }
