@@ -4,8 +4,12 @@ import { ShoppingCardProps } from './ShoppingCard.types';
 import { Spacer } from '../Spacer';
 import { formatDate } from '@app/utils';
 import { ProgressCircle } from '../ProgressCircle';
+import { useNavigation } from '@react-navigation/native';
+import { ShoppingListStackNavigationProps } from '@app/navigation/stackNavigation/shoppingList';
 
 export function ShoppingCard({ shopping }: ShoppingCardProps) {
+  const navigation = useNavigation<ShoppingListStackNavigationProps>();
+
   function calcProgress(products: []) {
     if (products.length === 0) {
       return 0;
@@ -14,8 +18,12 @@ export function ShoppingCard({ shopping }: ShoppingCardProps) {
     return 100;
   }
 
+  function navigateToShopping() {
+    navigation.navigate('ShoppingList', { id: shopping.id });
+  }
+
   return (
-    <S.Container>
+    <S.Container onPress={navigateToShopping}>
       <S.Title>{shopping.name}</S.Title>
 
       <Spacer dimesion={8} />
