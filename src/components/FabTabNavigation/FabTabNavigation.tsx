@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Feather } from '@expo/vector-icons';
-import * as S from './Fab.styles';
+import * as S from './FabTabNavigation.styles';
 import { colors } from '@app/theme';
 import { ActionModal } from '../ActionModal';
 import { useShopping } from '@app/hooks/shopping';
 
-export function Fab() {
+export function FabTabNavigation() {
   const [show, setShow] = useState(false);
   const { create, isLoading } = useShopping();
 

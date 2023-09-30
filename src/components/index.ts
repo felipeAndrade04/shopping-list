@@ -1,4 +1,4 @@
-export * from './Fab';
+export * from './FabTabNavigation';
 export * from './Message';
 export * from './Button';
 export * from './Input';
