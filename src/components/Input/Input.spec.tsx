@@ -2,6 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react-native';
 import { Input } from './Input';
 import { wrapper } from '@app/utils/testUtils';
+import { View } from 'react-native';
 
 describe('<Input />', () => {
   it('Should be render correctly', () => {
@@ -30,5 +31,17 @@ describe('<Input />', () => {
     const textError = getByText('test error');
 
     expect(textError).toBeTruthy();
+  });
+
+  it('Should render left Icon', () => {
+    const { getByTestId } = render(<Input leftIcon={<View testID="leftIcon" />} />, { wrapper });
+
+    expect(getByTestId('leftIcon')).toBeTruthy();
+  });
+
+  it('Should render right Icon', () => {
+    const { getByTestId } = render(<Input rightIcon={<View testID="rightIcon" />} />, { wrapper });
+
+    expect(getByTestId('rightIcon')).toBeTruthy();
   });
 });

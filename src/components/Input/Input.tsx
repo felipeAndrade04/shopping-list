@@ -12,6 +12,8 @@ export function Input({
   testID,
   borderColor,
   borderWidth,
+  leftIcon,
+  rightIcon,
   ...props
 }: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
@@ -43,6 +45,7 @@ export function Input({
         borderColor={borderColor}
         borderWidth={borderWidth}
       >
+        {leftIcon}
         <S.Input
           {...props}
           secureTextEntry={inputPassword && !showPassword}
@@ -61,6 +64,7 @@ export function Input({
             size={24}
           />
         )}
+        {rightIcon}
       </S.InputContent>
 
       {error && <S.InputTextError>{error}</S.InputTextError>}

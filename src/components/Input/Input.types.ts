@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { TextInputProps } from 'react-native';
 
 export interface InputProps extends TextInputProps {
@@ -7,4 +8,6 @@ export interface InputProps extends TextInputProps {
   error?: string;
   borderColor?: string;
   borderWidth?: number;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
 }
