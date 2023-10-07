@@ -8,6 +8,18 @@ describe('<Checkbox />', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('Should be render checked checkbox', () => {
+    const { getByTestId } = render(<Checkbox value={true} />, { wrapper });
+
+    expect(getByTestId('checkbox-icon')).toBeTruthy();
+  });
+
+  it('Should be render unchecked checkbox', () => {
+    const { queryByTestId } = render(<Checkbox value={false} />, { wrapper });
+
+    expect(queryByTestId('checkbox-icon')).toBeFalsy();
+  });
+
   it('Should toggle checkbox', () => {
     let value = true;
 
