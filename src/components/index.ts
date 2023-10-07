@@ -11,3 +11,4 @@ export * from './ShoppingCard';
 export * from './ProgressCircle';
 export * from './Checkbox';
 export * from './Quantity';
+export * from './ProductCard';
