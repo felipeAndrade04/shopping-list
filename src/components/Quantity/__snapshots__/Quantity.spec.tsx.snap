@@ -11,6 +11,7 @@ exports[`<Quantity /> Should be render correctly 1`] = `
       },
     ]
   }
+  testID="quantity"
 >
   <View
     accessible={true}

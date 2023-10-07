@@ -23,7 +23,7 @@ export function Quantity({ initialValue, value, onChange }: QuantityProps) {
   }
 
   return (
-    <S.QuantityComponent>
+    <S.QuantityComponent testID="quantity">
       <S.QuantityButton onPress={onDecrement} testID="decrement-quantity">
         <AntDesign name="minus" size={18} color="white" />
       </S.QuantityButton>
