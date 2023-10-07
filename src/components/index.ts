@@ -10,3 +10,4 @@ export * from './ShoppingList';
 export * from './ShoppingCard';
 export * from './ProgressCircle';
 export * from './Checkbox';
+export * from './Quantity';
