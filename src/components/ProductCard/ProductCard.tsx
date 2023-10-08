@@ -1,4 +1,6 @@
-import { Checkbox, Quantity, Spacer } from '@app/components';
+import { Checkbox } from '@app/components/Checkbox';
+import { Quantity } from '@app/components/Quantity';
+import { Spacer } from '@app/components/Spacer';
 import { useState } from 'react';
 import * as S from './ProductCard.styles';
 import { ProductCardProps } from './ProductCard.types';

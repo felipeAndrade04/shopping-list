@@ -8,10 +8,10 @@ export function Checkbox({ value, onChange }: CheckboxProps) {
   const [isChecked, setIsChecked] = useState(value);
 
   function handleChangeValue() {
-    setIsChecked((prevState) => {
-      onChange(!prevState);
-      return !prevState;
-    });
+    const newValue = !isChecked;
+
+    onChange(newValue);
+    setIsChecked(newValue);
   }
 
   return (

@@ -7,19 +7,17 @@ export function Quantity({ initialValue, value, onChange }: QuantityProps) {
   const [quantity, setQuantity] = useState(initialValue || value || 1);
 
   function onIncrement() {
-    setQuantity((prevState) => {
-      const newValue = prevState + 1;
-      onChange && onChange(newValue);
-      return newValue;
-    });
+    const newValue = quantity + 1;
+
+    onChange && onChange(newValue);
+    setQuantity(newValue);
   }
 
   function onDecrement() {
-    setQuantity((prevState) => {
-      const newValue = prevState - 1;
-      onChange && onChange(newValue);
-      return newValue;
-    });
+    const newValue = quantity - 1;
+
+    onChange && onChange(newValue);
+    setQuantity(newValue);
   }
 
   return (
