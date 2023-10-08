@@ -11,3 +11,5 @@ jest.mock('firebase/auth', () => ({
   }),
   onAuthStateChanged: () => jest.fn(),
 }));
+
+jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
