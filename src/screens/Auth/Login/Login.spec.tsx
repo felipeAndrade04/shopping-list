@@ -1,7 +1,6 @@
 import React from 'react';
 import { fireEvent, render, renderHook, waitFor } from '@testing-library/react-native';
 import { Login } from './Login';
-import { AuthStackNavigationProps } from '@app/navigation/stackNavigation/auth';
 import services from '@app/services';
 import { LoginParams } from '@app/services/auth';
 import { useAuth } from '@app/hooks';
@@ -12,7 +11,10 @@ describe('Login page', () => {
   const navigation = {
     ...jest.requireMock('@app/navigation/stackNavigation/auth'),
     navigate: jest.fn(),
-  } as AuthStackNavigationProps;
+  };
+  const route = {
+    ...jest.requireMock('@app/navigation/stackNavigation/auth'),
+  };
 
   afterEach(() => {
     jest.resetAllMocks();
@@ -20,15 +22,20 @@ describe('Login page', () => {
   });
 
   it('Should render correctly', () => {
-    const tree = render(<Login navigation={navigation}></Login>, { wrapper }).toJSON();
+    const tree = render(<Login navigation={navigation} route={route}></Login>, {
+      wrapper,
+    }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
   it('Should be required email and password', async () => {
-    const { queryAllByText, queryByText } = render(<Login navigation={navigation}></Login>, {
-      wrapper,
-    });
+    const { queryAllByText, queryByText } = render(
+      <Login navigation={navigation} route={route}></Login>,
+      {
+        wrapper,
+      }
+    );
 
     const button = queryByText(/entrar/i);
 
@@ -40,9 +47,12 @@ describe('Login page', () => {
   });
 
   it('Should be required email', async () => {
-    const { queryByText, queryByTestId } = render(<Login navigation={navigation}></Login>, {
-      wrapper,
-    });
+    const { queryByText, queryByTestId } = render(
+      <Login navigation={navigation} route={route}></Login>,
+      {
+        wrapper,
+      }
+    );
 
     const button = queryByText(/entrar/i);
     const inputPassword = queryByTestId(/input-password/i);
@@ -56,9 +66,12 @@ describe('Login page', () => {
   });
 
   it('Should be required password', async () => {
-    const { queryByText, queryByTestId } = render(<Login navigation={navigation}></Login>, {
-      wrapper,
-    });
+    const { queryByText, queryByTestId } = render(
+      <Login navigation={navigation} route={route}></Login>,
+      {
+        wrapper,
+      }
+    );
 
     const button = queryByText(/entrar/i);
     const inputEmail = queryByTestId(/input-email/i);
@@ -72,9 +85,12 @@ describe('Login page', () => {
   });
 
   it('Should be valid email and password', async () => {
-    const { queryByText, queryByTestId } = render(<Login navigation={navigation}></Login>, {
-      wrapper,
-    });
+    const { queryByText, queryByTestId } = render(
+      <Login navigation={navigation} route={route}></Login>,
+      {
+        wrapper,
+      }
+    );
 
     const button = queryByText(/entrar/i);
     const inputEmail = queryByTestId(/input-email/i);
@@ -91,9 +107,12 @@ describe('Login page', () => {
   });
 
   it('Should be valid email', async () => {
-    const { queryByText, queryByTestId } = render(<Login navigation={navigation}></Login>, {
-      wrapper,
-    });
+    const { queryByText, queryByTestId } = render(
+      <Login navigation={navigation} route={route}></Login>,
+      {
+        wrapper,
+      }
+    );
 
     const button = queryByText(/entrar/i);
     const inputEmail = queryByTestId(/input-email/i);
@@ -109,9 +128,12 @@ describe('Login page', () => {
   });
 
   it('Should be valid password', async () => {
-    const { queryByText, queryByTestId } = render(<Login navigation={navigation}></Login>, {
-      wrapper,
-    });
+    const { queryByText, queryByTestId } = render(
+      <Login navigation={navigation} route={route}></Login>,
+      {
+        wrapper,
+      }
+    );
 
     const button = queryByText(/entrar/i);
     const inputEmail = queryByTestId(/input-email/i);
@@ -142,9 +164,12 @@ describe('Login page', () => {
         });
       });
     });
-    const { queryByText, queryByTestId } = render(<Login navigation={navigation}></Login>, {
-      wrapper,
-    });
+    const { queryByText, queryByTestId } = render(
+      <Login navigation={navigation} route={route}></Login>,
+      {
+        wrapper,
+      }
+    );
     const { result } = renderHook(() => useAuth(), { wrapper });
 
     const button = queryByText(/entrar/i);
@@ -174,9 +199,12 @@ describe('Login page', () => {
         return reject(new Error('Login failed'));
       });
     });
-    const { queryByText, queryByTestId } = render(<Login navigation={navigation}></Login>, {
-      wrapper,
-    });
+    const { queryByText, queryByTestId } = render(
+      <Login navigation={navigation} route={route}></Login>,
+      {
+        wrapper,
+      }
+    );
     const { result } = renderHook(() => useAuth(), { wrapper });
 
     const button = queryByText(/entrar/i);
@@ -196,7 +224,7 @@ describe('Login page', () => {
   });
 
   it('Should navigate to forgot password page', () => {
-    const { queryByText } = render(<Login navigation={navigation}></Login>, {
+    const { queryByText } = render(<Login navigation={navigation} route={route}></Login>, {
       wrapper,
     });
 
@@ -207,7 +235,7 @@ describe('Login page', () => {
   });
 
   it('Should navigate to register', () => {
-    const { queryByTestId } = render(<Login navigation={navigation}></Login>, {
+    const { queryByTestId } = render(<Login navigation={navigation} route={route}></Login>, {
       wrapper,
     });
 

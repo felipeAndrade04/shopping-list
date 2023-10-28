@@ -1,22 +1,26 @@
 import React, { fireEvent, render } from '@testing-library/react-native';
 import { Welcome } from '../Welcome';
-import { AuthStackNavigationProps } from '@app/navigation/stackNavigation/auth';
 import { wrapper } from '@app/utils/testUtils';
 
 describe('Welcome page', () => {
   const navigation = {
     ...jest.requireMock('@app/navigation/stackNavigation/auth'),
     navigate: jest.fn(),
-  } as AuthStackNavigationProps;
+  };
+  const route = {
+    ...jest.requireMock('@app/navigation/stackNavigation/auth'),
+  };
 
   it('Should render correctly', () => {
-    const tree = render(<Welcome navigation={navigation}></Welcome>, { wrapper }).toJSON();
+    const tree = render(<Welcome navigation={navigation} route={route}></Welcome>, {
+      wrapper,
+    }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
   it('Should navigate to login page', () => {
-    const { queryByText } = render(<Welcome navigation={navigation}></Welcome>, {
+    const { queryByText } = render(<Welcome navigation={navigation} route={route}></Welcome>, {
       wrapper,
     });
 
@@ -27,7 +31,7 @@ describe('Welcome page', () => {
   });
 
   it('Should navigate to register', () => {
-    const { queryByText } = render(<Welcome navigation={navigation}></Welcome>, {
+    const { queryByText } = render(<Welcome navigation={navigation} route={route}></Welcome>, {
       wrapper,
     });
 

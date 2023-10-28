@@ -1,4 +1,3 @@
-import { AuthStackNavigationProps } from '@app/navigation/stackNavigation/auth';
 import { fireEvent, render, renderHook, waitFor } from '@testing-library/react-native';
 import React from 'react';
 import { Register } from './Register';
@@ -12,7 +11,10 @@ describe('Register page', () => {
   const navigation = {
     ...jest.requireMock('@app/navigation/stackNavigation/auth'),
     navigate: jest.fn(),
-  } as AuthStackNavigationProps;
+  };
+  const route = {
+    ...jest.requireMock('@app/navigation/stackNavigation/auth'),
+  };
 
   afterEach(() => {
     jest.resetAllMocks();
@@ -20,15 +22,20 @@ describe('Register page', () => {
   });
 
   it('Should render correctly', () => {
-    const tree = render(<Register navigation={navigation}></Register>, { wrapper }).toJSON();
+    const tree = render(<Register navigation={navigation} route={route}></Register>, {
+      wrapper,
+    }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
   it('Should be required name, email, password and confirm password', async () => {
-    const { queryAllByText, queryByText } = render(<Register navigation={navigation}></Register>, {
-      wrapper,
-    });
+    const { queryAllByText, queryByText } = render(
+      <Register navigation={navigation} route={route}></Register>,
+      {
+        wrapper,
+      }
+    );
 
     const button = queryByText(/criar conta/i);
 
@@ -40,9 +47,12 @@ describe('Register page', () => {
   });
 
   it('Should be valid email', async () => {
-    const { queryByText, queryByTestId } = render(<Register navigation={navigation}></Register>, {
-      wrapper,
-    });
+    const { queryByText, queryByTestId } = render(
+      <Register navigation={navigation} route={route}></Register>,
+      {
+        wrapper,
+      }
+    );
 
     const button = queryByText(/criar conta/i);
     const inputEmail = queryByTestId(/input-email/i);
@@ -56,9 +66,12 @@ describe('Register page', () => {
   });
 
   it('Should be valid password', async () => {
-    const { queryByText, queryByTestId } = render(<Register navigation={navigation}></Register>, {
-      wrapper,
-    });
+    const { queryByText, queryByTestId } = render(
+      <Register navigation={navigation} route={route}></Register>,
+      {
+        wrapper,
+      }
+    );
 
     const button = queryByText(/criar conta/i);
     const inputPassword = queryByTestId(/input-password/i);
@@ -72,9 +85,12 @@ describe('Register page', () => {
   });
 
   it('Should be passwords match', async () => {
-    const { queryByText, queryByTestId } = render(<Register navigation={navigation}></Register>, {
-      wrapper,
-    });
+    const { queryByText, queryByTestId } = render(
+      <Register navigation={navigation} route={route}></Register>,
+      {
+        wrapper,
+      }
+    );
 
     const button = queryByText(/criar conta/i);
     const inputPassword = queryByTestId(/input-password/i);
@@ -114,9 +130,12 @@ describe('Register page', () => {
         });
       });
     });
-    const { queryByText, queryByTestId } = render(<Register navigation={navigation}></Register>, {
-      wrapper,
-    });
+    const { queryByText, queryByTestId } = render(
+      <Register navigation={navigation} route={route}></Register>,
+      {
+        wrapper,
+      }
+    );
     const { result } = renderHook(() => useAuth(), { wrapper });
 
     const button = queryByText(/criar conta/i);
@@ -152,9 +171,12 @@ describe('Register page', () => {
         return reject(new Error('Register failed'));
       });
     });
-    const { queryByText, queryByTestId } = render(<Register navigation={navigation}></Register>, {
-      wrapper,
-    });
+    const { queryByText, queryByTestId } = render(
+      <Register navigation={navigation} route={route}></Register>,
+      {
+        wrapper,
+      }
+    );
     const { result } = renderHook(() => useAuth(), { wrapper });
 
     const button = queryByText(/criar conta/i);
@@ -178,7 +200,7 @@ describe('Register page', () => {
   });
 
   it('Should navigate to login', () => {
-    const { queryByTestId } = render(<Register navigation={navigation}></Register>, {
+    const { queryByTestId } = render(<Register navigation={navigation} route={route}></Register>, {
       wrapper,
     });
 

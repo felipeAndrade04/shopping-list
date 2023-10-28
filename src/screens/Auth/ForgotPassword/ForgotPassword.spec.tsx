@@ -1,7 +1,6 @@
 import { fireEvent, render, waitFor } from '@testing-library/react-native';
 import React from 'react';
 import { ForgotPassword } from './ForgotPassword';
-import { AuthStackNavigationProps } from '@app/navigation/stackNavigation/auth';
 import services from '@app/services';
 import { wrapper } from '@app/utils/testUtils';
 
@@ -9,10 +8,13 @@ describe('Forgot password page', () => {
   const navigation = {
     ...jest.requireMock('@app/navigation/stackNavigation/auth'),
     navigate: jest.fn(),
-  } as AuthStackNavigationProps;
+  };
+  const route = {
+    ...jest.requireMock('@app/navigation/stackNavigation/auth'),
+  };
 
   it('Should render correctly', () => {
-    const tree = render(<ForgotPassword navigation={navigation}></ForgotPassword>, {
+    const tree = render(<ForgotPassword navigation={navigation} route={route}></ForgotPassword>, {
       wrapper,
     }).toJSON();
 
@@ -20,9 +22,12 @@ describe('Forgot password page', () => {
   });
 
   it('Should be required email', async () => {
-    const { queryByText } = render(<ForgotPassword navigation={navigation}></ForgotPassword>, {
-      wrapper,
-    });
+    const { queryByText } = render(
+      <ForgotPassword navigation={navigation} route={route}></ForgotPassword>,
+      {
+        wrapper,
+      }
+    );
 
     const button = queryByText(/enviar/i);
 
@@ -35,7 +40,7 @@ describe('Forgot password page', () => {
 
   it('Should be valid email', async () => {
     const { queryByText, queryByTestId } = render(
-      <ForgotPassword navigation={navigation}></ForgotPassword>,
+      <ForgotPassword navigation={navigation} route={route}></ForgotPassword>,
       {
         wrapper,
       }
@@ -60,7 +65,7 @@ describe('Forgot password page', () => {
       });
     });
     const { queryByText, queryByTestId } = render(
-      <ForgotPassword navigation={navigation}></ForgotPassword>,
+      <ForgotPassword navigation={navigation} route={route}></ForgotPassword>,
       {
         wrapper,
       }
@@ -86,7 +91,7 @@ describe('Forgot password page', () => {
       });
     });
     const { queryByText, queryByTestId } = render(
-      <ForgotPassword navigation={navigation}></ForgotPassword>,
+      <ForgotPassword navigation={navigation} route={route}></ForgotPassword>,
       {
         wrapper,
       }
