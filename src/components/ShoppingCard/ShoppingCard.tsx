@@ -6,11 +6,12 @@ import { formatDate } from '@app/utils';
 import { ProgressCircle } from '../ProgressCircle';
 import { useNavigation } from '@react-navigation/native';
 import { ShoppingListStackNavigationProps } from '@app/navigation/stackNavigation/shoppingList';
+import { Product } from '@app/models';
 
 export function ShoppingCard({ shopping }: ShoppingCardProps) {
   const navigation = useNavigation<ShoppingListStackNavigationProps>();
 
-  function calcProgress(products: []) {
+  function calcProgress(products: Product[]) {
     if (products.length === 0) {
       return 0;
     }

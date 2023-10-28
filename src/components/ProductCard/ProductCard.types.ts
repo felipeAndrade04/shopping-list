@@ -1,13 +1,9 @@
 /* eslint-disable no-unused-vars */
-export interface ProductType {
-  id: string;
-  name: string;
-  category: string;
-  checked: boolean;
-}
+import { Product } from '@app/models';
 
 export interface ProductCardProps {
-  product: ProductType;
-  changeSelectedProduct?: (product: ProductType, value: boolean) => void;
+  product: Product;
+  isChecked: boolean;
+  changeSelectedProduct?: (product: Product, value: boolean) => void;
   changeQuantity?: (productId: string, quantity: number) => void;
 }

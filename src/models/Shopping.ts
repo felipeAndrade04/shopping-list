@@ -6,9 +6,9 @@ export interface Shopping {
 }
 
 export interface Product {
-  category: string;
-  checked?: boolean;
   id: string;
   name: string;
-  quantity: number;
+  category: string;
+  quantity?: number;
+  checked?: boolean;
 }

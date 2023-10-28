@@ -5,9 +5,14 @@ import { useState } from 'react';
 import * as S from './ProductCard.styles';
 import { ProductCardProps } from './ProductCard.types';
 
-export function ProductCard({ product, changeQuantity, changeSelectedProduct }: ProductCardProps) {
-  const [isChecked, setIsChecked] = useState(product.checked);
-  const [quantity, setQuantity] = useState(1);
+export function ProductCard({
+  product,
+  isChecked: isCheckedProp,
+  changeQuantity,
+  changeSelectedProduct,
+}: ProductCardProps) {
+  const [isChecked, setIsChecked] = useState(isCheckedProp);
+  const [quantity, setQuantity] = useState(product?.quantity);
 
   function onChangeQuantity(quantity: number) {
     changeQuantity(product.id, quantity);

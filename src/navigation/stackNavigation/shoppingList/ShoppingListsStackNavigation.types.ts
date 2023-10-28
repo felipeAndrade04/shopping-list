@@ -1,7 +1,7 @@
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 export type ShoppingListsStackParamList = {
-  AddProduct: undefined;
+  AddProduct: { id: string };
   ShoppingList: { id: string };
   Home: undefined;
 };
