@@ -10,6 +10,7 @@ export const InputContent = styled.View<InputProps>`
   width: 100%;
   flex-direction: row;
   align-items: center;
+  padding: 0px 12px;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 6px;
   border: ${({ theme, borderWidth }) => `${borderWidth ?? 2}px solid ${theme.colors.white}`};

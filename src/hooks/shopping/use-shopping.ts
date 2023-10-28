@@ -1,4 +1,4 @@
-import { Shopping } from '@app/models';
+import { Product, Shopping } from '@app/models';
 import services from '@app/services';
 import { useEffect, useState } from 'react';
 
@@ -17,8 +17,7 @@ export function useShopping() {
   async function create(name: string) {
     try {
       setIsLoading(true);
-      const response = await services.shopping.create(name);
-      console.tron.log(response);
+      await services.shopping.create(name);
     } catch (error) {
       console.log(error);
     } finally {
@@ -26,9 +25,26 @@ export function useShopping() {
     }
   }
 
+  async function updateProducts(shoppingId: string, products: Product[]) {
+    try {
+      setIsLoading(true);
+      await services.shopping.updateProducts(shoppingId, products);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  function getSelectedShopping(id: string) {
+    return shopping.find((s) => s.id === id);
+  }
+
   return {
     isLoading,
     shopping,
     create,
+    updateProducts,
+    getSelectedShopping,
   };
 }

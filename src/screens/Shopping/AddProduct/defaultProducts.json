@@ -1,0 +1,88 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Arroz",
+      "category": "Básico",
+      "checked": false
+    },
+    {
+      "id": "2",
+      "name": "Feijão",
+      "category": "Básico",
+      "checked": false
+    },
+    {
+      "id": "3",
+      "name": "Carne",
+      "category": "Básico",
+      "checked": false
+    },
+    {
+      "id": "4",
+      "name": "Frango",
+      "category": "Básico",
+      "checked": false
+    },
+    {
+      "id": "5",
+      "name": "Macarrão",
+      "category": "Básico",
+      "checked": false
+    },
+    {
+      "id": "6",
+      "name": "Farinha",
+      "category": "Básico",
+      "checked": false
+    },
+    {
+      "id": "7",
+      "name": "Sabão",
+      "category": "Básico",
+      "checked": false
+    },
+    {
+      "id": "8",
+      "name": "Detergente",
+      "category": "Básico",
+      "checked": false
+    },
+    {
+      "id": "9",
+      "name": "Chocolate",
+      "category": "Básico",
+      "checked": false
+    },
+    {
+      "id": "10",
+      "name": "Bolacha",
+      "category": "Básico",
+      "checked": false
+    },
+    {
+      "id": "11",
+      "name": "Alface",
+      "category": "Básico",
+      "checked": false
+    },
+    {
+      "id": "12",
+      "name": "Tomate",
+      "category": "Básico",
+      "checked": false
+    },
+    {
+      "id": "13",
+      "name": "Cebola",
+      "category": "Básico",
+      "checked": false
+    },
+    {
+      "id": "14",
+      "name": "Manteiga",
+      "category": "Básico",
+      "checked": false
+    }
+  ]
+}

@@ -28,6 +28,7 @@
       {
         "varsIgnorePattern": "React"
       }
-    ]
+    ],
+    "react/react-in-jsx-scope": "off"
   }
 }

@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components/native';
 import * as theme from '@app/theme';
 import { configureStore } from '@reduxjs/toolkit';
 import { MockSafeAreaContext } from '../mocks';
+import { NavigationContainer } from '@react-navigation/native';
 
 let store = configureStore({
   reducer: {
@@ -16,7 +17,9 @@ let store = configureStore({
 export const wrapper = ({ children }: { children: ReactNode }) => (
   <ThemeProvider theme={theme}>
     <Provider store={store}>
-      <MockSafeAreaContext.SafeAreaProvider>{children}</MockSafeAreaContext.SafeAreaProvider>
+      <NavigationContainer>
+        <MockSafeAreaContext.SafeAreaProvider>{children}</MockSafeAreaContext.SafeAreaProvider>
+      </NavigationContainer>
     </Provider>
   </ThemeProvider>
 );

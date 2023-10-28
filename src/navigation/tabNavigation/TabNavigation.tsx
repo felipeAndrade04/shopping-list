@@ -4,9 +4,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 
-import { Home, Menu } from '@app/screens';
+import { Menu } from '@app/screens';
 import { colors, fonts } from '@app/theme';
-import { Fab } from '@app/components';
+import { FabTabNavigation } from '@app/components';
+import { ShoppingListsStackNavigator } from '../stackNavigation/shoppingList';
 
 export function TabNavigator() {
   const insets = useSafeAreaInsets();
@@ -38,11 +39,11 @@ export function TabNavigator() {
           headerTitleAlign: 'left',
         };
       }}
-      initialRouteName={'Home'}
+      initialRouteName={'HomeTab'}
     >
       <Tab.Screen
-        name="Home"
-        component={Home}
+        name="HomeTab"
+        component={ShoppingListsStackNavigator}
         options={{
           tabBarLabel: 'Home',
           headerTitle: 'Listas de Compras',
@@ -55,7 +56,7 @@ export function TabNavigator() {
         options={{
           tabBarButton: () => (
             <View style={{ marginTop: -16 }}>
-              <Fab />
+              <FabTabNavigation />
             </View>
           ),
         }}

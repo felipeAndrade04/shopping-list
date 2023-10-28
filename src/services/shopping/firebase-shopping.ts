@@ -1,6 +1,14 @@
-import { Firestore, addDoc, collection, onSnapshot, query } from 'firebase/firestore';
+import {
+  Firestore,
+  addDoc,
+  collection,
+  doc,
+  onSnapshot,
+  query,
+  updateDoc,
+} from 'firebase/firestore';
 import { ShoppingService } from './shopping.types';
-import { Shopping } from '@app/models';
+import { Product, Shopping } from '@app/models';
 
 export class FirebaseShopping implements ShoppingService {
   private key = 'shopping';
@@ -24,7 +32,6 @@ export class FirebaseShopping implements ShoppingService {
         ...newShopping,
       };
     } catch (error) {
-      console.tron.log(error);
       throw new Error('Fail to create shopping');
     }
   }
@@ -43,5 +50,10 @@ export class FirebaseShopping implements ShoppingService {
       });
       setState(shoppingList);
     });
+  }
+
+  async updateProducts(shoppingId: string, products: Product[]) {
+    const shoppingRef = doc(this.db, this.key, shoppingId);
+    await updateDoc(shoppingRef, { products });
   }
 }

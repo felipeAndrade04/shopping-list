@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Spacer /> Should be render correctly 1`] = `
+<View
+  dimesion={8}
+  style={
+    Array [
+      Object {
+        "height": 8,
+        "width": 8,
+      },
+    ]
+  }
+/>
+`;

@@ -9,6 +9,7 @@ jest.mock('firebase/auth', () => ({
     authDomain: '',
     appName: '',
   }),
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onAuthStateChanged: () => () => {},
+  onAuthStateChanged: () => jest.fn(),
 }));
+
+jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');

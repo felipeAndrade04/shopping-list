@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductCard /> Should be render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 4,
+        "display": "flex",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "paddingBottom": 16,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 16,
+        "width": "100%",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "display": "flex",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#009Cf7",
+          "borderColor": "#009Cf7",
+          "borderRadius": 4,
+          "borderStyle": "solid",
+          "borderWidth": 2,
+          "display": "flex",
+          "height": 20,
+          "justifyContent": "center",
+          "opacity": 1,
+          "width": 20,
+        }
+      }
+      testID="checkbox"
+    >
+      <View
+        testID="checkbox-icon"
+      >
+        <Text />
+      </View>
+    </View>
+    <View
+      dimesion={12}
+      style={
+        Array [
+          Object {
+            "height": 12,
+            "width": 12,
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "fontSize": 16,
+            "fontWeight": "Poppins-Medium",
+          },
+        ]
+      }
+    >
+      Sabão
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        },
+      ]
+    }
+    testID="quantity"
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#009Cf7",
+          "borderRadius": 4,
+          "display": "flex",
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 2,
+          "paddingLeft": 2,
+          "paddingRight": 2,
+          "paddingTop": 2,
+        }
+      }
+      testID="decrement-quantity"
+    >
+      <Text />
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "fontSize": 16,
+            "fontWeight": "Poppins-Medium",
+            "paddingBottom": 0,
+            "paddingLeft": 8,
+            "paddingRight": 8,
+            "paddingTop": 0,
+          },
+        ]
+      }
+    >
+      1
+    </Text>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#009Cf7",
+          "borderRadius": 4,
+          "display": "flex",
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 2,
+          "paddingLeft": 2,
+          "paddingRight": 2,
+          "paddingTop": 2,
+        }
+      }
+      testID="increment-quantity"
+    >
+      <Text />
+    </View>
+  </View>
+</View>
+`;
