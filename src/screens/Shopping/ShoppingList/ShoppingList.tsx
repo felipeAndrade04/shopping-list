@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ShoppingListProps } from './ShoppingList.types';
 import * as S from './ShoppingList.styles';
 import { Message, ProductCard, Spacer } from '@app/components';
@@ -9,8 +9,11 @@ import { Product } from '@app/models';
 export function ShoppingList({ navigation, route }: ShoppingListProps) {
   const { id } = route.params;
   const { getSelectedShopping, updateProducts } = useShopping();
-
   const selectedShopping = getSelectedShopping(id);
+
+  useEffect(() => {
+    navigation.setOptions({ title: selectedShopping?.name ?? '' });
+  }, [navigation, selectedShopping]);
 
   const products = selectedShopping?.products?.sort((a, b) => {
     if (a.name < b.name) {
