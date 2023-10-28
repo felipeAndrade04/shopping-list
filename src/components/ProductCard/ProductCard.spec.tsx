@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react-native';
 import { wrapper } from '@app/utils/testUtils';
 import { ProductCard } from './ProductCard';
-import { ProductType } from './ProductCard.types';
+import { Product } from '@app/models';
 
-const product: ProductType = {
+const product: Product = {
   id: '1',
   name: 'Sabão',
   category: 'Limpeza',
@@ -36,5 +36,16 @@ describe('<ProductCard />', () => {
     expect(queryByTestId('checkbox-icon')).toBeTruthy();
     expect(getByText(product.name)).toBeTruthy();
     expect(queryByTestId('quantity')).toBeTruthy();
+  });
+
+  it('Should be render simple card', () => {
+    const { queryByTestId, getByText } = render(
+      <ProductCard isChecked={true} isSimpleCard={true} product={product} />,
+      { wrapper }
+    );
+
+    expect(queryByTestId('checkbox-icon')).toBeTruthy();
+    expect(getByText(product.name)).toBeTruthy();
+    expect(queryByTestId('quantity')).toBeFalsy();
   });
 });

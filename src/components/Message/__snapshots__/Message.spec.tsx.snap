@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Message /> Should be render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "justifyContent": "center",
+        "width": "100%",
+      },
+    ]
+  }
+>
+  <Image
+    source={1}
+    style={
+      Array [
+        Object {
+          "height": 200,
+          "marginBottom": 50,
+          "marginLeft": "auto",
+          "marginRight": "auto",
+          "marginTop": 0,
+          "width": 240,
+        },
+      ]
+    }
+    testID="message-image"
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#0D0A0B",
+          "fontFamily": "Poppins-Medium",
+          "fontSize": 24,
+        },
+      ]
+    }
+  >
+    Title teste
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#0D0A0B",
+          "fontFamily": "Poppins-Regular",
+          "fontSize": 16,
+          "marginTop": 14,
+        },
+      ]
+    }
+  >
+    Description teste
+  </Text>
+</View>
+`;
