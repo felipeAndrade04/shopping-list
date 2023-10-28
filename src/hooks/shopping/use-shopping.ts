@@ -17,8 +17,7 @@ export function useShopping() {
   async function create(name: string) {
     try {
       setIsLoading(true);
-      const response = await services.shopping.create(name);
-      console.tron.log(response);
+      await services.shopping.create(name);
     } catch (error) {
       console.log(error);
     } finally {

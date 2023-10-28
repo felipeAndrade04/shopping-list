@@ -32,7 +32,6 @@ export class FirebaseShopping implements ShoppingService {
         ...newShopping,
       };
     } catch (error) {
-      console.tron.log(error);
       throw new Error('Fail to create shopping');
     }
   }

@@ -13,7 +13,6 @@ export function ProductCard({
   changeQuantity,
   changeSelectedProduct,
 }: ProductCardProps) {
-  console.tron.log(product.quantity);
   const [isChecked, setIsChecked] = useState(isCheckedProp);
   const [quantity, setQuantity] = useState(product?.quantity);
 
