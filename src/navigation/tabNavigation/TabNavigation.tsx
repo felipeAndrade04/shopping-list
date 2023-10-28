@@ -27,16 +27,7 @@ export function TabNavigator() {
           tabBarStyle: {
             height: 55 + insets.bottom,
           },
-          headerStyle: {
-            backgroundColor: colors.main,
-            height: 55 + insets.top,
-          },
-          headerTintColor: colors.white,
-          headerTitleStyle: {
-            fontFamily: fonts.bold,
-            fontSize: 18,
-          },
-          headerTitleAlign: 'left',
+          headerShown: false,
         };
       }}
       initialRouteName={'HomeTab'}
