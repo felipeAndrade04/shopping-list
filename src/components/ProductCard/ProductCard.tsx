@@ -4,13 +4,16 @@ import { Spacer } from '@app/components/Spacer';
 import { useState } from 'react';
 import * as S from './ProductCard.styles';
 import { ProductCardProps } from './ProductCard.types';
+import { Text } from 'react-native';
 
 export function ProductCard({
   product,
   isChecked: isCheckedProp,
+  isSimpleCard = false,
   changeQuantity,
   changeSelectedProduct,
 }: ProductCardProps) {
+  console.tron.log(product.quantity);
   const [isChecked, setIsChecked] = useState(isCheckedProp);
   const [quantity, setQuantity] = useState(product?.quantity);
 
@@ -35,7 +38,8 @@ export function ProductCard({
         <S.ProductName>{product.name}</S.ProductName>
       </S.LeftProductInfo>
 
-      {isChecked && <Quantity value={quantity} onChange={onChangeQuantity} />}
+      {isChecked && !isSimpleCard && <Quantity value={quantity} onChange={onChangeQuantity} />}
+      {isSimpleCard && <Text>{quantity}</Text>}
     </S.Product>
   );
 }

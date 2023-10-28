@@ -4,19 +4,19 @@
       "id": "1",
       "name": "Arroz",
       "category": "Básico",
-      "checked": true
+      "checked": false
     },
     {
       "id": "2",
       "name": "Feijão",
       "category": "Básico",
-      "checked": true
+      "checked": false
     },
     {
       "id": "3",
       "name": "Carne",
       "category": "Básico",
-      "checked": true
+      "checked": false
     },
     {
       "id": "4",

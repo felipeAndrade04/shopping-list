@@ -29,8 +29,7 @@ export function useShopping() {
   async function updateProducts(shoppingId: string, products: Product[]) {
     try {
       setIsLoading(true);
-      const response = await services.shopping.updateProducts(shoppingId, products);
-      console.tron.log(response);
+      await services.shopping.updateProducts(shoppingId, products);
     } catch (error) {
       console.log(error);
     } finally {
