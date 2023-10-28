@@ -2,5 +2,13 @@ export interface Shopping {
   id: string;
   name: string;
   created_at: Date;
-  products: [];
+  products: Product[];
+}
+
+export interface Product {
+  category: string;
+  checked?: boolean;
+  id: string;
+  name: string;
+  quantity: number;
 }
