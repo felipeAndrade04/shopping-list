@@ -12,13 +12,13 @@ const product: ProductType = {
 
 describe('<ProductCard />', () => {
   it('Should be render correctly', () => {
-    const tree = render(<ProductCard product={product} />, { wrapper }).toJSON();
+    const tree = render(<ProductCard isChecked={true} product={product} />, { wrapper }).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('Should be render unchecked product', () => {
     const { queryByTestId, getByText } = render(
-      <ProductCard product={{ ...product, checked: false }} />,
+      <ProductCard isChecked={false} product={{ ...product, checked: false }} />,
       { wrapper }
     );
 
@@ -28,7 +28,10 @@ describe('<ProductCard />', () => {
   });
 
   it('Should be render checked product', () => {
-    const { queryByTestId, getByText } = render(<ProductCard product={product} />, { wrapper });
+    const { queryByTestId, getByText } = render(
+      <ProductCard isChecked={true} product={product} />,
+      { wrapper }
+    );
 
     expect(queryByTestId('checkbox-icon')).toBeTruthy();
     expect(getByText(product.name)).toBeTruthy();
