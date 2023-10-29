@@ -8,6 +8,7 @@ import { Menu } from '@app/screens';
 import { colors, fonts } from '@app/theme';
 import { FabTabNavigation } from '@app/components';
 import { ShoppingListsStackNavigator } from '../stackNavigation/shoppingList';
+import { MenuStackNavigator } from '../stackNavigation/menu';
 
 export function TabNavigator() {
   const insets = useSafeAreaInsets();
@@ -53,8 +54,8 @@ export function TabNavigator() {
         }}
       />
       <Tab.Screen
-        name="Menu"
-        component={Menu}
+        name="MenuTab"
+        component={MenuStackNavigator}
         options={{
           tabBarLabel: 'Menu',
           tabBarIcon: ({ color, size }) => <Feather name="menu" color={color} size={size} />,
