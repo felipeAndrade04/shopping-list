@@ -22,6 +22,7 @@ export function useAuth() {
         email: firebaseUser.email,
         name: firebaseUser.displayName,
         id: firebaseUser.uid,
+        imageUrl: firebaseUser.photoURL,
       };
 
       dispatch(loginStore(user));

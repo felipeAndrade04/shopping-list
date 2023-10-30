@@ -12,3 +12,4 @@ export * from './ProgressCircle';
 export * from './Checkbox';
 export * from './Quantity';
 export * from './ProductCard';
+export * from './ProfileImage';

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProfileImage /> Should be render correctly 1`] = `
+<View
+  size="md"
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#009Cf7",
+        "borderRadius": "50%",
+        "height": 50,
+        "width": 50,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "justifyContent": "center",
+        },
+      ]
+    }
+    testID="profile-without-image"
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 24,
+            "fontWeight": "Poppins-Bold",
+          },
+        ]
+      }
+    >
+      F
+    </Text>
+  </View>
+</View>
+`;
