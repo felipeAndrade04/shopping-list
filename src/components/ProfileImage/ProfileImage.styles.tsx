@@ -27,6 +27,6 @@ export const ProfileWithoutImage = styled.View`
 
 export const Text = styled.Text`
   font-size: 24px;
-  font-weight: ${({ theme }) => theme.fonts.bold};
+  font-family: ${({ theme }) => theme.fonts.bold};
   color: ${({ theme }) => theme.colors.white};
 `;

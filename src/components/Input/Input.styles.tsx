@@ -41,12 +41,14 @@ export const Input = styled.TextInput`
   flex: 1;
   color: ${({ theme }) => theme.colors.dark};
   font-size: 16px;
+  font-family: ${({ theme }) => theme.fonts.regular};
   padding: 8px 16px;
 `;
 
 export const InputTextError = styled.Text`
   color: ${({ theme }) => theme.colors.red};
   font-size: 12px;
+  font-family: ${({ theme }) => theme.fonts.regular};
   margin-top: 2px;
   margin-left: 4px;
 `;

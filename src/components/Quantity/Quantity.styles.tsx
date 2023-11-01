@@ -18,5 +18,5 @@ export const QuantityButton = styled.TouchableOpacity`
 export const QuantityValue = styled.Text`
   padding: 0px 8px;
   font-size: 16px;
-  font-weight: ${({ theme }) => theme.fonts.medium};
+  font-family: ${({ theme }) => theme.fonts.medium};
 `;
