@@ -5,8 +5,9 @@ import {
   signOut,
   updateProfile,
   sendPasswordResetEmail,
+  updatePassword,
 } from 'firebase/auth';
-import { Authentication, LoginParams, RegisterParams } from './auth.types';
+import { Authentication, LoginParams, RegisterParams, UpdateProfileParams } from './auth.types';
 import { User } from '@app/models';
 
 export class FirebaseAuthentication implements Authentication {
@@ -65,6 +66,25 @@ export class FirebaseAuthentication implements Authentication {
       await sendPasswordResetEmail(this.auth, email);
     } catch (error) {
       throw new Error('Forgot password failed');
+    }
+  }
+
+  async updateProfile(params: UpdateProfileParams) {
+    try {
+      await updateProfile(this.auth.currentUser, {
+        displayName: params.name,
+        photoURL: params.imageUrl,
+      });
+    } catch (error) {
+      throw new Error('Forgot password failed');
+    }
+  }
+
+  async updatePassword(newPassword: string) {
+    try {
+      await updatePassword(this.auth.currentUser, newPassword);
+    } catch (error) {
+      throw new Error('Update password failed');
     }
   }
 }

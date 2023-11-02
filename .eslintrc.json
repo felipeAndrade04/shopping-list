@@ -29,6 +29,7 @@
         "varsIgnorePattern": "React"
       }
     ],
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "no-empty": ["error", { "allowEmptyCatch": true }]
   }
 }
