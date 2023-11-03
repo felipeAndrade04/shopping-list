@@ -3,8 +3,6 @@ import { View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
-
-import { Menu } from '@app/screens';
 import { colors, fonts } from '@app/theme';
 import { FabTabNavigation } from '@app/components';
 import { ShoppingListsStackNavigator } from '../stackNavigation/shoppingList';
@@ -43,8 +41,8 @@ export function TabNavigator() {
         }}
       />
       <Tab.Screen
-        name="CreatShoppingList"
-        component={Menu}
+        name="Menu"
+        component={MenuStackNavigator}
         options={{
           tabBarButton: () => (
             <View style={{ marginTop: -16 }}>
