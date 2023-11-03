@@ -127,12 +127,23 @@ export function useAuth() {
     await updateProfile(userInfo);
   }
 
+  async function uploadProfileImage(url: string, name: string) {
+    try {
+      dispatch(updateLoading(true));
+      return await services.storage.uploadFile(url, name);
+    } catch {
+    } finally {
+      dispatch(updateLoading(false));
+    }
+  }
+
   return {
     register,
     login,
     logout,
     forgotPassword,
     updateFullProfile,
+    uploadProfileImage,
     isLoading: authState?.isLoading,
     user: authState?.user,
     isAuthenticated: authState?.isAuthenticated,

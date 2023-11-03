@@ -22,7 +22,7 @@ export interface Authentication {
   register: (params: RegisterParams) => Promise<User>;
   login: (params: LoginParams) => Promise<User>;
   logout: () => void;
-  forgotPassword: (email: string) => void;
-  updateProfile: (params: UpdateProfileParams) => void;
-  updatePassword: (newPassword: string) => void;
+  forgotPassword: (email: string) => Promise<void>;
+  updateProfile: (params: UpdateProfileParams) => Promise<void>;
+  updatePassword: (newPassword: string) => Promise<void>;
 }
