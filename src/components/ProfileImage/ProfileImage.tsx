@@ -10,7 +10,7 @@ export function ProfileImage({ size = 'md', url, name }: ProfileImageProps) {
         <S.ProfileImage source={{ uri: url }} testID="profile-image" />
       ) : (
         <S.ProfileWithoutImage testID="profile-without-image">
-          <S.Text>{firstLetter}</S.Text>
+          <S.Text size={size}>{firstLetter}</S.Text>
         </S.ProfileWithoutImage>
       )}
     </S.ProfileImageContainer>
