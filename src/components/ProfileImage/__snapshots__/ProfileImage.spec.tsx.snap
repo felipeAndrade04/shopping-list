@@ -7,7 +7,7 @@ exports[`<ProfileImage /> Should be render correctly 1`] = `
     Array [
       Object {
         "backgroundColor": "#009Cf7",
-        "borderRadius": "50%",
+        "borderRadius": "100%",
         "height": 50,
         "width": 50,
       },
@@ -29,12 +29,13 @@ exports[`<ProfileImage /> Should be render correctly 1`] = `
     testID="profile-without-image"
   >
     <Text
+      size="md"
       style={
         Array [
           Object {
             "color": "#FFFFFF",
-            "fontSize": 24,
-            "fontWeight": "Poppins-Bold",
+            "fontFamily": "Poppins-Bold",
+            "fontSize": 25,
           },
         ]
       }

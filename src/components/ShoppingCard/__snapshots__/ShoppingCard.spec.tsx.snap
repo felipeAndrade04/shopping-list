@@ -203,6 +203,7 @@ exports[`<ShoppingCard /> Should render correctly 1`] = `
         Array [
           Object {
             "color": "#ACACAC",
+            "fontFamily": "Poppins-Regular",
             "fontSize": 14,
           },
         ]

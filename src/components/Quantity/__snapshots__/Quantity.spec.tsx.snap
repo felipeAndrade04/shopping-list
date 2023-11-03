@@ -46,8 +46,8 @@ exports[`<Quantity /> Should be render correctly 1`] = `
     style={
       Array [
         Object {
+          "fontFamily": "Poppins-Medium",
           "fontSize": 16,
-          "fontWeight": "Poppins-Medium",
           "paddingBottom": 0,
           "paddingLeft": 8,
           "paddingRight": 8,
