@@ -1,10 +1,16 @@
 import { auth } from '@app/config';
 import services from '@app/services';
-import { LoginParams, RegisterParams } from '@app/services/auth';
+import { LoginParams, RegisterParams, UpdateProfileParams } from '@app/services/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect } from 'react';
 import { useAppSelector } from '../use-app-selector';
-import { selectAuth, updateLoading, login as loginStore, logout as logoutStore } from '@app/store';
+import {
+  selectAuth,
+  updateLoading,
+  login as loginStore,
+  logout as logoutStore,
+  updateProfile as updateProfileStore,
+} from '@app/store';
 import { useAppDispatch } from '../use-app-dispatch';
 import { User } from '@app/models';
 
@@ -22,6 +28,7 @@ export function useAuth() {
         email: firebaseUser.email,
         name: firebaseUser.displayName,
         id: firebaseUser.uid,
+        imageUrl: firebaseUser.photoURL,
       };
 
       dispatch(loginStore(user));
@@ -86,11 +93,57 @@ export function useAuth() {
     }
   }
 
+  async function updateProfile(data: UpdateProfileParams) {
+    if (authState.user.name === data.name && authState.user.imageUrl === data.imageUrl) {
+      return;
+    }
+
+    try {
+      dispatch(updateLoading(true));
+
+      await services.auth.updateProfile(data);
+      dispatch(updateProfileStore(data));
+    } catch (error) {
+      // const { message } = error as TypeError;
+    } finally {
+      dispatch(updateLoading(false));
+    }
+  }
+
+  async function updatePassword(newPassword: string) {
+    try {
+      dispatch(updateLoading(true));
+
+      await services.auth.updatePassword(newPassword);
+    } catch (error) {
+      // const { message } = error as TypeError;
+    } finally {
+      dispatch(updateLoading(false));
+    }
+  }
+
+  async function updateFullProfile(password: string, userInfo: UpdateProfileParams) {
+    await updatePassword(password);
+    await updateProfile(userInfo);
+  }
+
+  async function uploadProfileImage(url: string, name: string) {
+    try {
+      dispatch(updateLoading(true));
+      return await services.storage.uploadFile(url, name);
+    } catch {
+    } finally {
+      dispatch(updateLoading(false));
+    }
+  }
+
   return {
     register,
     login,
     logout,
     forgotPassword,
+    updateFullProfile,
+    uploadProfileImage,
     isLoading: authState?.isLoading,
     user: authState?.user,
     isAuthenticated: authState?.isAuthenticated,

@@ -145,6 +145,7 @@ exports[`<ActionModal /> Should render correctly 1`] = `
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
+                    "fontFamily": "Poppins-Regular",
                     "fontSize": 16,
                     "height": 50,
                     "paddingBottom": 8,

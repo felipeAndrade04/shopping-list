@@ -18,5 +18,5 @@ export const LeftProductInfo = styled.View`
 
 export const ProductName = styled.Text`
   font-size: 16px;
-  font-weight: ${({ theme }) => theme.fonts.medium};
+  font-family: ${({ theme }) => theme.fonts.medium};
 `;

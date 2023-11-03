@@ -41,4 +41,5 @@ export const CounterTotal = styled.Text`
 export const Date = styled.Text`
   font-size: 14px;
   color: ${({ theme }) => theme.colors.gray[300]};
+  font-family: ${({ theme }) => theme.fonts.regular};
 `;

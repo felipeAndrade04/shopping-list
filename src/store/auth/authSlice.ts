@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { User } from '@app/models';
+import { UpdateProfileParams } from '@app/services/auth';
 
 interface AuthState {
   isLoading: boolean;
@@ -29,9 +30,16 @@ const authSlice = createSlice({
       state.isAuthenticated = false;
       state.user = null;
     },
+    updateProfile: (state, action: PayloadAction<UpdateProfileParams>) => {
+      state.user = {
+        ...state.user,
+        name: action.payload.name ? action.payload.name : state.user.name,
+        imageUrl: action.payload.imageUrl ? action.payload.imageUrl : state.user.imageUrl,
+      };
+    },
   },
 });
 
 export const authReducer = authSlice.reducer;
-export const { login, logout, updateLoading } = authSlice.actions;
+export const { login, logout, updateLoading, updateProfile } = authSlice.actions;
 export const selectAuth = (state: RootState) => state.auth;

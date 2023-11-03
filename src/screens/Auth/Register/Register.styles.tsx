@@ -31,4 +31,5 @@ export const SimpleButtonBoldText = styled.Text`
 
 export const SimpleButtonText = styled.Text`
   font-size: 14px;
+  font-family: ${({ theme }) => theme.fonts.regular};
 `;
