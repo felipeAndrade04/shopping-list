@@ -12,6 +12,7 @@ import { MainStackNavigator } from '@app/navigation';
 import { Provider } from 'react-redux';
 import { store } from './src/store';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { ToastContainer } from '@app/components';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -30,6 +31,7 @@ export default function App() {
         <SafeAreaProvider>
           <NavigationContainer>
             <ThemeProvider theme={theme}>
+              <ToastContainer />
               <StatusBar barStyle={'light-content'} />
               <MainStackNavigator />
             </ThemeProvider>

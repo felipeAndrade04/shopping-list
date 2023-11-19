@@ -7,6 +7,7 @@ import { FlatList } from 'react-native';
 import { useShopping } from '@app/hooks/shopping';
 import { AddProductProps } from './AddProduct.types';
 import { Product } from '@app/models';
+import toast from '@app/utils/toast';
 
 export function AddProduct({ route, navigation }: AddProductProps) {
   const { id } = route.params;
@@ -63,8 +64,15 @@ export function AddProduct({ route, navigation }: AddProductProps) {
       setIsLoading(true);
       await updateProducts(id, selectedProducts);
       navigation.goBack();
+      toast({
+        type: 'success',
+        text: 'Lista de produtos atualizada.',
+      });
     } catch {
-      //
+      toast({
+        type: 'error',
+        text: 'Algo deu errado ao tentar atualizar a lista.',
+      });
     } finally {
       setIsLoading(false);
     }
