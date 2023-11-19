@@ -9,4 +9,5 @@ export const colors = {
     300: '#ACACAC',
   },
   overlay: '#363F5F',
+  green: '#51CA73',
 };

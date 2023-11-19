@@ -11,6 +11,7 @@ export function FabTabNavigation() {
 
   async function handleSuccessAction(name: string) {
     await create(name);
+    setShow(false);
   }
 
   return (

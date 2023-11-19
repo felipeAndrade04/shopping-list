@@ -8,7 +8,9 @@ import { Button, FormWrapper, Input, ProfileImage, Spacer } from '@app/component
 import * as z from 'zod';
 import { colors } from '@app/theme';
 import { ProfileProps } from './Profile.types';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { UploadFileResult } from '@app/services/storage/storage.types';
+import { UpdateProfileParams } from '@app/services/auth';
 
 const schema = z
   .object({
@@ -26,6 +28,7 @@ type ProfileFormData = z.infer<typeof schema>;
 
 export function Profile({ navigation }: ProfileProps) {
   const [disabled, setDisabled] = useState(true);
+  const isChangeImage = useRef(false);
   const { user, isLoading, updateFullProfile, uploadProfileImage } = useAuth();
   const {
     control,
@@ -52,15 +55,24 @@ export function Profile({ navigation }: ProfileProps) {
     if (!result.canceled) {
       setValue('imageUrl', result.assets[0].uri);
       setDisabled(false);
+      isChangeImage.current = true;
     }
   }
 
   function onSubmit() {
     handleSubmit(async ({ name, imageUrl, password }: ProfileFormData) => {
       try {
-        const resp = await uploadProfileImage(imageUrl, `profile/${user.email}`);
+        let profileImageRes: UploadFileResult | null = null;
+        const userInfo: UpdateProfileParams = {
+          name,
+        };
 
-        await updateFullProfile(password, { name, imageUrl: resp.downloadUrl });
+        if (isChangeImage.current) {
+          profileImageRes = await uploadProfileImage(imageUrl, `profile/${user.email}`);
+          userInfo.imageUrl = profileImageRes.downloadUrl;
+        }
+
+        await updateFullProfile(password, userInfo);
 
         navigation.goBack();
       } catch {}

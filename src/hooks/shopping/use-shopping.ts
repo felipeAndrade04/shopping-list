@@ -1,5 +1,6 @@
 import { Product, Shopping } from '@app/models';
 import services from '@app/services';
+import toast from '@app/utils/toast';
 import { useEffect, useState } from 'react';
 
 export function useShopping() {
@@ -18,8 +19,9 @@ export function useShopping() {
     try {
       setIsLoading(true);
       await services.shopping.create(name);
+      toast({ type: 'success', text: 'Lista criada com sucesso!' });
     } catch (error) {
-      console.log(error);
+      toast({ type: 'error', text: 'Algo deu errado ao tentar criar a lista!' });
     } finally {
       setIsLoading(false);
     }
