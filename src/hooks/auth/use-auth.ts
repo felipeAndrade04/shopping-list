@@ -13,6 +13,7 @@ import {
 } from '@app/store';
 import { useAppDispatch } from '../use-app-dispatch';
 import { User } from '@app/models';
+import toast from '@app/utils/toast';
 
 export function useAuth() {
   const authState = useAppSelector(selectAuth);
@@ -44,10 +45,11 @@ export function useAuth() {
       dispatch(updateLoading(true));
 
       await services.auth.register(data);
+      toast({ text: 'Usuário cadastrado com sucesso.', type: 'success' });
 
       await login({ email: data.email, password: data.password });
     } catch (error) {
-      // const { _message } = error as TypeError;
+      toast({ type: 'error', text: 'Algo deu errado ao tentar se cadastrar' });
     } finally {
       dispatch(updateLoading(false));
     }
@@ -61,7 +63,7 @@ export function useAuth() {
 
       dispatch(loginStore(response));
     } catch (error) {
-      // const { _message } = error as TypeError;
+      toast({ type: 'error', text: 'Email ou senha inválidos' });
     } finally {
       dispatch(updateLoading(false));
     }
@@ -75,7 +77,7 @@ export function useAuth() {
 
       dispatch(logoutStore());
     } catch (error) {
-      // const { message } = error as TypeError;
+      toast({ type: 'error', text: 'Algo deu errado ao tentar se sair' });
     } finally {
       dispatch(updateLoading(false));
     }
@@ -86,8 +88,9 @@ export function useAuth() {
       dispatch(updateLoading(true));
 
       await services.auth.forgotPassword(email);
+      toast({ text: 'Solicitação de recuperação de senha efetuada com sucesso.', type: 'success' });
     } catch (error) {
-      // const { message } = error as TypeError;
+      toast({ type: 'error', text: 'Algo deu errado ao tenta solicitar recuperação de senha' });
     } finally {
       dispatch(updateLoading(false));
     }
@@ -104,7 +107,8 @@ export function useAuth() {
       await services.auth.updateProfile(data);
       dispatch(updateProfileStore(data));
     } catch (error) {
-      // const { message } = error as TypeError;
+      const { message } = error as TypeError;
+      throw new Error(message);
     } finally {
       dispatch(updateLoading(false));
     }
@@ -116,15 +120,24 @@ export function useAuth() {
 
       await services.auth.updatePassword(newPassword);
     } catch (error) {
-      // const { message } = error as TypeError;
+      const { message } = error as TypeError;
+      throw new Error(message);
     } finally {
       dispatch(updateLoading(false));
     }
   }
 
   async function updateFullProfile(password: string, userInfo: UpdateProfileParams) {
-    await updatePassword(password);
-    await updateProfile(userInfo);
+    try {
+      await updatePassword(password);
+      await updateProfile(userInfo);
+      toast({ text: 'Perfil atualizado com sucesso.', type: 'success' });
+    } catch {
+      toast({
+        text: 'Algo deu errado ao tentar atualizar o perfil. Tente novamente.',
+        type: 'error',
+      });
+    }
   }
 
   async function uploadProfileImage(url: string, name: string) {
@@ -132,6 +145,10 @@ export function useAuth() {
       dispatch(updateLoading(true));
       return await services.storage.uploadFile(url, name);
     } catch {
+      toast({
+        text: 'Algo deu errado ao tentar atualizar o perfil. Tente novamente.',
+        type: 'error',
+      });
     } finally {
       dispatch(updateLoading(false));
     }
