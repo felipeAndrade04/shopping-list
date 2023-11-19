@@ -2,7 +2,8 @@
 import { Toast, ToastType } from '@app/utils/toast';
 import * as S from './ToastMessage.styles';
 import { AntDesign } from '@expo/vector-icons';
-import { ReactNode, useCallback, useEffect } from 'react';
+import { ReactNode, useCallback, useEffect, useRef } from 'react';
+import { Animated } from 'react-native';
 
 export interface ToastMessageProps {
   message: Toast;
@@ -16,10 +17,28 @@ const icon: Record<ToastType, ReactNode> = {
 };
 
 export function ToastMessage({ message, onRemoveMessage }: ToastMessageProps) {
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+  }, [fadeAnim]);
+
   const { text, type, duration, id } = message;
 
   const handleRemoveToast = useCallback(() => {
-    onRemoveMessage(id);
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: true,
+    }).start(({ finished }) => {
+      if (finished) {
+        onRemoveMessage(id);
+      }
+    });
   }, [id, onRemoveMessage]);
 
   useEffect(() => {
@@ -30,12 +49,26 @@ export function ToastMessage({ message, onRemoveMessage }: ToastMessageProps) {
     return () => {
       clearTimeout(timeoutId);
     };
-  });
+  }, []);
 
   return (
-    <S.Container type={type} onPress={handleRemoveToast} activeOpacity={0.7}>
-      {icon[type]}
-      <S.Message>{text}</S.Message>
-    </S.Container>
+    <Animated.View
+      style={{
+        opacity: fadeAnim,
+        transform: [
+          {
+            translateY: fadeAnim.interpolate({
+              inputRange: [0, 1],
+              outputRange: [150, 0],
+            }),
+          },
+        ],
+      }}
+    >
+      <S.Container type={type} onPress={handleRemoveToast} activeOpacity={0.7}>
+        {icon[type]}
+        <S.Message>{text}</S.Message>
+      </S.Container>
+    </Animated.View>
   );
 }

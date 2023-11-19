@@ -15,11 +15,12 @@ const toastVariants: Record<ToastType, FlattenInterpolation<ThemeProps<DefaultTh
 };
 
 export const Container = styled.TouchableOpacity<{ type: ToastType }>`
-  background: #ccc;
   padding: 16px;
   border-radius: 8px;
   margin-top: 12px;
   flex-direction: row;
+  width: 100%;
+  box-shadow: 4px 4px 2px #0d0a0b40;
 
   ${({ type }) => toastVariants[type] || toastVariants.info}
 `;
@@ -28,5 +29,5 @@ export const Message = styled.Text`
   font-size: 16px;
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.medium};
-  margin-left: 12px;
+  margin: 0 12px;
 `;
