@@ -8,7 +8,7 @@ export function useShopping() {
   const [shopping, setShopping] = useState<Shopping[]>([]);
 
   useEffect(() => {
-    const unSubscribe = services.shopping.list(setShopping);
+    const unSubscribe = services.shopping?.list(setShopping);
 
     return () => {
       unSubscribe();
