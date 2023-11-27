@@ -4,8 +4,10 @@ import {
   collection,
   doc,
   onSnapshot,
+  orderBy,
   query,
   updateDoc,
+  where,
 } from 'firebase/firestore';
 import { ShoppingService } from './shopping.types';
 import { Product, Shopping } from '@app/models';
@@ -13,8 +15,9 @@ import { Product, Shopping } from '@app/models';
 export class FirebaseShopping implements ShoppingService {
   private key = 'shopping';
 
-  constructor(private readonly db: Firestore) {
+  constructor(private readonly db: Firestore, private readonly userId: string) {
     this.db = db;
+    this.userId = userId;
   }
 
   async create(name: string) {
@@ -22,6 +25,7 @@ export class FirebaseShopping implements ShoppingService {
       const newShopping: Omit<Shopping, 'id'> = {
         name,
         created_at: new Date(),
+        userId: this.userId,
         products: [],
       };
 
@@ -38,7 +42,8 @@ export class FirebaseShopping implements ShoppingService {
 
   // eslint-disable-next-line no-unused-vars
   list(setState: (data: Shopping[]) => void) {
-    const q = query(collection(this.db, this.key));
+    const shoppingRef = collection(this.db, this.key);
+    const q = query(shoppingRef, orderBy('created_at', 'desc'), where('userId', '==', this.userId));
     return onSnapshot(q, (querySnapshot) => {
       const shoppingList: Shopping[] = [];
       querySnapshot.forEach((doc) => {

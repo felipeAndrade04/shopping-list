@@ -1,5 +1,5 @@
 import { auth } from '@app/config';
-import services from '@app/services';
+import services, { buildShoppingServices } from '@app/services';
 import { LoginParams, RegisterParams, UpdateProfileParams } from '@app/services/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useEffect } from 'react';
@@ -31,6 +31,8 @@ export function useAuth() {
         id: firebaseUser.uid,
         imageUrl: firebaseUser.photoURL,
       };
+
+      buildShoppingServices(user.id);
 
       dispatch(loginStore(user));
     });

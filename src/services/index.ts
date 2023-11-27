@@ -3,10 +3,19 @@ import { FirebaseAuthentication } from './auth/firebase-authentication';
 import { FirebaseShopping } from './shopping/firebase-shopping';
 import { FirebaseStorage } from './storage/firebase-storage';
 
-const services = {
+interface Services {
+  auth: FirebaseAuthentication;
+  storage: FirebaseStorage;
+  shopping?: FirebaseShopping;
+}
+
+const services: Services = {
   auth: new FirebaseAuthentication(auth),
-  shopping: new FirebaseShopping(db),
   storage: new FirebaseStorage(storage),
 };
+
+export function buildShoppingServices(id: string) {
+  services.shopping = new FirebaseShopping(db, id);
+}
 
 export default services;

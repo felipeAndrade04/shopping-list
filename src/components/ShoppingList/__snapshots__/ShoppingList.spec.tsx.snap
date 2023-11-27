@@ -20,6 +20,7 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
           "id": "123",
           "name": "Lista 8",
           "products": Array [],
+          "userId": "123",
         },
       ]
     }
