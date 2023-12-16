@@ -3,8 +3,8 @@
 exports[`<Message /> Should be render correctly 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "justifyContent": "center",
         "width": "100%",
       },
@@ -14,8 +14,8 @@ exports[`<Message /> Should be render correctly 1`] = `
   <Image
     source={1}
     style={
-      Array [
-        Object {
+      [
+        {
           "height": 200,
           "marginBottom": 50,
           "marginLeft": "auto",
@@ -29,8 +29,8 @@ exports[`<Message /> Should be render correctly 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
+      [
+        {
           "color": "#0D0A0B",
           "fontFamily": "Poppins-Medium",
           "fontSize": 24,
@@ -42,8 +42,8 @@ exports[`<Message /> Should be render correctly 1`] = `
   </Text>
   <Text
     style={
-      Array [
-        Object {
+      [
+        {
           "color": "#0D0A0B",
           "fontFamily": "Poppins-Regular",
           "fontSize": 16,
