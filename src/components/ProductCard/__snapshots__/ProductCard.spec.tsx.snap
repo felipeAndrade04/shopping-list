@@ -3,8 +3,8 @@
 exports[`<ProductCard /> Should be render correctly 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignItems": "center",
         "backgroundColor": "#FFFFFF",
         "borderRadius": 4,
@@ -22,8 +22,8 @@ exports[`<ProductCard /> Should be render correctly 1`] = `
 >
   <View
     style={
-      Array [
-        Object {
+      [
+        {
           "display": "flex",
           "flexDirection": "row",
         },
@@ -31,6 +31,23 @@ exports[`<ProductCard /> Should be render correctly 1`] = `
     }
   >
     <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
       accessible={true}
       collapsable={false}
       focusable={true}
@@ -42,7 +59,7 @@ exports[`<ProductCard /> Should be render correctly 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "alignItems": "center",
           "backgroundColor": "#009Cf7",
           "borderColor": "#009Cf7",
@@ -67,8 +84,8 @@ exports[`<ProductCard /> Should be render correctly 1`] = `
     <View
       dimesion={12}
       style={
-        Array [
-          Object {
+        [
+          {
             "height": 12,
             "width": 12,
           },
@@ -77,8 +94,8 @@ exports[`<ProductCard /> Should be render correctly 1`] = `
     />
     <Text
       style={
-        Array [
-          Object {
+        [
+          {
             "fontFamily": "Poppins-Medium",
             "fontSize": 16,
           },
@@ -90,8 +107,8 @@ exports[`<ProductCard /> Should be render correctly 1`] = `
   </View>
   <View
     style={
-      Array [
-        Object {
+      [
+        {
           "alignItems": "center",
           "display": "flex",
           "flexDirection": "row",
@@ -101,6 +118,23 @@ exports[`<ProductCard /> Should be render correctly 1`] = `
     testID="quantity"
   >
     <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
       accessible={true}
       collapsable={false}
       focusable={true}
@@ -112,7 +146,7 @@ exports[`<ProductCard /> Should be render correctly 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "alignItems": "center",
           "backgroundColor": "#009Cf7",
           "borderRadius": 4,
@@ -131,8 +165,8 @@ exports[`<ProductCard /> Should be render correctly 1`] = `
     </View>
     <Text
       style={
-        Array [
-          Object {
+        [
+          {
             "fontFamily": "Poppins-Medium",
             "fontSize": 16,
             "paddingBottom": 0,
@@ -146,6 +180,23 @@ exports[`<ProductCard /> Should be render correctly 1`] = `
       1
     </Text>
     <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
       accessible={true}
       collapsable={false}
       focusable={true}
@@ -157,7 +208,7 @@ exports[`<ProductCard /> Should be render correctly 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "alignItems": "center",
           "backgroundColor": "#009Cf7",
           "borderRadius": 4,

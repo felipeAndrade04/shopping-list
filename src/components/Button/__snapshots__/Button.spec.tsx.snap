@@ -15,7 +15,7 @@ exports[`<Button /> Should be render correctly 1`] = `
   onGestureHandlerStateChange={[Function]}
   onHandlerStateChange={[Function]}
   style={
-    Object {
+    {
       "alignItems": "center",
       "backgroundColor": "#009Cf7",
       "borderColor": "black",
@@ -43,7 +43,7 @@ exports[`<Button /> Should be render correctly 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "backgroundColor": "black",
         "borderBottomLeftRadius": undefined,
         "borderBottomRightRadius": undefined,
@@ -62,8 +62,8 @@ exports[`<Button /> Should be render correctly 1`] = `
   <Text
     color="#009Cf7"
     style={
-      Array [
-        Object {
+      [
+        {
           "color": "#FFFFFF",
           "fontFamily": "Poppins-Bold",
           "fontSize": 18,
@@ -92,7 +92,7 @@ exports[`<Button /> Should be render variant outline correctly 1`] = `
   onGestureHandlerStateChange={[Function]}
   onHandlerStateChange={[Function]}
   style={
-    Object {
+    {
       "alignItems": "center",
       "backgroundColor": "#FFFFFF",
       "borderColor": "#009Cf7",
@@ -120,7 +120,7 @@ exports[`<Button /> Should be render variant outline correctly 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "backgroundColor": "black",
         "borderBottomLeftRadius": undefined,
         "borderBottomRightRadius": undefined,
@@ -139,8 +139,8 @@ exports[`<Button /> Should be render variant outline correctly 1`] = `
   <Text
     color="#009Cf7"
     style={
-      Array [
-        Object {
+      [
+        {
           "color": "#009Cf7",
           "fontFamily": "Poppins-Bold",
           "fontSize": 18,

@@ -6,14 +6,31 @@ exports[`<ActionModal /> Should render correctly 1`] = `
   hardwareAccelerated={false}
   onRequestClose={[Function]}
   style={
-    Array [
-      Object {},
+    [
+      {},
     ]
   }
   transparent={true}
   visible={true}
 >
   <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -25,7 +42,7 @@ exports[`<ActionModal /> Should render correctly 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "#363F5Faa",
         "display": "flex",
@@ -42,6 +59,23 @@ exports[`<ActionModal /> Should render correctly 1`] = `
     testID="overlay"
   >
     <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
       accessible={true}
       collapsable={false}
       focusable={false}
@@ -53,7 +87,7 @@ exports[`<ActionModal /> Should render correctly 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "#F4F4F4",
           "borderRadius": 16,
           "opacity": 1,
@@ -63,8 +97,8 @@ exports[`<ActionModal /> Should render correctly 1`] = `
     >
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "paddingBottom": 24,
               "paddingLeft": 24,
@@ -77,8 +111,8 @@ exports[`<ActionModal /> Should render correctly 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "fontFamily": "Poppins-Medium",
                 "fontSize": 18,
               },
@@ -90,8 +124,8 @@ exports[`<ActionModal /> Should render correctly 1`] = `
         <View
           dimesion={24}
           style={
-            Array [
-              Object {
+            [
+              {
                 "height": 24,
                 "width": 24,
               },
@@ -100,8 +134,8 @@ exports[`<ActionModal /> Should render correctly 1`] = `
         />
         <View
           style={
-            Array [
-              Object {
+            [
+              {
                 "width": "100%",
               },
             ]
@@ -112,8 +146,8 @@ exports[`<ActionModal /> Should render correctly 1`] = `
             borderWidth={1}
             isFocused={false}
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "backgroundColor": "#FFFFFF",
                   "borderColor": "#0D0A0B",
@@ -139,8 +173,8 @@ exports[`<ActionModal /> Should render correctly 1`] = `
               onFocus={[Function]}
               placeholder="Informe o nome"
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#0D0A0B",
                     "flexBasis": 0,
                     "flexGrow": 1,
@@ -163,8 +197,8 @@ exports[`<ActionModal /> Should render correctly 1`] = `
         <View
           dimesion={48}
           style={
-            Array [
-              Object {
+            [
+              {
                 "height": 48,
                 "width": 48,
               },
@@ -173,8 +207,8 @@ exports[`<ActionModal /> Should render correctly 1`] = `
         />
         <View
           style={
-            Array [
-              Object {
+            [
+              {
                 "flexDirection": "row",
               },
             ]
@@ -182,8 +216,8 @@ exports[`<ActionModal /> Should render correctly 1`] = `
         >
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "flexBasis": 0,
                   "flexGrow": 1,
                   "flexShrink": 1,
@@ -206,7 +240,7 @@ exports[`<ActionModal /> Should render correctly 1`] = `
               onHandlerStateChange={[Function]}
               onPress={[Function]}
               style={
-                Object {
+                {
                   "alignItems": "center",
                   "backgroundColor": "#FFFFFF",
                   "borderColor": "#FE5F55",
@@ -235,7 +269,7 @@ exports[`<ActionModal /> Should render correctly 1`] = `
               <View
                 collapsable={false}
                 style={
-                  Object {
+                  {
                     "backgroundColor": "black",
                     "borderBottomLeftRadius": undefined,
                     "borderBottomRightRadius": undefined,
@@ -254,8 +288,8 @@ exports[`<ActionModal /> Should render correctly 1`] = `
               <Text
                 color="#FE5F55"
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "#FE5F55",
                       "fontFamily": "Poppins-Bold",
                       "fontSize": 18,
@@ -271,8 +305,8 @@ exports[`<ActionModal /> Should render correctly 1`] = `
           <View
             dimesion={16}
             style={
-              Array [
-                Object {
+              [
+                {
                   "height": 16,
                   "width": 16,
                 },
@@ -281,8 +315,8 @@ exports[`<ActionModal /> Should render correctly 1`] = `
           />
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "flexBasis": 0,
                   "flexGrow": 1,
                   "flexShrink": 1,
@@ -305,7 +339,7 @@ exports[`<ActionModal /> Should render correctly 1`] = `
               onHandlerStateChange={[Function]}
               onPress={[Function]}
               style={
-                Object {
+                {
                   "alignItems": "center",
                   "backgroundColor": "#009Cf7",
                   "borderColor": "black",
@@ -334,7 +368,7 @@ exports[`<ActionModal /> Should render correctly 1`] = `
               <View
                 collapsable={false}
                 style={
-                  Object {
+                  {
                     "backgroundColor": "black",
                     "borderBottomLeftRadius": undefined,
                     "borderBottomRightRadius": undefined,
@@ -353,8 +387,8 @@ exports[`<ActionModal /> Should render correctly 1`] = `
               <Text
                 color="#009Cf7"
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "#FFFFFF",
                       "fontFamily": "Poppins-Bold",
                       "fontSize": 18,

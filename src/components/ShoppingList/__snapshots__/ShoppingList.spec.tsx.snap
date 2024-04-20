@@ -3,8 +3,8 @@
 exports[`<ShoppingList /> Should render correctly 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "height": "100%",
         "width": "100%",
       },
@@ -14,12 +14,12 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
   <RCTScrollView
     ItemSeparatorComponent={[Function]}
     data={
-      Array [
-        Object {
+      [
+        {
           "created_at": 2023-01-01T10:00:00.000Z,
           "id": "123",
           "name": "Lista 8",
-          "products": Array [],
+          "products": [],
           "userId": "123",
         },
       ]
@@ -38,15 +38,33 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
     renderItem={[Function]}
     scrollEventThrottle={50}
     showsVerticalScrollIndicator={false}
-    stickyHeaderIndices={Array []}
-    viewabilityConfigCallbackPairs={Array []}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
   >
     <View>
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       >
         <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
           accessible={true}
           collapsable={false}
           focusable={true}
@@ -58,7 +76,7 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           style={
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
               "borderRadius": 8,
               "opacity": 1,
@@ -67,7 +85,7 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
               "paddingRight": 12,
               "paddingTop": 12,
               "shadowColor": "#0d0a0b40",
-              "shadowOffset": Object {
+              "shadowOffset": {
                 "height": 4,
                 "width": 4,
               },
@@ -78,8 +96,8 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
+              [
+                {
                   "color": "#0D0A0B",
                   "fontFamily": "Poppins-Bold",
                   "fontSize": 16,
@@ -92,8 +110,8 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
           <View
             dimesion={8}
             style={
-              Array [
-                Object {
+              [
+                {
                   "height": 8,
                   "width": 8,
                 },
@@ -102,8 +120,8 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
           />
           <View
             style={
-              Array [
-                Object {
+              [
+                {
                   "alignItems": "center",
                   "flexDirection": "row",
                   "justifyContent": "space-between",
@@ -113,8 +131,8 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
           >
             <View
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "alignItems": "center",
                     "flexDirection": "row",
                   },
@@ -125,15 +143,15 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
                 collapsable={false}
                 size={25}
                 style={
-                  Object {
+                  {
                     "alignItems": "center",
                     "borderColor": "#ACACAC",
                     "borderRadius": 12.5,
                     "borderWidth": 4.166666666666667,
                     "height": 25,
                     "justifyContent": "center",
-                    "transform": Array [
-                      Object {
+                    "transform": [
+                      {
                         "rotate": "-45deg",
                       },
                     ],
@@ -145,7 +163,7 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
                   collapsable={false}
                   size={25}
                   style={
-                    Object {
+                    {
                       "borderBottomColor": "transparent",
                       "borderLeftColor": "#0D0A0B",
                       "borderRadius": 12.5,
@@ -154,8 +172,8 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
                       "borderWidth": 4.166666666666667,
                       "height": 25,
                       "position": "absolute",
-                      "transform": Array [
-                        Object {
+                      "transform": [
+                        {
                           "rotate": "0deg",
                         },
                       ],
@@ -167,7 +185,7 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
                   collapsable={false}
                   size={25}
                   style={
-                    Object {
+                    {
                       "borderBottomColor": "transparent",
                       "borderLeftColor": "#ACACAC",
                       "borderRadius": 12.5,
@@ -184,7 +202,7 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
                   collapsable={false}
                   size={25}
                   style={
-                    Object {
+                    {
                       "borderBottomColor": "transparent",
                       "borderLeftColor": "#0D0A0B",
                       "borderRadius": 12.5,
@@ -194,8 +212,8 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
                       "height": 25,
                       "opacity": 0,
                       "position": "absolute",
-                      "transform": Array [
-                        Object {
+                      "transform": [
+                        {
                           "rotate": "0deg",
                         },
                       ],
@@ -207,8 +225,8 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
               <View
                 dimesion={8}
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "height": 8,
                       "width": 8,
                     },
@@ -217,8 +235,8 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
               />
               <Text
                 style={
-                  Array [
-                    Object {
+                  [
+                    {
                       "color": "#ACACAC",
                       "fontFamily": "Poppins-Medium",
                       "fontSize": 16,
@@ -228,8 +246,8 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
+                    [
+                      {
                         "color": "#0D0A0B",
                         "fontFamily": "Poppins-Bold",
                         "fontSize": 16,
@@ -245,8 +263,8 @@ exports[`<ShoppingList /> Should render correctly 1`] = `
             </View>
             <Text
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#ACACAC",
                     "fontFamily": "Poppins-Regular",
                     "fontSize": 14,

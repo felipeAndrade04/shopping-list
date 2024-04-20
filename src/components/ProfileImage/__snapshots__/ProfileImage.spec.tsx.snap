@@ -4,8 +4,8 @@ exports[`<ProfileImage /> Should be render correctly 1`] = `
 <View
   size="md"
   style={
-    Array [
-      Object {
+    [
+      {
         "backgroundColor": "#009Cf7",
         "borderRadius": "100%",
         "height": 50,
@@ -16,8 +16,8 @@ exports[`<ProfileImage /> Should be render correctly 1`] = `
 >
   <View
     style={
-      Array [
-        Object {
+      [
+        {
           "alignItems": "center",
           "flexBasis": 0,
           "flexGrow": 1,
@@ -31,8 +31,8 @@ exports[`<ProfileImage /> Should be render correctly 1`] = `
     <Text
       size="md"
       style={
-        Array [
-          Object {
+        [
+          {
             "color": "#FFFFFF",
             "fontFamily": "Poppins-Bold",
             "fontSize": 25,

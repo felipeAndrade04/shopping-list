@@ -3,8 +3,8 @@
 exports[`<Input /> Should be render correctly 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "width": "100%",
       },
     ]
@@ -13,8 +13,8 @@ exports[`<Input /> Should be render correctly 1`] = `
   <View
     isFocused={false}
     style={
-      Array [
-        Object {
+      [
+        {
           "alignItems": "center",
           "backgroundColor": "#FFFFFF",
           "borderColor": "#FFFFFF",
@@ -38,8 +38,8 @@ exports[`<Input /> Should be render correctly 1`] = `
       onBlur={[Function]}
       onFocus={[Function]}
       style={
-        Array [
-          Object {
+        [
+          {
             "color": "#0D0A0B",
             "flexBasis": 0,
             "flexGrow": 1,

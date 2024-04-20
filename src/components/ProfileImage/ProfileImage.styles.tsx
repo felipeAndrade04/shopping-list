@@ -16,7 +16,7 @@ export const ProfileImageContainer = styled.View<Partial<ProfileImageProps>>`
 
 export const ProfileImage = styled.Image`
   flex: 1;
-  border-radius: 100%;
+  border-radius: 999px;
 `;
 
 export const ProfileWithoutImage = styled.View`

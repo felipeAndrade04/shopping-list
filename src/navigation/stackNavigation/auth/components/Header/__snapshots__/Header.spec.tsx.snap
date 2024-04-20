@@ -4,8 +4,8 @@ exports[`<Header /> Should render correctly 1`] = `
 <View
   height={90}
   style={
-    Array [
-      Object {
+    [
+      {
         "backgroundColor": "#EEEEEE",
         "height": 90,
         "justifyContent": "flex-end",
@@ -28,7 +28,7 @@ exports[`<Header /> Should render correctly 1`] = `
     onHandlerStateChange={[Function]}
     onPress={[MockFunction]}
     style={
-      Object {
+      {
         "marginTop": 16,
         "width": 32,
       }
@@ -39,7 +39,7 @@ exports[`<Header /> Should render correctly 1`] = `
     <View
       collapsable={false}
       style={
-        Object {
+        {
           "backgroundColor": "black",
           "borderBottomLeftRadius": undefined,
           "borderBottomRightRadius": undefined,
